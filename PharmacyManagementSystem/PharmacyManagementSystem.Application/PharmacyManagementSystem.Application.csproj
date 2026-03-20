@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\MedicineDTOs\" />
+    <Folder Include="DTOs\BatchDTOs\" />
+    <Folder Include="DTOs\UserDTOs\" />
+    <Folder Include="DTOs\SalesItemsDTOs\" />
+    <Folder Include="DTOs\SalesDTOs\" />
+    <Folder Include="Features\Batch\Commands\" />
+    <Folder Include="Features\Batch\Queries\" />
+    <Folder Include="Features\Medicine\Commands\" />
+    <Folder Include="Features\Medicine\Queries\" />
+    <Folder Include="Features\User\" />
+    <Folder Include="Features\SalesItems\Commands\" />
+    <Folder Include="Features\SalesItems\Queries\" />
+    <Folder Include="Features\Sales\Commands\" />
+    <Folder Include="Features\Sales\Queries\" />
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PharmacyManagementSystem.Domain\PharmacyManagementSystem.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
