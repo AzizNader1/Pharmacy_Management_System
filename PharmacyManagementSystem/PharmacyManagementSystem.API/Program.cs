@@ -1,20 +1,69 @@
+using Microsoft.EntityFrameworkCore;
+using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Infrastructure.Data;
+using PharmacyManagementSystem.Infrastructure.Repositories;
+using System.Reflection.Metadata;
+using System.Text.Json.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Register Infrastructure Layer (DbContext & Repository Pattern)
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IMedicineRepository, MedicineRepository>();
+builder.Services.AddScoped<ISalesRepository, SalesRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IBatchRepository, BatchRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Register MedaitR
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(AssemblyReference).Assembly);
+});
+
+// Register JWT
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
+
+// Register Swagger Generator
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Register JWT Authentication (Placeholder)
+// builder.Services.AddAuthentication(...)
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ==========================================
+// 4. HTTP Request Pipeline
+// ==========================================
+
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    // Enable Swagger UI
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pharmacy Management API V1");
+    });
 }
 
 app.UseHttpsRedirection();
+
+// Add Authentication Middleware if implemented
+// app.UseAuthentication();
 
 app.UseAuthorization();
 

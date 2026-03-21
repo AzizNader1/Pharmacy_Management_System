@@ -12,6 +12,6 @@ namespace PharmacyManagementSystem.Domain.Entities
         public string PhoneNumber { get; set; } = string.Empty;
         public UserRoles UserRole { get; set; }
 
-        public ICollection<Sale> Sales { get; set; } = [];
+        public virtual ICollection<Sale> Sales { get; set; } = [];
     }
 }

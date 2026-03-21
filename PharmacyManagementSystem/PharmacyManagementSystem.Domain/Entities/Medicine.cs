@@ -14,6 +14,6 @@ namespace PharmacyManagementSystem.Domain.Entities
         public int TotalStock => Batches.Sum(b => b.BatchQuantity);
 
         // Navigation Property
-        public List<Batch> Batches { get; set; } = [];
+        public virtual ICollection<Batch> Batches { get; set; } = [];
     }
 }

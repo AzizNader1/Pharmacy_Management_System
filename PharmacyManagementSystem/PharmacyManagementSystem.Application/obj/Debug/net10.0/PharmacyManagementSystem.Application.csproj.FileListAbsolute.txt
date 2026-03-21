@@ -10,3 +10,7 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Application\obj\Debug\net10.0\refint\PharmacyManagementSystem.Application.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Application\obj\Debug\net10.0\PharmacyManagementSystem.Application.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Application\obj\Debug\net10.0\ref\PharmacyManagementSystem.Application.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Application\bin\Debug\net10.0\PharmacyManagementSystem.Domain.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Application\bin\Debug\net10.0\PharmacyManagementSystem.Domain.pdb
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Application\obj\Debug\net10.0\PharmacyManagementSystem.Application.csproj.AssemblyReference.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Application\obj\Debug\net10.0\Pharmacy.0B6F8949.Up2Date

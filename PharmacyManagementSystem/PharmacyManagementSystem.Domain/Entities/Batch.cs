@@ -13,7 +13,7 @@ namespace PharmacyManagementSystem.Domain.Entities
         public Guid MedicineId { get; set; }
 
         // Navigation Property
-        public Medicine Medicine { get; set; } = null!;
-        public ICollection<SaleItem> SaleItems { get; set; } = [];
+        public virtual Medicine Medicine { get; set; } = null!;
+        public virtual ICollection<SaleItem> SaleItems { get; set; } = [];
     }
 }

@@ -4,6 +4,7 @@ namespace PharmacyManagementSystem.Domain.Entities
 {
     public class SaleItem
     {
+        public Guid SaleItemId { get; set; } // Unique identifier for each sale item
         public Guid SaleId { get; set; }       // FK to Sale
         public Guid MedicineId { get; set; }   // FK to Medicine (For quick reference/reporting)
         public Guid BatchId { get; set; }      // FK to Batch (The specific stock deducted)
@@ -17,8 +18,8 @@ namespace PharmacyManagementSystem.Domain.Entities
         public decimal TotalLinePrice => ItemQuantity * UnitPrice;
 
         // Navigation Properties
-        public Sale Sale { get; set; } = null!;
-        public Medicine Medicine { get; set; } = null!;
-        public Batch Batch { get; set; } = null!;
+        public virtual Sale Sale { get; set; } = null!;
+        public virtual Medicine Medicine { get; set; } = null!;
+        public virtual Batch Batch { get; set; } = null!;
     }
 }

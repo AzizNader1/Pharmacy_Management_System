@@ -10,3 +10,11 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\obj\Debug\net10.0\refint\PharmacyManagementSystem.Infrastructure.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\obj\Debug\net10.0\PharmacyManagementSystem.Infrastructure.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\obj\Debug\net10.0\ref\PharmacyManagementSystem.Infrastructure.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\bin\Debug\net10.0\PharmacyManagementSystem.Infrastructure.runtimeconfig.json
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\bin\Debug\net10.0\PharmacyManagementSystem.Application.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\bin\Debug\net10.0\PharmacyManagementSystem.Domain.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\bin\Debug\net10.0\PharmacyManagementSystem.Application.pdb
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\bin\Debug\net10.0\PharmacyManagementSystem.Domain.pdb
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\obj\Debug\net10.0\PharmacyManagementSystem.Infrastructure.csproj.AssemblyReference.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\obj\Debug\net10.0\Pharmacy.BFEDC0A1.Up2Date
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Infrastructure\obj\Debug\net10.0\PharmacyManagementSystem.Infrastructure.genruntimeconfig.cache
