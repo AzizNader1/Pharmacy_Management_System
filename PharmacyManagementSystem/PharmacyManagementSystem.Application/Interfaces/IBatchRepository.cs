@@ -1,13 +1,13 @@
-﻿using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
+﻿using PharmacyManagementSystem.Domain.Entities;
 
 namespace PharmacyManagementSystem.Application.Interfaces
 {
     public interface IBatchRepository
     {
-        Task<Guid> CreateBatchAsync(CreateBatchDto createBatchDto);
-        Task<Guid> DeleteBatchAsync(Guid id);
-        Task<Guid> UpdateBatchAsync(Guid id, UpdateBatchDto updateBatchDto);
-        Task<GetBatchDto> GetBatchByIdAsync(Guid id);
-        Task<IEnumerable<GetBatchDto>> GetAllBatchesAsync();
+        Task? CreateBatchAsync(Batch batch);
+        Task? DeleteBatchAsync(int id);
+        Task? UpdateBatchAsync(Batch batch);
+        Task<Batch?> GetBatchByIdAsync(int id);
+        Task<IEnumerable<Batch?>> GetAllBatchesAsync();
     }
 }

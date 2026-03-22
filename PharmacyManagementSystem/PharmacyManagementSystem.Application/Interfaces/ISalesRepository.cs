@@ -1,15 +1,15 @@
-﻿using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
+﻿using PharmacyManagementSystem.Domain.Entities;
 
 namespace PharmacyManagementSystem.Application.Interfaces
 {
     public interface ISalesRepository
     {
-        Task<Guid> CreateSaleAsync(CreateSaleDto createSaleDto);
-        Task<Guid> DeleteSaleAsync(Guid id);
-        Task<Guid> UpdateSaleAsync(Guid id, UpdateSaleDto updateSaleDto);
-        Task<GetSaleDto> GetSaleByIdAsync(Guid id);
-        Task<IEnumerable<GetSaleDto>> GetAllSalesAsync();
-        Task<IEnumerable<GetSaleDto>> GetAllSalesByUserIdAsync();
-        Task<IEnumerable<GetSaleDto>> GetAllSalesByUserNameAsync();
+        Task? CreateSaleAsync(Sale sale);
+        Task? DeleteSaleAsync(int id);
+        Task? UpdateSaleAsync(Sale sale);
+        Task<Sale?> GetSaleByIdAsync(int id);
+        Task<IEnumerable<Sale?>> GetAllSalesAsync();
+        Task<IEnumerable<Sale?>> GetAllSalesByUserIdAsync(int userId);
+        Task<IEnumerable<Sale?>> GetAllSalesByUserNameAsync(string userName);
     }
 }

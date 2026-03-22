@@ -1,14 +1,26 @@
 ﻿using MediatR;
+using PharmacyManagementSystem.Application.Interfaces;
 
 namespace PharmacyManagementSystem.Application.Features.User.Commands
 {
-    public record DeleteUserCommand(Guid id) : IRequest<bool>;
+    public record DeleteUserCommand(int id) : IRequest<bool>;
 
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, bool>
     {
-        public Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        private readonly IUserRepository _userRepository;
+
+        public DeleteUserCommandHandler(IUserRepository userRepository)
         {
-            throw new NotImplementedException();
+            _userRepository = userRepository;
+        }
+
+        public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        {
+            if (request.id == 0) return false;
+
+            await _userRepository.DeleteUserAsync(request.id)!;
+
+            return true;
         }
     }
 }

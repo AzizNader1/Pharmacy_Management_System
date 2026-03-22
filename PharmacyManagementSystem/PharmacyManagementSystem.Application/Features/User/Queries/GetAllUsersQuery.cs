@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using PharmacyManagementSystem.Application.DTOs.UserDTOs;
+using PharmacyManagementSystem.Application.Interfaces;
 
 namespace PharmacyManagementSystem.Application.Features.User.Queries
 {
@@ -7,9 +8,34 @@ namespace PharmacyManagementSystem.Application.Features.User.Queries
 
     public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, List<GetUserDto>>
     {
+        private readonly IUserRepository _userRepository;
+
+        public GetAllUsersQueryHandler(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
         public async Task<List<GetUserDto>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var returnedUsers = new List<GetUserDto>();
+
+            var users = await _userRepository.GetAllUsersAsync();
+            if (users.Count() == 0 || users == null) return null!;
+
+            foreach (var user in users)
+            {
+                returnedUsers.Add(new GetUserDto
+                {
+                    UserName = user!.UserName,
+                    Email = user.Email,
+                    FullName = user.FullName,
+                    Password = user.PasswordHash,
+                    PhoneNumber = user.PhoneNumber,
+                    UserId = user.UserId,
+                    UserRole = user.UserRole
+                });
+            }
+            return returnedUsers;
         }
     }
 }

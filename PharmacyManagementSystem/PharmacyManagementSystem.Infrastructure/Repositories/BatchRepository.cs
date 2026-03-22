@@ -1,33 +1,45 @@
-﻿using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
+﻿using Microsoft.EntityFrameworkCore;
 using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Domain.Entities;
+using PharmacyManagementSystem.Infrastructure.Data;
 
 namespace PharmacyManagementSystem.Infrastructure.Repositories
 {
     public class BatchRepository : IBatchRepository
     {
-        public Task<Guid> CreateBatchAsync(CreateBatchDto createBatchDto)
+        private readonly ApplicationDbContext _context;
+
+        public BatchRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<Guid> DeleteBatchAsync(Guid id)
+        public async Task? CreateBatchAsync(Batch batch)
         {
-            throw new NotImplementedException();
+            await _context.Batches.AddAsync(batch);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetBatchDto>> GetAllBatchesAsync()
+        public async Task? DeleteBatchAsync(int id)
         {
-            throw new NotImplementedException();
+            _context.Batches.Remove(_context.Batches.Find(id)!);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<GetBatchDto> GetBatchByIdAsync(Guid id)
+        public async Task<IEnumerable<Batch?>> GetAllBatchesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Batches.ToListAsync()!;
         }
 
-        public Task<Guid> UpdateBatchAsync(Guid id, UpdateBatchDto updateBatchDto)
+        public async Task<Batch?> GetBatchByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Batches.FirstOrDefaultAsync(b => b.BatchId == id)!;
+        }
+
+        public async Task? UpdateBatchAsync(Batch batch)
+        {
+            _context.Batches.Update(batch);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,43 +1,55 @@
-﻿using PharmacyManagementSystem.Application.DTOs.MedicineDTOs;
+﻿using Microsoft.EntityFrameworkCore;
 using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Domain.Entities;
+using PharmacyManagementSystem.Infrastructure.Data;
 
 namespace PharmacyManagementSystem.Infrastructure.Repositories
 {
     public class MedicineRepository : IMedicineRepository
     {
-        public Task<Guid> CreateMedicineAsync(CreateMedicineDto createMedicineDto)
+        private readonly ApplicationDbContext _context;
+
+        public MedicineRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<Guid> DeleteMedicineAsync(Guid id)
+        public async Task? CreateMedicineAsync(Medicine medicine)
         {
-            throw new NotImplementedException();
+            await _context.Medicines.AddAsync(medicine);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetMedicineDto>> GetAllMedicinesAsync()
+        public async Task? DeleteMedicineAsync(int id)
         {
-            throw new NotImplementedException();
+            _context.Medicines.Remove(_context.Medicines.Find(id)!);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetMedicineDto>> GetAllMedicinesByCategoryAsync(string categoryName)
+        public async Task<IEnumerable<Medicine?>> GetAllMedicinesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Medicines.ToListAsync();
         }
 
-        public Task<GetMedicineDto> GetMedicineByIdAsync(Guid id)
+        public async Task<IEnumerable<Medicine?>> GetAllMedicinesByCategoryAsync(string categoryName)
         {
-            throw new NotImplementedException();
+            return await _context.Medicines.Where(m => m.Category.ToString() == categoryName).ToListAsync();
         }
 
-        public Task<GetMedicineDto> GetMedicineByNameAsync(string medicineName)
+        public async Task<Medicine?> GetMedicineByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Medicines.FirstOrDefaultAsync(m => m.MedicineId == id);
         }
 
-        public Task<Guid> UpdateMedicineAsync(Guid id, UpdateMedicineDto updateMedicineDto)
+        public async Task<Medicine?> GetMedicineByNameAsync(string medicineName)
         {
-            throw new NotImplementedException();
+            return await _context.Medicines.FirstOrDefaultAsync(m => m.Name == medicineName);
+        }
+
+        public async Task? UpdateMedicineAsync(Medicine medicine)
+        {
+            _context.Medicines.Update(medicine);
+            await _context.SaveChangesAsync();
         }
     }
 }

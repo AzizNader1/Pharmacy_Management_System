@@ -1,48 +1,60 @@
-﻿using PharmacyManagementSystem.Application.DTOs.UserDTOs;
+﻿using Microsoft.EntityFrameworkCore;
 using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Domain.Entities;
+using PharmacyManagementSystem.Infrastructure.Data;
 
 namespace PharmacyManagementSystem.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public Task<Guid> CreateUserAsync(CreateUserDto createUserDto)
+        private readonly ApplicationDbContext _context;
+
+        public UserRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<Guid> DeleteUserAsync(Guid id)
+        public async Task? CreateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetUserDto>> GetAllUsersAsync()
+        public async Task? DeleteUserAsync(int id)
         {
-            throw new NotImplementedException();
+            _context.Users.Remove(_context.Users.Find(id)!);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<GetUserDto> GetUserByEmailAsync(string email)
+        public async Task<IEnumerable<User?>> GetAllUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Users.ToListAsync()!;
         }
 
-        public Task<GetUserDto> GetUserByIdAsync(Guid id)
+        public async Task<User?> GetUserByEmailAsync(string email)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email)!;
         }
 
-        public Task<GetUserDto> GetUserByNameAsync(string username)
+        public async Task<User?> GetUserByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FirstOrDefaultAsync(u => u.UserId == id)!;
         }
 
-        public Task<IEnumerable<GetUserDto>> GetUsersByRoleAsync()
+        public async Task<User?> GetUserByNameAsync(string username)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FirstOrDefaultAsync(u => u.UserName == username)!;
         }
 
-        public Task<Guid> UpdateUserAsync(Guid id, UpdateUserDto updateUserDto)
+        public async Task<IEnumerable<User?>> GetUsersByRoleAsync(string roleName)
         {
-            throw new NotImplementedException();
+            return await _context.Users.Where(u => u.UserRole.ToString() == roleName).ToListAsync()!;
+        }
+
+        public async Task? UpdateUserAsync(User user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
         }
     }
 }

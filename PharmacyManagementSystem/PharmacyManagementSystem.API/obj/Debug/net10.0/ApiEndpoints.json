@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "Register",
+    "RelativePath": "api/Users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createUserDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.UserDTOs.CreateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

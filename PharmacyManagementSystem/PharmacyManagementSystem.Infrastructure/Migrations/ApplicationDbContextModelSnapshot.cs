@@ -24,9 +24,11 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("PharmacyManagementSystem.Domain.Entities.Batch", b =>
                 {
-                    b.Property<Guid>("BatchId")
+                    b.Property<int>("BatchId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BatchId"));
 
                     b.Property<string>("BatchNumber")
                         .IsRequired()
@@ -41,8 +43,8 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("MedicineId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("MedicineId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("PurchasePrice")
                         .HasColumnType("decimal(18,2)");
@@ -56,9 +58,11 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("PharmacyManagementSystem.Domain.Entities.Medicine", b =>
                 {
-                    b.Property<Guid>("MedicineId")
+                    b.Property<int>("MedicineId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicineId"));
 
                     b.Property<int>("Category")
                         .HasColumnType("int");
@@ -88,9 +92,11 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("PharmacyManagementSystem.Domain.Entities.Sale", b =>
                 {
-                    b.Property<Guid>("SaleId")
+                    b.Property<int>("SaleId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SaleId"));
 
                     b.Property<DateTime>("SalesDate")
                         .HasColumnType("datetime2");
@@ -98,8 +104,8 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("SaleId");
 
@@ -110,21 +116,23 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("PharmacyManagementSystem.Domain.Entities.SaleItem", b =>
                 {
-                    b.Property<Guid>("SaleItemId")
+                    b.Property<int>("SaleItemId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("BatchId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SaleItemId"));
+
+                    b.Property<int>("BatchId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ItemQuantity")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("MedicineId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("MedicineId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("SaleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("SaleId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
@@ -142,9 +150,11 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("PharmacyManagementSystem.Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Email")
                         .IsRequired()

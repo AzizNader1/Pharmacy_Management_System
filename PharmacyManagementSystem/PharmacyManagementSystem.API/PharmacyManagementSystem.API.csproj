@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PharmacyManagementSystem.Application\PharmacyManagementSystem.Application.csproj" />
     <ProjectReference Include="..\PharmacyManagementSystem.Infrastructure\PharmacyManagementSystem.Infrastructure.csproj" />
   </ItemGroup>

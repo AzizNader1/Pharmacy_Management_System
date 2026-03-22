@@ -2,8 +2,8 @@
 {
     public class Sale
     {
-        public Guid SaleId { get; set; }
-        public Guid UserId { get; set; }
+        public int SaleId { get; set; }
+        public int UserId { get; set; }
         public DateTime SalesDate { get; set; }
         public decimal TotalAmount { get; set; }
 

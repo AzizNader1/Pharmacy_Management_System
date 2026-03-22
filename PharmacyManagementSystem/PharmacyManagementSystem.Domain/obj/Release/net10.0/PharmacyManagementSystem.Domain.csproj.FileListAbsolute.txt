@@ -1,0 +1,12 @@
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\bin\Release\net10.0\PharmacyManagementSystem.Domain.deps.json
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\bin\Release\net10.0\PharmacyManagementSystem.Domain.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\bin\Release\net10.0\PharmacyManagementSystem.Domain.pdb
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\PharmacyManagementSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\PharmacyManagementSystem.Domain.AssemblyInfoInputs.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\PharmacyManagementSystem.Domain.AssemblyInfo.cs
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\PharmacyManagementSystem.Domain.csproj.CoreCompileInputs.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\PharmacyManagementSystem.Domain.sourcelink.json
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\PharmacyManagementSystem.Domain.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\refint\PharmacyManagementSystem.Domain.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\PharmacyManagementSystem.Domain.pdb
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.Domain\obj\Release\net10.0\ref\PharmacyManagementSystem.Domain.dll

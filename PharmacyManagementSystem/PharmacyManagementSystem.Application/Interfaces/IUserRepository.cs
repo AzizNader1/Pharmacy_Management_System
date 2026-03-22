@@ -1,18 +1,17 @@
-﻿using PharmacyManagementSystem.Application.DTOs.UserDTOs;
+﻿using PharmacyManagementSystem.Domain.Entities;
 
 namespace PharmacyManagementSystem.Application.Interfaces
 {
     public interface IUserRepository
     {
-        Task<Guid> CreateUserAsync(CreateUserDto createUserDto);
-        Task<Guid> DeleteUserAsync(Guid id);
-        Task<Guid> UpdateUserAsync(Guid id, UpdateUserDto updateUserDto);
-        Task<GetUserDto> GetUserByIdAsync(Guid id);
-        Task<GetUserDto> GetUserByEmailAsync(string email);
-        Task<GetUserDto> GetUserByNameAsync(string username);
-        Task<IEnumerable<GetUserDto>> GetAllUsersAsync();
-        Task<IEnumerable<GetUserDto>> GetUsersByRoleAsync();
-
+        Task? CreateUserAsync(User user);
+        Task? DeleteUserAsync(int id);
+        Task? UpdateUserAsync(User user);
+        Task<User?> GetUserByIdAsync(int id);
+        Task<User?> GetUserByEmailAsync(string email);
+        Task<User?> GetUserByNameAsync(string username);
+        Task<IEnumerable<User?>> GetAllUsersAsync();
+        Task<IEnumerable<User?>> GetUsersByRoleAsync(string roleName);
 
     }
 }

@@ -1,38 +1,50 @@
-﻿using PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs;
+﻿using Microsoft.EntityFrameworkCore;
 using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Domain.Entities;
+using PharmacyManagementSystem.Infrastructure.Data;
 
 namespace PharmacyManagementSystem.Infrastructure.Repositories
 {
     public class SalesItemsRepository : ISalesItemsRepository
     {
-        public Task<Guid> CreateSaleItemAsync(CreateSaleItemDto createSaleItemDto)
+        private readonly ApplicationDbContext _context;
+
+        public SalesItemsRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<Guid> DeleteSaleItemAsync(Guid id)
+        public async Task? CreateSaleItemAsync(SaleItem saleItem)
         {
-            throw new NotImplementedException();
+            await _context.SaleItems.AddAsync(saleItem);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetSaleItemDto>> GetAllSaleItemesAsync()
+        public async Task? DeleteSaleItemAsync(int id)
         {
-            throw new NotImplementedException();
+            _context.SaleItems.Remove(_context.SaleItems.Find(id)!);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetSaleItemDto>> GetAllSaleItemesBySaleIdAsync()
+        public async Task<IEnumerable<SaleItem?>> GetAllSaleItemesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.SaleItems.ToListAsync();
         }
 
-        public Task<GetSaleItemDto> GetSaleItemByIdAsync(Guid id)
+        public async Task<IEnumerable<SaleItem?>> GetAllSaleItemesBySaleIdAsync(int saleId)
         {
-            throw new NotImplementedException();
+            return await _context.SaleItems.Where(si => si.SaleId == saleId).ToListAsync();
         }
 
-        public Task<Guid> UpdateSaleItemAsync(Guid id, UpdateSaleItemDto updateSaleItemDto)
+        public async Task<SaleItem?> GetSaleItemByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.SaleItems.FirstOrDefaultAsync(si => si.SaleItemId == id);
+        }
+
+        public async Task? UpdateSaleItemAsync(SaleItem saleItem)
+        {
+            _context.SaleItems.Update(saleItem);
+            await _context.SaveChangesAsync();
         }
     }
 }

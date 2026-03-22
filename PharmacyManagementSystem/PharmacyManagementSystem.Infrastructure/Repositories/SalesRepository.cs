@@ -1,43 +1,56 @@
-﻿using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
+﻿using Microsoft.EntityFrameworkCore;
 using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Domain.Entities;
+using PharmacyManagementSystem.Infrastructure.Data;
 
 namespace PharmacyManagementSystem.Infrastructure.Repositories
 {
     public class SalesRepository : ISalesRepository
     {
-        public Task<Guid> CreateSaleAsync(CreateSaleDto createSaleDto)
+        private readonly ApplicationDbContext _context;
+
+        public SalesRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<Guid> DeleteSaleAsync(Guid id)
+        public async Task? CreateSaleAsync(Sale sale)
         {
-            throw new NotImplementedException();
+            await _context.Sales.AddAsync(sale);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetSaleDto>> GetAllSalesAsync()
+        public async Task? DeleteSaleAsync(int id)
         {
-            throw new NotImplementedException();
+            _context.Sales.Remove(_context.Sales.Find(id)!);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<GetSaleDto>> GetAllSalesByUserIdAsync()
+        public async Task<IEnumerable<Sale?>> GetAllSalesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Sales.ToListAsync();
         }
 
-        public Task<IEnumerable<GetSaleDto>> GetAllSalesByUserNameAsync()
+        public async Task<IEnumerable<Sale?>> GetAllSalesByUserIdAsync(int userId)
         {
-            throw new NotImplementedException();
+            return await _context.Sales.Where(s => s.UserId == userId).ToListAsync();
         }
 
-        public Task<GetSaleDto> GetSaleByIdAsync(Guid id)
+        public async Task<IEnumerable<Sale?>> GetAllSalesByUserNameAsync(string userName)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+            return await _context.Sales.Where(s => s.UserId == user!.UserId).ToListAsync();
         }
 
-        public Task<Guid> UpdateSaleAsync(Guid id, UpdateSaleDto updateSaleDto)
+        public async Task<Sale?> GetSaleByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Sales.FirstOrDefaultAsync(s => s.SaleId == id);
+        }
+
+        public async Task? UpdateSaleAsync(Sale sale)
+        {
+            _context.Sales.Update(sale);
+            await _context.SaveChangesAsync();
         }
     }
 }

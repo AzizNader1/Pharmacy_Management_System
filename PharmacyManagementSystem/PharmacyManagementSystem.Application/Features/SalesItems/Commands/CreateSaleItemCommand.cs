@@ -1,13 +1,21 @@
 ﻿using MediatR;
 using PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs;
+using PharmacyManagementSystem.Application.Interfaces;
 
 namespace PharmacyManagementSystem.Application.Features.SaleItem.Commands
 {
-    public record CreateSaleItemCommand(CreateSaleItemDto CreateSaleItemDto) : IRequest<Guid>;
+    public record CreateSaleItemCommand(CreateSaleItemDto CreateSaleItemDto) : IRequest<int>;
 
-    public class CreateSaleItemCommandHandler : IRequestHandler<CreateSaleItemCommand, Guid>
+    public class CreateSaleItemCommandHandler : IRequestHandler<CreateSaleItemCommand, int>
     {
-        public Task<Guid> Handle(CreateSaleItemCommand request, CancellationToken cancellationToken)
+        private readonly ISalesItemsRepository _salesItemsRepository;
+
+        public CreateSaleItemCommandHandler(ISalesItemsRepository salesItemsRepository)
+        {
+            _salesItemsRepository = salesItemsRepository;
+        }
+
+        public Task<int> Handle(CreateSaleItemCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
