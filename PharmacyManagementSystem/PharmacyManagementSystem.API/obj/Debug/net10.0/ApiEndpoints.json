@@ -1,8 +1,256 @@
 [
   {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.BatchsController",
+    "Method": "Add",
+    "RelativePath": "api/Batchs/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.BatchsController",
+    "Method": "Delete",
+    "RelativePath": "api/Batchs/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.BatchsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Batchs/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.BatchsController",
+    "Method": "GetById",
+    "RelativePath": "api/Batchs/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.BatchsController",
+    "Method": "Update",
+    "RelativePath": "api/Batchs/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
+    "Method": "Add",
+    "RelativePath": "api/Medicines/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
+    "Method": "Delete",
+    "RelativePath": "api/Medicines/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Medicines/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
+    "Method": "GetById",
+    "RelativePath": "api/Medicines/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
+    "Method": "Update",
+    "RelativePath": "api/Medicines/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SaleItemsController",
+    "Method": "Add",
+    "RelativePath": "api/SaleItems/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SaleItemsController",
+    "Method": "Delete",
+    "RelativePath": "api/SaleItems/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SaleItemsController",
+    "Method": "GetAll",
+    "RelativePath": "api/SaleItems/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SaleItemsController",
+    "Method": "GetById",
+    "RelativePath": "api/SaleItems/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SaleItemsController",
+    "Method": "Update",
+    "RelativePath": "api/SaleItems/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
+    "Method": "Add",
+    "RelativePath": "api/Sales/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
+    "Method": "Delete",
+    "RelativePath": "api/Sales/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Sales/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
+    "Method": "GetById",
+    "RelativePath": "api/Sales/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
+    "Method": "Update",
+    "RelativePath": "api/Sales/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
-    "Method": "Register",
-    "RelativePath": "api/Users",
+    "Method": "Add",
+    "RelativePath": "api/Users/Add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10,6 +258,69 @@
       {
         "Name": "createUserDto",
         "Type": "PharmacyManagementSystem.Application.DTOs.UserDTOs.CreateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "api/Users/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "GetAll",
+    "RelativePath": "api/Users/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "GetById",
+    "RelativePath": "api/Users/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "Update",
+    "RelativePath": "api/Users/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateUserDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.UserDTOs.UpdateUserDto",
         "IsRequired": true
       }
     ],

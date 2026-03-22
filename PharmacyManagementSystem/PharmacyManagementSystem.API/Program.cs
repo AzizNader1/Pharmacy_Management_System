@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PharmacyManagementSystem.Application.Features.User.Commands;
 using PharmacyManagementSystem.Application.Interfaces;
 using PharmacyManagementSystem.Infrastructure.Data;
 using PharmacyManagementSystem.Infrastructure.Repositories;
@@ -16,17 +17,29 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IMedicineRepository, MedicineRepository>();
 builder.Services.AddScoped<ISalesRepository, SalesRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISalesItemsRepository, SalesItemsRepository>();
 builder.Services.AddScoped<IBatchRepository, BatchRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Register MedaitR
 
+// Option A: Use AssemblyReference (after making it public)
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(typeof(AssemblyReference).Assembly);
 });
 
+// Option B: Use any handler type directly
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(CreateUserCommand).Assembly);
+});
+
+// Option C: Use the Assembly name directly
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
+});
 // Register JWT
 
 // Add services to the container.
