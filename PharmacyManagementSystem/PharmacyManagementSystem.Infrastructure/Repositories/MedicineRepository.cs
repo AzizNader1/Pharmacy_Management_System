@@ -28,22 +28,31 @@ namespace PharmacyManagementSystem.Infrastructure.Repositories
 
         public async Task<IEnumerable<Medicine?>> GetAllMedicinesAsync()
         {
-            return await _context.Medicines.ToListAsync();
+            return await _context.Medicines
+                .Include(m => m.Batches)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Medicine?>> GetAllMedicinesByCategoryAsync(string categoryName)
         {
-            return await _context.Medicines.Where(m => m.Category.ToString() == categoryName).ToListAsync();
+            return await _context.Medicines
+                .Include(m => m.Batches)
+                .Where(m => m.Category.ToString() == categoryName)
+                .ToListAsync();
         }
 
         public async Task<Medicine?> GetMedicineByIdAsync(int id)
         {
-            return await _context.Medicines.FirstOrDefaultAsync(m => m.MedicineId == id);
+            return await _context.Medicines
+                .Include(m => m.Batches)
+                .FirstOrDefaultAsync(m => m.MedicineId == id);
         }
 
         public async Task<Medicine?> GetMedicineByNameAsync(string medicineName)
         {
-            return await _context.Medicines.FirstOrDefaultAsync(m => m.Name == medicineName);
+            return await _context.Medicines
+                .Include(m => m.Batches)
+                .FirstOrDefaultAsync(m => m.Name == medicineName);
         }
 
         public async Task? UpdateMedicineAsync(Medicine medicine)

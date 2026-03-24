@@ -20,48 +20,167 @@ namespace PharmacyManagementSystem.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateUserDto createUserDto)
         {
-            if (createUserDto == null)
-                return BadRequest("you should enter a value inside the all fields");
-
-            var request = new CreateUserCommand(createUserDto);
-            var result = await _mediator.Send(request);
-            if (result == null)
-                return BadRequest("Unable to perform this operation, please try again later");
-
-            return Ok(new
+            try
             {
-                CreatedUserId = result,
-                Message = "Register Process Complete Successfully!"
-            });
+                if (createUserDto == null)
+                    return BadRequest("you should enter a value inside the all fields");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var request = new CreateUserCommand(createUserDto);
+                var result = await _mediator.Send(request);
+                if (result == 0)
+                    return BadRequest("Unable to perform this operation, please try again later");
+
+                return Ok(new
+                {
+                    CreatedUserId = result,
+                    Message = "Register Process Complete Successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var request = new GetAllUsersQuery();
-            var result = await _mediator.Send(request);
-            if (result == null)
-                return BadRequest("there is no users avalible at this time, please try again later");
+            try
+            {
+                var request = new GetAllUsersQuery();
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("there is no users avalible at this time, please try again later");
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                var request = new GetUserByIdQuery(id);
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("there is no users avalible for this id value, please try again later");
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                var request = new DeleteUserCommand(id);
+                var result = await _mediator.Send(request);
+                if (!result)
+                    return BadRequest("the delete process of the requsted user not success");
+
+                return Ok(new
+                {
+                    Message = "Delete the user done successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(int id, UpdateUserDto updateUserDto)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var request = new UpdateUserCommand(id, updateUserDto);
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("the update process of the requsted user not success");
+
+                return Ok(new
+                {
+                    NewData = result,
+                    Message = "Update the user done successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByEmail(string email)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByRole(string name)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -6,7 +6,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "createBatchDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.BatchDTOs.CreateBatchDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -58,7 +64,18 @@
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateBatchDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.BatchDTOs.UpdateBatchDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -68,7 +85,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "createMedicineDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.MedicineDTOs.CreateMedicineDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -120,7 +143,18 @@
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateMedicineDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.MedicineDTOs.UpdateMedicineDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -130,7 +164,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "createSaleItemDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs.CreateSaleItemDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -182,7 +222,18 @@
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateSaleItemDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs.UpdateSaleItemDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -192,7 +243,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "createSaleDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesDTOs.CreateSaleDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -244,7 +301,18 @@
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateSaleDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesDTOs.UpdateSaleDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

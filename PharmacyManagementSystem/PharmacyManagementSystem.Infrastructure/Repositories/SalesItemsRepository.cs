@@ -28,17 +28,29 @@ namespace PharmacyManagementSystem.Infrastructure.Repositories
 
         public async Task<IEnumerable<SaleItem?>> GetAllSaleItemesAsync()
         {
-            return await _context.SaleItems.ToListAsync();
+            return await _context.SaleItems
+                .Include(si => si.Medicine)
+                .Include(si => si.Batch)
+                .Include(si => si.Sale)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<SaleItem?>> GetAllSaleItemesBySaleIdAsync(int saleId)
         {
-            return await _context.SaleItems.Where(si => si.SaleId == saleId).ToListAsync();
+            return await _context.SaleItems
+                .Include(si => si.Medicine)
+                .Include(si => si.Batch)
+                .Where(si => si.SaleId == saleId)
+                .ToListAsync();
         }
 
         public async Task<SaleItem?> GetSaleItemByIdAsync(int id)
         {
-            return await _context.SaleItems.FirstOrDefaultAsync(si => si.SaleItemId == id);
+            return await _context.SaleItems
+                .Include(si => si.Medicine)
+                .Include(si => si.Batch)
+                .Include(si => si.Sale)
+                .FirstOrDefaultAsync(si => si.SaleItemId == id);
         }
 
         public async Task? UpdateSaleItemAsync(SaleItem saleItem)

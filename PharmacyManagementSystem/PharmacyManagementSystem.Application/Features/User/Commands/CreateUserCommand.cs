@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using PharmacyManagementSystem.Application.DTOs.UserDTOs;
 using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Domain.Enums;
 
 namespace PharmacyManagementSystem.Application.Features.User.Commands
 {
@@ -17,7 +18,8 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
 
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            if (request.CreateUserDto == null) return 0!;
+            if (request.CreateUserDto == null)
+                throw new Exception("you should enter a valid data");
 
             var user = new Domain.Entities.User
             {
@@ -25,7 +27,7 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
                 FullName = request.CreateUserDto.FullName,
                 PhoneNumber = request.CreateUserDto.PhoneNumber,
                 UserName = request.CreateUserDto.UserName,
-                UserRole = request.CreateUserDto.UserRole,
+                UserRole = request.CreateUserDto.UserName.Contains("admin") ? UserRoles.Admin : UserRoles.Cashier,
                 PasswordHash = request.CreateUserDto.Password
             };
 

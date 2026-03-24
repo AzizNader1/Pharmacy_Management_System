@@ -16,7 +16,8 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
 
         public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            if (request.id == 0) return false;
+            if (request.id == 0)
+                throw new Exception("you should enter a valid id value");
 
             await _userRepository.DeleteUserAsync(request.id)!;
 

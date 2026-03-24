@@ -14,9 +14,14 @@ namespace PharmacyManagementSystem.Application.Features.Medicine.Commands
             _medicineRepository = medicineRepository;
         }
 
-        public Task<bool> Handle(DeleteMedicineCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteMedicineCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid id value");
+
+            await _medicineRepository.DeleteMedicineAsync(request.id)!;
+
+            return true;
         }
     }
 }

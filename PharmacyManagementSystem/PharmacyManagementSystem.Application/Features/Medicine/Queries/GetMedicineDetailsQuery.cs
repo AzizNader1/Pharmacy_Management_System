@@ -15,9 +15,27 @@ namespace PharmacyManagementSystem.Application.Features.Medicine.Queries
             _medicineRepository = medicineRepository;
         }
 
-        public Task<GetMedicineDto> Handle(GetMedicineDetailsQuery request, CancellationToken cancellationToken)
+        public async Task<GetMedicineDto> Handle(GetMedicineDetailsQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid id value");
+
+            var medicine = await _medicineRepository.GetMedicineByIdAsync(request.id);
+            if (medicine == null)
+                throw new Exception("there is no medicine avalible in the database for this requested id");
+
+            var returnedMedicine = new GetMedicineDto
+            {
+                Category = medicine.Category,
+                Description = medicine.Description,
+                GenericName = medicine.GenericName,
+                MedicineId = medicine.MedicineId,
+                MedicinePrice = medicine.MedicinePrice,
+                Name = medicine.Name,
+                ReorderLevel = medicine.ReorderLevel
+            };
+            return returnedMedicine;
+
         }
     }
 }

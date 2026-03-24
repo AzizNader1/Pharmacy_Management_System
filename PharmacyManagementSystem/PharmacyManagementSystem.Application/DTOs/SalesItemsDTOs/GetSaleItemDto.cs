@@ -9,5 +9,6 @@
         public int ItemQuantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal TotalLinePrice => ItemQuantity * UnitPrice;
+        public string ResponseMessage { get; set; } = string.Empty;
     }
 }

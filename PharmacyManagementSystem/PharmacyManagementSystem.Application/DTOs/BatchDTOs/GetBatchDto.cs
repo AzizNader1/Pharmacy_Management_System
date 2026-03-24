@@ -11,5 +11,6 @@ namespace PharmacyManagementSystem.Application.DTOs.BatchDTOs
         public decimal PurchasePrice { get; set; }
         public MedicineCategories Category { get; set; } = MedicineCategories.None;
         public int MedicineId { get; set; }
+        public string ResponseMessage { get; set; } = string.Empty;
     }
 }

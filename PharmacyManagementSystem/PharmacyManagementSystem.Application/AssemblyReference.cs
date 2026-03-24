@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PharmacyManagementSystem.Application
+﻿namespace PharmacyManagementSystem.Application
 {
-    internal class AssemblyReference
+    public class AssemblyReference
     {
     }
 }

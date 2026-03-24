@@ -28,27 +28,38 @@ namespace PharmacyManagementSystem.Infrastructure.Repositories
 
         public async Task<IEnumerable<User?>> GetAllUsersAsync()
         {
-            return await _context.Users.ToListAsync()!;
+            return await _context.Users
+                .Include(u => u.Sales)
+                .ToListAsync()!;
         }
 
         public async Task<User?> GetUserByEmailAsync(string email)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email)!;
+            return await _context.Users
+                .Include(u => u.Sales)
+                .FirstOrDefaultAsync(u => u.Email == email)!;
         }
 
         public async Task<User?> GetUserByIdAsync(int id)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.UserId == id)!;
+            return await _context.Users
+                .Include(u => u.Sales)
+                .FirstOrDefaultAsync(u => u.UserId == id)!;
         }
 
         public async Task<User?> GetUserByNameAsync(string username)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.UserName == username)!;
+            return await _context.Users
+                .Include(u => u.Sales)
+                .FirstOrDefaultAsync(u => u.UserName == username)!;
         }
 
         public async Task<IEnumerable<User?>> GetUsersByRoleAsync(string roleName)
         {
-            return await _context.Users.Where(u => u.UserRole.ToString() == roleName).ToListAsync()!;
+            return await _context.Users
+                .Include(u => u.Sales)
+                .Where(u => u.UserRole.ToString() == roleName)
+                .ToListAsync()!;
         }
 
         public async Task? UpdateUserAsync(User user)

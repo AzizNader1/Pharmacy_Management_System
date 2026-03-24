@@ -20,7 +20,8 @@ namespace PharmacyManagementSystem.Application.Features.User.Queries
             var returnedUsers = new List<GetUserDto>();
 
             var users = await _userRepository.GetAllUsersAsync();
-            if (users.Count() == 0 || users == null) return null!;
+            if (users.Count() == 0 || users == null)
+                throw new Exception("there is no user exists at this time in the database");
 
             foreach (var user in users)
             {

@@ -15,9 +15,24 @@ namespace PharmacyManagementSystem.Application.Features.Batch.Commands
             _batchRepository = batchRepository;
         }
 
-        public Task<int> Handle(CreateBatchCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateBatchCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (request.CreateBatchDto == null)
+                throw new ArgumentNullException(nameof(request.CreateBatchDto), "You should enter a valid data");
+
+            var batch = new Domain.Entities.Batch()
+            {
+                BatchNumber = request.CreateBatchDto.BatchNumber,
+                BatchQuantity = request.CreateBatchDto.BatchQuantity,
+                Category = request.CreateBatchDto.Category,
+                ExpiryDate = request.CreateBatchDto.ExpiryDate,
+                PurchasePrice = request.CreateBatchDto.PurchasePrice,
+                MedicineId = request.CreateBatchDto.MedicineId,
+            };
+
+            await _batchRepository.CreateBatchAsync(batch)!;
+
+            return batch.BatchId;
         }
     }
 }

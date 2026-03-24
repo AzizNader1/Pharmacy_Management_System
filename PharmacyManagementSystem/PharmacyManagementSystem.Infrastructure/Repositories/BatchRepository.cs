@@ -28,12 +28,18 @@ namespace PharmacyManagementSystem.Infrastructure.Repositories
 
         public async Task<IEnumerable<Batch?>> GetAllBatchesAsync()
         {
-            return await _context.Batches.ToListAsync()!;
+            return await _context.Batches
+                .Include(b => b.SaleItems)
+                .Include(b => b.Medicine)
+                .ToListAsync()!;
         }
 
         public async Task<Batch?> GetBatchByIdAsync(int id)
         {
-            return await _context.Batches.FirstOrDefaultAsync(b => b.BatchId == id)!;
+            return await _context.Batches
+                .Include(b => b.SaleItems)
+                .Include(b => b.Medicine)
+                .FirstOrDefaultAsync(b => b.BatchId == id)!;
         }
 
         public async Task? UpdateBatchAsync(Batch batch)

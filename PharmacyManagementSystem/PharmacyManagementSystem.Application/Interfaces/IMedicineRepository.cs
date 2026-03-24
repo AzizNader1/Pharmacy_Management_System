@@ -8,8 +8,8 @@ namespace PharmacyManagementSystem.Application.Interfaces
         Task? DeleteMedicineAsync(int id);
         Task? UpdateMedicineAsync(Medicine medicine);
         Task<Medicine?> GetMedicineByIdAsync(int id);
-        Task<Medicine?> GetMedicineByNameAsync(string medicineName);
         Task<IEnumerable<Medicine?>> GetAllMedicinesAsync();
+        Task<Medicine?> GetMedicineByNameAsync(string medicineName);
         Task<IEnumerable<Medicine?>> GetAllMedicinesByCategoryAsync(string categoryName);
     }
 }

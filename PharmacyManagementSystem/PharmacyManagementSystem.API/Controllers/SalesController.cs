@@ -1,5 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
+using PharmacyManagementSystem.Application.Features.Sale.Commands;
+using PharmacyManagementSystem.Application.Features.Sale.Queries;
 
 namespace PharmacyManagementSystem.API.Controllers
 {
@@ -15,33 +18,155 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(CreateSaleDto createSaleDto)
         {
-            return Ok();
+            try
+            {
+                if (createSaleDto == null)
+                    return BadRequest("you should enter a value inside the all fields");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var request = new CreateSaleCommand(createSaleDto);
+                var result = await _mediator.Send(request);
+                if (result == 0)
+                    return BadRequest("Unable to perform this operation, please try again later");
+
+                return Ok(new
+                {
+                    CreatedSaleId = result,
+                    Message = "Adding a new sale record Process Complete Successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok();
+            try
+            {
+                var request = new GetAllSalesQuery();
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("there is no sales avalible at this time, please try again later");
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                var request = new GetSaleDetailsQuery(id);
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("there is no sales avalible for this id value, please try again later");
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                var request = new DeleteSaleCommand(id);
+                var result = await _mediator.Send(request);
+                if (!result)
+                    return BadRequest("the delete process of the requsted sale record not success");
+
+                return Ok(new
+                {
+                    Message = "Delete the sale record done successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update()
+        public async Task<IActionResult> Update(int id, UpdateSaleDto updateSaleDto)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var request = new UpdateSaleCommand(id, updateSaleDto);
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("the update process of the requsted sale not success");
+
+                return Ok(new
+                {
+                    NewData = result,
+                    Message = "Update the sale record done successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllSalesByUserId(int userId)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllSalesByUserName(string userName)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

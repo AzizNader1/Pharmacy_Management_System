@@ -4,23 +4,25 @@ using PharmacyManagementSystem.Application.Interfaces;
 
 namespace PharmacyManagementSystem.Application.Features.User.Queries
 {
-    public record GetUserDetailsQuery(int id) : IRequest<GetUserDto>;
+    public record GetUserByIdQuery(int id) : IRequest<GetUserDto>;
 
-    public class GetUserDetailsQueryHandler : IRequestHandler<GetUserDetailsQuery, GetUserDto>
+    public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, GetUserDto>
     {
         private readonly IUserRepository _userRepository;
 
-        public GetUserDetailsQueryHandler(IUserRepository userRepository)
+        public GetUserByIdQueryHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
-        public async Task<GetUserDto> Handle(GetUserDetailsQuery request, CancellationToken cancellationToken)
+        public async Task<GetUserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
-            if (request.id == 0) return null!;
+            if (request.id == 0)
+                throw new Exception("you should enter a valid user id value");
 
             var user = await _userRepository.GetUserByIdAsync(request.id);
-            if (user == null) return null!;
+            if (user == null)
+                throw new Exception("there is no data exists for this user id in the database");
 
             return new GetUserDto
             {

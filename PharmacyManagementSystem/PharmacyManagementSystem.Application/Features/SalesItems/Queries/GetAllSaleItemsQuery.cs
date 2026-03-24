@@ -17,7 +17,26 @@ namespace PharmacyManagementSystem.Application.Features.SaleItem.Queries
 
         public async Task<List<GetSaleItemDto>> Handle(GetAllSaleItemsQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var saleItems = await _salesItemsRepository.GetAllSaleItemesAsync();
+            if (saleItems == null || saleItems.Count() == 0)
+                throw new Exception("there is no data exists in the database at this time, please try again later");
+
+            var returnedSaleItems = new List<GetSaleItemDto>();
+            foreach (var item in saleItems)
+            {
+                returnedSaleItems.Add(new GetSaleItemDto
+                {
+                    BatchId = item!.BatchId,
+                    ItemQuantity = item!.ItemQuantity,
+                    SaleItemId = item!.SaleItemId,
+                    MedicineId = item!.MedicineId,
+                    SaleId = item!.SaleId,
+                    UnitPrice = item!.UnitPrice,
+                });
+            }
+            ;
+            return returnedSaleItems;
+
         }
     }
 }

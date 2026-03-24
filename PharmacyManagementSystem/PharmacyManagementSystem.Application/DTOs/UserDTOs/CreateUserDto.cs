@@ -1,6 +1,4 @@
-﻿using PharmacyManagementSystem.Domain.Enums;
-
-namespace PharmacyManagementSystem.Application.DTOs.UserDTOs
+﻿namespace PharmacyManagementSystem.Application.DTOs.UserDTOs
 {
     public class CreateUserDto
     {
@@ -9,6 +7,5 @@ namespace PharmacyManagementSystem.Application.DTOs.UserDTOs
         public string FullName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
-        public UserRoles UserRole { get; set; }
     }
 }

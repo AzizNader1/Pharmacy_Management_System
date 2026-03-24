@@ -14,9 +14,13 @@ namespace PharmacyManagementSystem.Application.Features.SaleItem.Commands
             _salesItemsRepository = salesItemsRepository;
         }
 
-        public Task<bool> Handle(DeleteSaleItemCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteSaleItemCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid value to the id field");
+
+            await _salesItemsRepository.DeleteSaleItemAsync(request.id)!;
+            return true;
         }
     }
 }

@@ -1,5 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs;
+using PharmacyManagementSystem.Application.Features.SaleItem.Commands;
+using PharmacyManagementSystem.Application.Features.SaleItem.Queries;
+using PharmacyManagementSystem.Application.Features.SaleItems.Queries;
 
 namespace PharmacyManagementSystem.API.Controllers
 {
@@ -15,33 +19,141 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add(CreateSaleItemDto createSaleItemDto)
         {
-            return Ok();
+            try
+            {
+                if (createSaleItemDto == null)
+                    return BadRequest("you should enter a value inside the all fields");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var request = new CreateSaleItemCommand(createSaleItemDto);
+                var result = await _mediator.Send(request);
+                if (result == 0)
+                    return BadRequest("Unable to perform this operation, please try again later");
+
+                return Ok(new
+                {
+                    CreatedSaleItemId = result,
+                    Message = "Adding a new saleitem Process Complete Successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok();
+            try
+            {
+                var request = new GetAllSaleItemsQuery();
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("there is no saleitems avalible at this time, please try again later");
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                var request = new GetSaleItemsDetailsQuery(id);
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("there is no saleitems avalible for this id value, please try again later");
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                var request = new DeleteSaleItemCommand(id);
+                var result = await _mediator.Send(request);
+                if (!result)
+                    return BadRequest("the delete process of the requsted sale item not success");
+
+                return Ok(new
+                {
+                    Message = "Delete the sale item done successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update()
+        public async Task<IActionResult> Update(int id, UpdateSaleItemDto updateSaleItemDto)
         {
-            return Ok();
+            try
+            {
+                if (id <= 0)
+                    return BadRequest("Please enter a valid id value");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var request = new UpdateSaleItemCommand(id, updateSaleItemDto);
+                var result = await _mediator.Send(request);
+                if (result == null)
+                    return BadRequest("the update process of the requsted sale item not success");
+
+                return Ok(new
+                {
+                    NewData = result,
+                    Message = "Update the sale item done successfully!"
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllSaleItemesBySaleId(int saleId)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

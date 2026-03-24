@@ -28,23 +28,35 @@ namespace PharmacyManagementSystem.Infrastructure.Repositories
 
         public async Task<IEnumerable<Sale?>> GetAllSalesAsync()
         {
-            return await _context.Sales.ToListAsync();
+            return await _context.Sales
+                .Include(s => s.User)
+                .Include(s => s.SaleItems)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Sale?>> GetAllSalesByUserIdAsync(int userId)
         {
-            return await _context.Sales.Where(s => s.UserId == userId).ToListAsync();
+            return await _context.Sales
+                .Include(s => s.SaleItems)
+                .Where(s => s.UserId == userId)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Sale?>> GetAllSalesByUserNameAsync(string userName)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
-            return await _context.Sales.Where(s => s.UserId == user!.UserId).ToListAsync();
+            return await _context.Sales
+                .Include(s => s.SaleItems)
+                .Where(s => s.UserId == user!.UserId)
+                .ToListAsync();
         }
 
         public async Task<Sale?> GetSaleByIdAsync(int id)
         {
-            return await _context.Sales.FirstOrDefaultAsync(s => s.SaleId == id);
+            return await _context.Sales
+                .Include(s => s.SaleItems)
+                .Include(s => s.User)
+                .FirstOrDefaultAsync(s => s.SaleId == id);
         }
 
         public async Task? UpdateSaleAsync(Sale sale)

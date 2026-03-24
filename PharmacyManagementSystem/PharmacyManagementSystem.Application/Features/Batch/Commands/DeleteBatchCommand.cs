@@ -13,9 +13,13 @@ namespace PharmacyManagementSystem.Application.Features.Batch.Commands
         {
             _batchRepository = batchRepository;
         }
-        public Task<bool> Handle(DeleteBatchCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteBatchCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (request.id == 0)
+                throw new ArgumentNullException(nameof(request.id), "the data of the id must be valid data to get the correct data");
+
+            await _batchRepository.DeleteBatchAsync(request.id)!;
+            return true;
         }
     }
 }
