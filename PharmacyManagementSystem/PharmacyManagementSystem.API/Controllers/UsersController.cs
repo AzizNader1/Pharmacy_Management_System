@@ -17,35 +17,6 @@ namespace PharmacyManagementSystem.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateUserDto createUserDto)
-        {
-            try
-            {
-                if (createUserDto == null)
-                    return BadRequest("you should enter a value inside the all fields");
-
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
-
-                var request = new CreateUserCommand(createUserDto);
-                var result = await _mediator.Send(request);
-                if (result == 0)
-                    return BadRequest("Unable to perform this operation, please try again later");
-
-                return Ok(new
-                {
-                    CreatedUserId = result,
-                    Message = "Register Process Complete Successfully!"
-                });
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -53,15 +24,15 @@ namespace PharmacyManagementSystem.API.Controllers
             {
                 var request = new GetAllUsersQuery();
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no users avalible at this time, please try again later");
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -70,20 +41,17 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new GetUserByIdQuery(id);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no users avalible for this id value, please try again later");
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -92,23 +60,20 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new DeleteUserCommand(id);
                 var result = await _mediator.Send(request);
-                if (!result)
-                    return BadRequest("the delete process of the requsted user not success");
 
                 return Ok(new
                 {
-                    Message = "Delete the user done successfully!"
+                    Message = "User Deleted Successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -117,69 +82,81 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var request = new UpdateUserCommand(id, updateUserDto);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("the update process of the requsted user not success");
 
                 return Ok(new
                 {
                     NewData = result,
-                    Message = "Update the user done successfully!"
+                    Message = "User data updated successfully"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
-        [HttpGet]
+        [HttpGet("{email}")]
         public async Task<IActionResult> GetByEmail(string email)
         {
             try
             {
-                throw new NotImplementedException();
-            }
-            catch (Exception)
-            {
+                var request = new GetUserByEmailQuery(email);
+                var result = await _mediator.Send(request);
 
-                throw;
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
-        [HttpGet]
+        [HttpGet("{name}")]
         public async Task<IActionResult> GetByName(string name)
         {
             try
             {
-                throw new NotImplementedException();
-            }
-            catch (Exception)
-            {
+                var request = new GetUserByNameQuery(name);
+                var result = await _mediator.Send(request);
 
-                throw;
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetByRole(string name)
+        [HttpGet("{role}")]
+        public async Task<IActionResult> GetByRole(string role)
         {
             try
             {
-                throw new NotImplementedException();
-            }
-            catch (Exception)
-            {
+                var request = new GetUsersByRoleQuery(role);
+                var result = await _mediator.Send(request);
 
-                throw;
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
     }

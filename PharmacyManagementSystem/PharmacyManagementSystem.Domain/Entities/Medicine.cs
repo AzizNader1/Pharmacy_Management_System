@@ -10,7 +10,7 @@ namespace PharmacyManagementSystem.Domain.Entities
         public string Description { get; set; } = string.Empty;
         public decimal MedicinePrice { get; set; }
         public int ReorderLevel { get; set; }
-        public MedicineCategories Category { get; set; } = MedicineCategories.None;
+        public MedicineCategories Category { get; set; }
         public int TotalStock => Batches.Sum(b => b.BatchQuantity);
 
         // Navigation Property

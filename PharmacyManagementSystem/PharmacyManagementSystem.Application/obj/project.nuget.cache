@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BJ/HlWKvhiM=",
+  "dgSpecHash": "Na4FgurhO/k=",
   "success": true,
   "projectFilePath": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Application\\PharmacyManagementSystem.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\azizn\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\azizn\\.nuget\\packages\\mediatr\\14.1.0\\mediatr.14.1.0.nupkg.sha512",
     "C:\\Users\\azizn\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\azizn\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.5\\microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512",

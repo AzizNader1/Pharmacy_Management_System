@@ -9,7 +9,7 @@ namespace PharmacyManagementSystem.Domain.Entities
         public DateTime ExpiryDate { get; set; }
         public int BatchQuantity { get; set; }
         public decimal PurchasePrice { get; set; }
-        public MedicineCategories Category { get; set; } = MedicineCategories.None;
+        public MedicineCategories Category { get; set; }
         public int MedicineId { get; set; }
 
         // Navigation Property

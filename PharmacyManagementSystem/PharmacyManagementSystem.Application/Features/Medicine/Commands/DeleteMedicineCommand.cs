@@ -19,7 +19,11 @@ namespace PharmacyManagementSystem.Application.Features.Medicine.Commands
             if (request.id <= 0)
                 throw new Exception("you should enter a valid id value");
 
-            await _medicineRepository.DeleteMedicineAsync(request.id)!;
+            var existsMedicine = await _medicineRepository.GetMedicineByIdAsync(request.id);
+            if (existsMedicine == null)
+                throw new Exception("there is no medicines exists for this id");
+
+            await _medicineRepository.DeleteMedicineAsync(existsMedicine)!;
 
             return true;
         }

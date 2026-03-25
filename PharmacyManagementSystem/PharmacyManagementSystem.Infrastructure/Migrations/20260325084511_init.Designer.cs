@@ -12,7 +12,7 @@ using PharmacyManagementSystem.Infrastructure.Data;
 namespace PharmacyManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260321122116_init")]
+    [Migration("20260325084511_init")]
     partial class init
     {
         /// <inheritdoc />

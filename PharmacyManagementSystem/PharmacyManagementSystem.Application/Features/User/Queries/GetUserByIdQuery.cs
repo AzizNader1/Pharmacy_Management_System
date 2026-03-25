@@ -17,8 +17,8 @@ namespace PharmacyManagementSystem.Application.Features.User.Queries
 
         public async Task<GetUserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
-            if (request.id == 0)
-                throw new Exception("you should enter a valid user id value");
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid user id value, write a positive number");
 
             var user = await _userRepository.GetUserByIdAsync(request.id);
             if (user == null)

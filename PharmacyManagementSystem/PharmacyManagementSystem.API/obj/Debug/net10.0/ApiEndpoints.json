@@ -1,5 +1,67 @@
 [
   {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PharmacyManagementSystem.API.Controllers.BatchsController",
     "Method": "Add",
     "RelativePath": "api/Batchs/Add",
@@ -8,9 +70,34 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createBatchDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.BatchDTOs.CreateBatchDto",
-        "IsRequired": true
+        "Name": "BatchNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "BatchQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PurchasePrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
+        "IsRequired": false
+      },
+      {
+        "Name": "MedicineId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -71,9 +158,34 @@
         "IsRequired": false
       },
       {
-        "Name": "updateBatchDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.BatchDTOs.UpdateBatchDto",
-        "IsRequired": true
+        "Name": "BatchNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ExpiryDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "BatchQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PurchasePrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
+        "IsRequired": false
+      },
+      {
+        "Name": "MedicineId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -87,9 +199,34 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createMedicineDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.MedicineDTOs.CreateMedicineDto",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GenericName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MedicinePrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "ReorderLevel",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -122,6 +259,22 @@
   },
   {
     "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
+    "Method": "GetAllMedicinesByCategory",
+    "RelativePath": "api/Medicines/GetAllMedicinesByCategory/{categoryName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
     "Method": "GetById",
     "RelativePath": "api/Medicines/GetById/{id}",
     "HttpMethod": "GET",
@@ -131,6 +284,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.MedicinesController",
+    "Method": "GetMedicineByName",
+    "RelativePath": "api/Medicines/GetMedicineByName/{medicineName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicineName",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -150,9 +319,34 @@
         "IsRequired": false
       },
       {
-        "Name": "updateMedicineDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.MedicineDTOs.UpdateMedicineDto",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GenericName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MedicinePrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "ReorderLevel",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -166,9 +360,34 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createSaleItemDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs.CreateSaleItemDto",
-        "IsRequired": true
+        "Name": "SaleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "MedicineId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BatchId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ItemQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "UnitPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "TotalLinePrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -201,6 +420,22 @@
   },
   {
     "ContainingType": "PharmacyManagementSystem.API.Controllers.SaleItemsController",
+    "Method": "GetAllSaleItemesBySaleId",
+    "RelativePath": "api/SaleItems/GetAllSaleItemesBySaleId/{saleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "saleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SaleItemsController",
     "Method": "GetById",
     "RelativePath": "api/SaleItems/GetById/{id}",
     "HttpMethod": "GET",
@@ -229,9 +464,29 @@
         "IsRequired": false
       },
       {
-        "Name": "updateSaleItemDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs.UpdateSaleItemDto",
-        "IsRequired": true
+        "Name": "SaleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "MedicineId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BatchId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ItemQuantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "UnitPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -245,9 +500,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createSaleDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.SalesDTOs.CreateSaleDto",
-        "IsRequired": true
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SalesDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "TotalAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -280,6 +545,38 @@
   },
   {
     "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
+    "Method": "GetAllSalesByUserId",
+    "RelativePath": "api/Sales/GetAllSalesByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
+    "Method": "GetAllSalesByUserName",
+    "RelativePath": "api/Sales/GetAllSalesByUserName/{userName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.SalesController",
     "Method": "GetById",
     "RelativePath": "api/Sales/GetById/{id}",
     "HttpMethod": "GET",
@@ -308,25 +605,19 @@
         "IsRequired": false
       },
       {
-        "Name": "updateSaleDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.SalesDTOs.UpdateSaleDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
-    "Method": "Add",
-    "RelativePath": "api/Users/Add",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
-        "Name": "createUserDto",
-        "Type": "PharmacyManagementSystem.Application.DTOs.UserDTOs.CreateUserDto",
-        "IsRequired": true
+        "Name": "SalesDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "TotalAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -359,6 +650,22 @@
   },
   {
     "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "GetByEmail",
+    "RelativePath": "api/Users/GetByEmail/{email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
     "Method": "GetById",
     "RelativePath": "api/Users/GetById/{id}",
     "HttpMethod": "GET",
@@ -368,6 +675,38 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "GetByName",
+    "RelativePath": "api/Users/GetByName/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PharmacyManagementSystem.API.Controllers.UsersController",
+    "Method": "GetByRole",
+    "RelativePath": "api/Users/GetByRole/{role}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

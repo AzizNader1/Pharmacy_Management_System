@@ -11,6 +11,5 @@ namespace PharmacyManagementSystem.Application.DTOs.UserDTOs
         public string Email { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public UserRoles UserRole { get; set; }
-        public string ResponseMessage { get; set; } = string.Empty;
     }
 }

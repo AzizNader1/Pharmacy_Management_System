@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
 using PharmacyManagementSystem.Application.Interfaces;
+using PharmacyManagementSystem.Domain.Enums;
 
 namespace PharmacyManagementSystem.Application.Features.Batch.Commands
 {
@@ -9,16 +10,29 @@ namespace PharmacyManagementSystem.Application.Features.Batch.Commands
     public class CreateBatchCommandHandler : IRequestHandler<CreateBatchCommand, int>
     {
         private readonly IBatchRepository _batchRepository;
+        private readonly IMedicineRepository _medicineRepository;
 
-        public CreateBatchCommandHandler(IBatchRepository batchRepository)
+        public CreateBatchCommandHandler(IBatchRepository batchRepository, IMedicineRepository medicineRepository)
         {
             _batchRepository = batchRepository;
+            _medicineRepository = medicineRepository;
         }
 
         public async Task<int> Handle(CreateBatchCommand request, CancellationToken cancellationToken)
         {
             if (request.CreateBatchDto == null)
-                throw new ArgumentNullException(nameof(request.CreateBatchDto), "You should enter a valid data");
+                throw new Exception("you should enter a valid values inside each field");
+
+            var existsBatch = await _batchRepository.GetAllBatchesAsync();
+            if (existsBatch.Any(b => b.BatchNumber == request.CreateBatchDto.BatchNumber))
+                throw new Exception("this batch number is already exists, please use another batch number");
+
+            var existsMedicine = await _medicineRepository.GetMedicineByIdAsync(request.CreateBatchDto.MedicineId);
+            if (existsMedicine == null)
+                throw new Exception("there is no medicine exists to the medicine id that you try to use, please add a valid and exists id");
+
+            if (!Enum.IsDefined(typeof(MedicineCategories), request.CreateBatchDto.Category))
+                throw new Exception("you should enter a valid category name");
 
             var batch = new Domain.Entities.Batch()
             {

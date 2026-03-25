@@ -10,7 +10,6 @@ namespace PharmacyManagementSystem.Application.DTOs.MedicineDTOs
         public string Description { get; set; } = string.Empty;
         public decimal MedicinePrice { get; set; }
         public int ReorderLevel { get; set; }
-        public MedicineCategories Category { get; set; } = MedicineCategories.None;
-        public string ResponseMessage { get; set; } = string.Empty;
+        public MedicineCategories Category { get; set; }
     }
 }

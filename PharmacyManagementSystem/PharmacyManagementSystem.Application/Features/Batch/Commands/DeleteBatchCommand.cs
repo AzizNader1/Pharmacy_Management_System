@@ -16,9 +16,13 @@ namespace PharmacyManagementSystem.Application.Features.Batch.Commands
         public async Task<bool> Handle(DeleteBatchCommand request, CancellationToken cancellationToken)
         {
             if (request.id == 0)
-                throw new ArgumentNullException(nameof(request.id), "the data of the id must be valid data to get the correct data");
+                throw new Exception("the data of the id must be valid data to get the correct data");
 
-            await _batchRepository.DeleteBatchAsync(request.id)!;
+            var existsBatch = await _batchRepository.GetBatchByIdAsync(request.id);
+            if (existsBatch == null)
+                throw new Exception("there is no batches exists to this id");
+
+            await _batchRepository.DeleteBatchAsync(existsBatch)!;
             return true;
         }
     }

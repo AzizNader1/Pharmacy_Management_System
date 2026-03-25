@@ -18,14 +18,14 @@ namespace PharmacyManagementSystem.Application.Features.Batch.Commands
         public async Task<GetBatchDto> Handle(UpdateBatchCommand request, CancellationToken cancellationToken)
         {
             if (request.updateBatchDto == null)
-                throw new ArgumentNullException(nameof(request.updateBatchDto), "you should enter a valid data");
+                throw new Exception("you should enter a valid data");
 
-            if (request.id == 0)
-                throw new ArgumentNullException(nameof(request.id), "you should enter a valid data");
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid id value, please enter a positive number");
 
             var existingBatch = await _batchRepository.GetBatchByIdAsync(request.id);
             if (existingBatch == null)
-                throw new ArgumentNullException(nameof(existingBatch), "there is no batches avalible to this requested id");
+                throw new Exception("there is no batches avalible to this requested id");
 
 
             existingBatch.BatchQuantity = request.updateBatchDto.BatchQuantity;

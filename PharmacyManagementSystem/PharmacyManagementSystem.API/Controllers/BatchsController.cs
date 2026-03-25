@@ -18,20 +18,15 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateBatchDto createBatchDto)
+        public async Task<IActionResult> Add([FromForm] CreateBatchDto createBatchDto)
         {
             try
             {
-                if (createBatchDto == null)
-                    return BadRequest("you should enter a value inside the all fields");
-
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var request = new CreateBatchCommand(createBatchDto);
                 var result = await _mediator.Send(request);
-                if (result == 0)
-                    return BadRequest("Unable to perform this operation, please try again later");
 
                 return Ok(new
                 {
@@ -39,10 +34,12 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Adding a new batch Process Complete Successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -53,15 +50,15 @@ namespace PharmacyManagementSystem.API.Controllers
             {
                 var request = new GetAllBatchsQuery();
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no batchs avalible at this time, please try again later");
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -70,20 +67,17 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new GetBatchDetailsQuery(id);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no batchs avalible for this id value, please try again later");
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -92,41 +86,33 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new DeleteBatchCommand(id);
                 var result = await _mediator.Send(request);
-                if (!result)
-                    return BadRequest("the delete process of the requsted batch not success");
 
                 return Ok(new
                 {
                     Message = "Delete the batch done successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(int id, UpdateBatchDto updateBatchDto)
+        public async Task<IActionResult> Update(int id, [FromForm] UpdateBatchDto updateBatchDto)
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var request = new UpdateBatchCommand(id, updateBatchDto);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("the update process of the requsted batch not success");
 
                 return Ok(new
                 {
@@ -134,10 +120,12 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Update the batch done successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
     }

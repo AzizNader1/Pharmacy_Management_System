@@ -16,10 +16,14 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
 
         public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            if (request.id == 0)
-                throw new Exception("you should enter a valid id value");
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid id value, write a positive value");
 
-            await _userRepository.DeleteUserAsync(request.id)!;
+            var existUser = await _userRepository.GetUserByIdAsync(request.id);
+            if (existUser == null)
+                throw new Exception("there is no user exists to this id");
+
+            await _userRepository.DeleteUserAsync(existUser)!;
 
             return true;
         }

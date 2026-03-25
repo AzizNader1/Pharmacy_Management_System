@@ -38,6 +38,19 @@
           }
         }
       },
+      "BCrypt.Net-Next/4.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -867,13 +880,13 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore/10.1.5": {
+      "Swashbuckle.AspNetCore/10.1.6": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "10.0.0",
-          "Swashbuckle.AspNetCore.Swagger": "10.1.5",
-          "Swashbuckle.AspNetCore.SwaggerGen": "10.1.5",
-          "Swashbuckle.AspNetCore.SwaggerUI": "10.1.5"
+          "Swashbuckle.AspNetCore.Swagger": "10.1.6",
+          "Swashbuckle.AspNetCore.SwaggerGen": "10.1.6",
+          "Swashbuckle.AspNetCore.SwaggerUI": "10.1.6"
         },
         "build": {
           "build/Swashbuckle.AspNetCore.props": {}
@@ -882,7 +895,7 @@
           "buildMultiTargeting/Swashbuckle.AspNetCore.props": {}
         }
       },
-      "Swashbuckle.AspNetCore.Swagger/10.1.5": {
+      "Swashbuckle.AspNetCore.Swagger/10.1.6": {
         "type": "package",
         "dependencies": {
           "Microsoft.OpenApi": "2.4.1"
@@ -901,10 +914,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Swashbuckle.AspNetCore.SwaggerGen/10.1.5": {
+      "Swashbuckle.AspNetCore.SwaggerGen/10.1.6": {
         "type": "package",
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "10.1.5"
+          "Swashbuckle.AspNetCore.Swagger": "10.1.6"
         },
         "compile": {
           "lib/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
@@ -917,7 +930,7 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/10.1.5": {
+      "Swashbuckle.AspNetCore.SwaggerUI/10.1.6": {
         "type": "package",
         "compile": {
           "lib/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
@@ -1169,6 +1182,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "BCrypt.Net-Next": "4.1.0",
           "MediatR": "14.1.0",
           "PharmacyManagementSystem.Domain": "1.0.0"
         },
@@ -1246,6 +1260,35 @@
         "lib/net8.0/Azure.Identity.xml",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "BCrypt.Net-Next/4.1.0": {
+      "sha512": "5YT3DKllmtkyW68PjURu/V1TOe4MKiByKwsRNVcfYE1S5KuFTeozdmKzyNzolKiQF391OXCaQtINvYT3j1ERzQ==",
+      "type": "package",
+      "path": "bcrypt.net-next/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-next.4.1.0.nupkg.sha512",
+        "bcrypt.net-next.nuspec",
+        "ico.png",
+        "lib/net10.0/BCrypt.Net-Next.dll",
+        "lib/net10.0/BCrypt.Net-Next.xml",
+        "lib/net20/BCrypt.Net-Next.dll",
+        "lib/net20/BCrypt.Net-Next.xml",
+        "lib/net35/BCrypt.Net-Next.dll",
+        "lib/net35/BCrypt.Net-Next.xml",
+        "lib/net462/BCrypt.Net-Next.dll",
+        "lib/net462/BCrypt.Net-Next.xml",
+        "lib/net472/BCrypt.Net-Next.dll",
+        "lib/net472/BCrypt.Net-Next.xml",
+        "lib/net48/BCrypt.Net-Next.dll",
+        "lib/net48/BCrypt.Net-Next.xml",
+        "lib/netstandard2.0/BCrypt.Net-Next.dll",
+        "lib/netstandard2.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.1/BCrypt.Net-Next.dll",
+        "lib/netstandard2.1/BCrypt.Net-Next.xml",
+        "readme.md"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -3208,24 +3251,24 @@
         "packageIcon.png"
       ]
     },
-    "Swashbuckle.AspNetCore/10.1.5": {
-      "sha512": "/eNk9z/8quXhDX14o3XLbwAX/84uIWSbiUD7cI/UrQnoBMOiyAtzKxNEJUtf/TyxjFpcXxE9FAfLvtbNpxHBSg==",
+    "Swashbuckle.AspNetCore/10.1.6": {
+      "sha512": "oyo4Wx3YcA969q9nRifcczXL460ylMyHoRf8EmspiWMo13YsBKELG61U/EFK0xktB6RlZAwKIXAqklIV7/P5DA==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore/10.1.5",
+      "path": "swashbuckle.aspnetcore/10.1.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "build/Swashbuckle.AspNetCore.props",
         "buildMultiTargeting/Swashbuckle.AspNetCore.props",
         "docs/package-readme.md",
-        "swashbuckle.aspnetcore.10.1.5.nupkg.sha512",
+        "swashbuckle.aspnetcore.10.1.6.nupkg.sha512",
         "swashbuckle.aspnetcore.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.Swagger/10.1.5": {
-      "sha512": "s4Mct6+Ob0LK9vYVaZcYi/RFFCOEJNjf6nJ5ZPoxtpdFSlzR6i9AHI7Vl44obX8cynRxJW7prA1IUabkiXolFg==",
+    "Swashbuckle.AspNetCore.Swagger/10.1.6": {
+      "sha512": "XkzyhvZilKQvfky9HJKCtOHAHB7S0qswIu8nkKa6c2w/y2o3nQR3hNP896iprsX9uGh6U2l9XvAk+7cUXvxALQ==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swagger/10.1.5",
+      "path": "swashbuckle.aspnetcore.swagger/10.1.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3239,14 +3282,14 @@
         "lib/net9.0/Swashbuckle.AspNetCore.Swagger.pdb",
         "lib/net9.0/Swashbuckle.AspNetCore.Swagger.xml",
         "package-readme.md",
-        "swashbuckle.aspnetcore.swagger.10.1.5.nupkg.sha512",
+        "swashbuckle.aspnetcore.swagger.10.1.6.nupkg.sha512",
         "swashbuckle.aspnetcore.swagger.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.SwaggerGen/10.1.5": {
-      "sha512": "ysQIRgqnx4Vb/9+r3xnEAiaxYmiBHO8jTg7ACaCh+R3Sn+ZKCWKD6nyu0ph3okP91wFSh/6LgccjeLUaQHV+ZA==",
+    "Swashbuckle.AspNetCore.SwaggerGen/10.1.6": {
+      "sha512": "x2miNZnMl5yK0rprSAWgl5a6KlJsbNxmry1YDzh0h7l7TW3GsZhF8szqmaP5/SlWI/vCK8pF4CqQefrFim80sw==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggergen/10.1.5",
+      "path": "swashbuckle.aspnetcore.swaggergen/10.1.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3260,14 +3303,14 @@
         "lib/net9.0/Swashbuckle.AspNetCore.SwaggerGen.pdb",
         "lib/net9.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
         "package-readme.md",
-        "swashbuckle.aspnetcore.swaggergen.10.1.5.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggergen.10.1.6.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggergen.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/10.1.5": {
-      "sha512": "tQWVKNJWW7lf6S0bv22+7yfxK5IKzvsMeueF4XHSziBfREhLKt42OKzi6/1nINmyGlM4hGbR8aSMg72dLLVBLw==",
+    "Swashbuckle.AspNetCore.SwaggerUI/10.1.6": {
+      "sha512": "tDNx4ICcsviLIt4aiqmmSheeueEwH4pEWEsqI2UU9h3MiRAXOaQIkbhFpRAUwA1OqFRfmswdNjf9EuiykZ+ugA==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggerui/10.1.5",
+      "path": "swashbuckle.aspnetcore.swaggerui/10.1.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3281,7 +3324,7 @@
         "lib/net9.0/Swashbuckle.AspNetCore.SwaggerUI.pdb",
         "lib/net9.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
         "package-readme.md",
-        "swashbuckle.aspnetcore.swaggerui.10.1.5.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggerui.10.1.6.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
@@ -3656,11 +3699,12 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "BCrypt.Net-Next >= 4.1.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.5",
       "PharmacyManagementSystem.Application >= 1.0.0",
       "PharmacyManagementSystem.Infrastructure >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 10.1.5"
+      "Swashbuckle.AspNetCore >= 10.1.6"
     ]
   },
   "packageFolders": {
@@ -3721,6 +3765,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "BCrypt.Net-Next": {
+            "target": "Package",
+            "version": "[4.1.0, )"
+          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[10.0.4, )"
@@ -3733,7 +3781,7 @@
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
-            "version": "[10.1.5, )"
+            "version": "[10.1.6, )"
           }
         },
         "imports": [

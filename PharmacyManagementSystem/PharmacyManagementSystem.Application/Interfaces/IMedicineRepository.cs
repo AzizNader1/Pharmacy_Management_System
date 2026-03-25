@@ -5,7 +5,7 @@ namespace PharmacyManagementSystem.Application.Interfaces
     public interface IMedicineRepository
     {
         Task? CreateMedicineAsync(Medicine medicine);
-        Task? DeleteMedicineAsync(int id);
+        Task? DeleteMedicineAsync(Medicine medicine);
         Task? UpdateMedicineAsync(Medicine medicine);
         Task<Medicine?> GetMedicineByIdAsync(int id);
         Task<IEnumerable<Medicine?>> GetAllMedicinesAsync();

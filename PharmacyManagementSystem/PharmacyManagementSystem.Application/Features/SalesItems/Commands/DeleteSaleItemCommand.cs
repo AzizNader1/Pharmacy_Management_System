@@ -19,7 +19,11 @@ namespace PharmacyManagementSystem.Application.Features.SaleItem.Commands
             if (request.id <= 0)
                 throw new Exception("you should enter a valid value to the id field");
 
-            await _salesItemsRepository.DeleteSaleItemAsync(request.id)!;
+            var existsSaleItem = await _salesItemsRepository.GetSaleItemByIdAsync(request.id);
+            if (existsSaleItem == null)
+                throw new Exception("there is no sale items exists for this id");
+
+            await _salesItemsRepository.DeleteSaleItemAsync(existsSaleItem)!;
             return true;
         }
     }

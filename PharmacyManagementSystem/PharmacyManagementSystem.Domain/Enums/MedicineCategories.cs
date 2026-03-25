@@ -2,7 +2,6 @@
 {
     public enum MedicineCategories
     {
-        None = 0,
         Antibiotics = 1,
         Painkillers = 2,
         Antidepressants = 3,

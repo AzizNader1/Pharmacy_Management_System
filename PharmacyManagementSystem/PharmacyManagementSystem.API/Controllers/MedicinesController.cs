@@ -18,20 +18,15 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateMedicineDto createMedicineDto)
+        public async Task<IActionResult> Add([FromForm] CreateMedicineDto createMedicineDto)
         {
             try
             {
-                if (createMedicineDto == null)
-                    return BadRequest("you should enter a value inside the all fields");
-
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var request = new CreateMedicineCommand(createMedicineDto);
                 var result = await _mediator.Send(request);
-                if (result == 0)
-                    return BadRequest("Unable to perform this operation, please try again later");
 
                 return Ok(new
                 {
@@ -39,10 +34,12 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Adding a new medicine Process Complete Successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -58,10 +55,12 @@ namespace PharmacyManagementSystem.API.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -80,10 +79,12 @@ namespace PharmacyManagementSystem.API.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -105,15 +106,17 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Delete the medicine done successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(int id, UpdateMedicineDto updateMedicineDto)
+        public async Task<IActionResult> Update(int id, [FromForm] UpdateMedicineDto updateMedicineDto)
         {
             try
             {
@@ -134,35 +137,44 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Update the medicine done successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
+        [HttpGet("{medicineName}")]
         public async Task<IActionResult> GetMedicineByName(string medicineName)
         {
             try
             {
                 throw new NotImplementedException();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
+
+        [HttpGet("{categoryName}")]
         public async Task<IActionResult> GetAllMedicinesByCategory(string categoryName)
         {
             try
             {
                 throw new NotImplementedException();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
     }

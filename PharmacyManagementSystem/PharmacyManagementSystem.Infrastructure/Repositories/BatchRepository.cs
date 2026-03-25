@@ -20,9 +20,9 @@ namespace PharmacyManagementSystem.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task? DeleteBatchAsync(int id)
+        public async Task? DeleteBatchAsync(Batch batch)
         {
-            _context.Batches.Remove(_context.Batches.Find(id)!);
+            _context.Batches.Remove(batch);
             await _context.SaveChangesAsync();
         }
 

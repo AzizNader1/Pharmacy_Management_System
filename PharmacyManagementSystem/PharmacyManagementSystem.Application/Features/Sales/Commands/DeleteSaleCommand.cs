@@ -19,7 +19,11 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Commands
             if (request.id <= 0)
                 throw new Exception("you should enter a valid id value");
 
-            await _salesRepository.DeleteSaleAsync(request.id)!;
+            var existsSale = await _salesRepository.GetSaleByIdAsync(request.id);
+            if (existsSale == null)
+                throw new Exception("there is no sale exists for this id");
+
+            await _salesRepository.DeleteSaleAsync(existsSale)!;
 
             return true;
         }

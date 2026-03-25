@@ -20,9 +20,9 @@ namespace PharmacyManagementSystem.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task? DeleteUserAsync(int id)
+        public async Task? DeleteUserAsync(User user)
         {
-            _context.Users.Remove(_context.Users.Find(id)!);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
         }
 

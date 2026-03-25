@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using PharmacyManagementSystem.Application.DTOs.UserDTOs;
 using PharmacyManagementSystem.Application.Interfaces;
-using PharmacyManagementSystem.Domain.Enums;
 
 namespace PharmacyManagementSystem.Application.Features.User.Queries
 {
@@ -21,11 +20,8 @@ namespace PharmacyManagementSystem.Application.Features.User.Queries
             if (request.role == null)
                 throw new Exception("you should enter a valid role value");
 
-            if (request.role != UserRoles.Cashier.ToString())
-                throw new Exception("you are not authorize to access this method");
-
             var users = await _userRepository.GetUsersByRoleAsync(request.role);
-            if (users == null)
+            if (users == null || users.Count() == 0)
                 throw new Exception("there is no user exists inside this role at this time");
 
             var returnedUsers = new List<GetUserDto>();

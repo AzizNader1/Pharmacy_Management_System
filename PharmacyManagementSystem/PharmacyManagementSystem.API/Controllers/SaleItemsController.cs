@@ -19,7 +19,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateSaleItemDto createSaleItemDto)
+        public async Task<IActionResult> Add([FromForm] CreateSaleItemDto createSaleItemDto)
         {
             try
             {
@@ -40,10 +40,12 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Adding a new saleitem Process Complete Successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -59,10 +61,12 @@ namespace PharmacyManagementSystem.API.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -81,10 +85,12 @@ namespace PharmacyManagementSystem.API.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
@@ -106,15 +112,17 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Delete the sale item done successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(int id, UpdateSaleItemDto updateSaleItemDto)
+        public async Task<IActionResult> Update(int id, [FromForm] UpdateSaleItemDto updateSaleItemDto)
         {
             try
             {
@@ -135,24 +143,28 @@ namespace PharmacyManagementSystem.API.Controllers
                     Message = "Update the sale item done successfully!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
 
-        [HttpGet]
+        [HttpGet("{saleId}")]
         public async Task<IActionResult> GetAllSaleItemesBySaleId(int saleId)
         {
             try
             {
                 throw new NotImplementedException();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(new
+                {
+                    message = ex.Message
+                });
             }
         }
     }

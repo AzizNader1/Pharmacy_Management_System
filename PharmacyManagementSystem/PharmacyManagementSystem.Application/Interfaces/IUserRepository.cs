@@ -5,7 +5,7 @@ namespace PharmacyManagementSystem.Application.Interfaces
     public interface IUserRepository
     {
         Task? CreateUserAsync(User user);
-        Task? DeleteUserAsync(int id);
+        Task? DeleteUserAsync(User user);
         Task? UpdateUserAsync(User user);
         Task<User?> GetUserByIdAsync(int id);
         Task<IEnumerable<User?>> GetAllUsersAsync();

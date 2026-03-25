@@ -17,8 +17,8 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
 
         public async Task<GetUserDto> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
-            if (request.id == 0)
-                throw new Exception("you should enter a valid id value");
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid id value, write a positive number");
 
             var user = await _userRepository.GetUserByIdAsync(request.id);
             if (user == null)
@@ -27,12 +27,18 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
             user.PhoneNumber = request.UpdateUserDto.PhoneNumber;
             user.FullName = request.UpdateUserDto.FullName;
             user.UserName = request.UpdateUserDto.UserName;
-            user.PasswordHash = request.UpdateUserDto.Password;
+
+            if (!string.IsNullOrEmpty(request.UpdateUserDto.Password))
+            {
+                user.PasswordHash = request.UpdateUserDto.Password!;
+            }
 
             await _userRepository.UpdateUserAsync(user)!;
 
             var returnedUser = new GetUserDto
             {
+                UserId = user.UserId,
+                UserRole = user.UserRole,
                 Email = user.Email,
                 FullName = user.FullName,
                 UserName = user.UserName,
