@@ -3,4 +3,5 @@
   <Project Path="PharmacyManagementSystem.Application/PharmacyManagementSystem.Application.csproj" />
   <Project Path="PharmacyManagementSystem.Domain/PharmacyManagementSystem.Domain.csproj" />
   <Project Path="PharmacyManagementSystem.Infrastructure/PharmacyManagementSystem.Infrastructure.csproj" />
+  <Project Path="PharmacyManagementSystem.WebAppMVC/PharmacyManagementSystem.WebAppMVC.csproj" Id="c8b551ae-3857-4da3-9ad8-732dd9914130" />
 </Solution>

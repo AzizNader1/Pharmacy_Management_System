@@ -22,8 +22,8 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Commands
             if (request.createSaleDto == null)
                 throw new Exception("you should enter a valid data to each filed");
 
-            if (request.createSaleDto.SalesDate < DateTime.UtcNow || request.createSaleDto.SalesDate > DateTime.UtcNow)
-                throw new Exception("the sale date must be onle present not past or future, please enter a valid date");
+            //if (request.createSaleDto.SalesDate < DateTime.Now || request.createSaleDto.SalesDate > DateTime.Now)
+            //    throw new Exception("the sale date must be onle present not past or future, please enter a valid date");
 
             var existsUser = await _userRepository.GetUserByIdAsync(request.createSaleDto.UserId);
             if (existsUser == null)
@@ -31,7 +31,7 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Commands
 
             var sale = new Domain.Entities.Sale
             {
-                SalesDate = DateTime.UtcNow,
+                SalesDate = DateTime.Now,
                 TotalAmount = request.createSaleDto.TotalAmount,
                 UserId = request.createSaleDto.UserId,
             };

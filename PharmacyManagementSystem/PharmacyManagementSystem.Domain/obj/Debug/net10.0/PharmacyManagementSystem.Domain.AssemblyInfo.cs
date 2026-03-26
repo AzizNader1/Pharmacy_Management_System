@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PharmacyManagementSystem.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36adb839e79a70b149ac2ac75741d02b602dda8a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77a3ea3bb5f1f6ab2894dab8bbd39d1b8819e22b")]
 [assembly: System.Reflection.AssemblyProductAttribute("PharmacyManagementSystem.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PharmacyManagementSystem.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

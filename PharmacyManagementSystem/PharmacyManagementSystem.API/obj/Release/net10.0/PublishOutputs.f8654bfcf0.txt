@@ -6,6 +6,7 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PubTmp\Out\PharmacyManagementSystem.API.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PubTmp\Out\Azure.Core.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PubTmp\Out\Azure.Identity.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PubTmp\Out\BCrypt.Net-Next.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PubTmp\Out\MediatR.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PubTmp\Out\MediatR.Contracts.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll

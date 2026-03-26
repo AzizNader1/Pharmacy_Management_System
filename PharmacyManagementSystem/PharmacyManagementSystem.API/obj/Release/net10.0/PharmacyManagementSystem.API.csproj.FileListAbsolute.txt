@@ -169,3 +169,4 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PharmacyManagementSystem.API.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PharmacyManagementSystem.API.genruntimeconfig.cache
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\ref\PharmacyManagementSystem.API.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\BCrypt.Net-Next.dll

@@ -18,7 +18,7 @@ namespace PharmacyManagementSystem.Application.DTOs.SalesDTOs
         /// Date and time when the sale occurred.
         /// </summary>
         [Required(ErrorMessage = "Sales date is required.")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime SalesDate { get; set; }
 
         /// <summary>

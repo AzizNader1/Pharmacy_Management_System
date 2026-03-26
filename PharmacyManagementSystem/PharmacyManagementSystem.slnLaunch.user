@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "PharmacyManagementSystem.API\\PharmacyManagementSystem.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

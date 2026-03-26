@@ -42,9 +42,5 @@ namespace PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs
         [Range(0.01, 999999.99, ErrorMessage = "Unit price must be between 0.01 and 999,999.99.")]
         public decimal UnitPrice { get; set; }
 
-        /// <summary>
-        /// Calculated total price for this line item (Quantity × Unit Price).
-        /// </summary>
-        public decimal TotalLinePrice => ItemQuantity * UnitPrice;
     }
 }

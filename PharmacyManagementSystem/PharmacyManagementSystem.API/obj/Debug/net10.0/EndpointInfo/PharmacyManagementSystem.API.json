@@ -689,10 +689,6 @@
                     "minimum": 0.01,
                     "type": "number",
                     "format": "double"
-                  },
-                  "TotalLinePrice": {
-                    "type": "number",
-                    "format": "double"
                   }
                 }
               },
@@ -710,9 +706,6 @@
                   "style": "form"
                 },
                 "UnitPrice": {
-                  "style": "form"
-                },
-                "TotalLinePrice": {
                   "style": "form"
                 }
               }
@@ -918,7 +911,7 @@
                   },
                   "SalesDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date"
                   },
                   "TotalAmount": {
                     "maximum": 99999999.99,

@@ -383,11 +383,6 @@
         "Name": "UnitPrice",
         "Type": "System.Decimal",
         "IsRequired": false
-      },
-      {
-        "Name": "TotalLinePrice",
-        "Type": "System.Decimal",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
