@@ -1,0 +1,50 @@
+@model PharmacyManagementSystem.Application.DTOs.UserDTOs.CreateUserDto
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="glass-panel text-center">
+            <h2 class="mb-4 text-white">Create Account</h2>
+            <form asp-action="Signup" method="post">
+                <div class="row">
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <input asp-for="UserName" class="form-control" placeholder="UserName" />
+                        <label asp-for="UserName" class="text-secondary ms-2">Username</label>
+                        <span asp-validation-for="UserName" class="text-danger d-block mt-1"></span>
+                    </div>
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <input asp-for="FullName" class="form-control" placeholder="FullName" />
+                        <label asp-for="FullName" class="text-secondary ms-2">Full Name</label>
+                        <span asp-validation-for="FullName" class="text-danger d-block mt-1"></span>
+                    </div>
+                </div>
+                <div class="form-floating mb-3 text-start">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Email" />
+                    <label asp-for="Email" class="text-secondary">Email Address</label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 text-start">
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
+                    <label asp-for="PhoneNumber" class="text-secondary">Phone Number</label>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-4 text-start">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                    <label asp-for="Password" class="text-secondary">Password</label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100 py-2 fs-5 rounded-pill">Sign Up</button>
+            </form>
+            <div class="mt-4">
+                <p class="text-muted">Already have an account? <a asp-action="Login" class="text-info text-decoration-none">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

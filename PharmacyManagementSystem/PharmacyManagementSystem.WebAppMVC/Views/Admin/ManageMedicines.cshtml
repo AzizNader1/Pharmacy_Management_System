@@ -1,0 +1,52 @@
+@model IEnumerable<PharmacyManagementSystem.Application.DTOs.MedicineDTOs.GetMedicineDto>
+@{
+    ViewData["Title"] = "Manage Inventory";
+}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="text-white m-0">Inventory Management</h2>
+        <p class="text-muted">Manage all medicines available in the pharmacy.</p>
+    </div>
+    <a asp-action="CreateMedicine" class="btn btn-primary rounded-pill px-4 py-3 shadow fs-6 fw-bold">+ Add New Medicine</a>
+</div>
+
+<div class="glass-panel">
+    <div class="d-flex mb-4">
+        <input type="text" class="form-control w-25 rounded-pill px-3" placeholder="Search Inventory..." />
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover bg-transparent text-white">
+            <thead>
+                <tr>
+                    <th class="border-0 border-bottom border-secondary text-muted px-3">ID</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">Name</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">Generic Name</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">Category</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">Price</th>
+                    <th class="border-0 border-bottom border-secondary text-muted text-end px-3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr><td colspan="6" class="text-center text-muted">No medicines available.</td></tr>
+                }
+                @foreach (var med in Model)
+                {
+                    <tr>
+                        <td class="align-middle px-3 text-secondary">@med.MedicineId</td>
+                        <td class="align-middle">@med.Name</td>
+                        <td class="align-middle">@med.GenericName</td>
+                        <td class="align-middle">@med.Category</td>
+                        <td class="align-middle">$@med.MedicinePrice</td>
+                        <td class="align-middle text-end px-3">
+                            <button class="btn btn-sm btn-outline-info rounded-pill px-3 me-2">Edit</button>
+                            <button class="btn btn-sm btn-outline-danger rounded-pill px-3">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

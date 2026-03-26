@@ -1,6 +1,69 @@
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.min.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\LICENSE.txt
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\css\site.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\LICENSE.md
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.slim.min.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\additional-methods.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.slim.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\favicon.ico
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\js\site.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.slim.min.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
+wwwroot\lib\bootstrap\LICENSE
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -45,81 +108,18 @@ wwwroot\lib\bootstrap\dist\js\bootstrap.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
-wwwroot\lib\bootstrap\LICENSE
+wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
-wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation\dist\additional-methods.js
 wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 wwwroot\lib\jquery-validation\dist\jquery.validate.js
 wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-wwwroot\lib\jquery-validation\LICENSE.md
+wwwroot\lib\jquery\LICENSE.txt
 wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
-wwwroot\lib\jquery\LICENSE.txt
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\css\site.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\favicon.ico
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\js\site.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\additional-methods.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\jquery.validate.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery-validation\LICENSE.md
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.min.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.slim.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.slim.min.js
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\dist\jquery.slim.min.map
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\wwwroot\lib\jquery\LICENSE.txt

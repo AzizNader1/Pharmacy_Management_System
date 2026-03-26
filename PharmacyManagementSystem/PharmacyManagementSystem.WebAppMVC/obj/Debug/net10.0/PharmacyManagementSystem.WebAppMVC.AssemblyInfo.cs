@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PharmacyManagementSystem.WebAppMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77a3ea3bb5f1f6ab2894dab8bbd39d1b8819e22b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61ca2d21ffc05acee0c5f83d8944d69fed183157")]
 [assembly: System.Reflection.AssemblyProductAttribute("PharmacyManagementSystem.WebAppMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PharmacyManagementSystem.WebAppMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

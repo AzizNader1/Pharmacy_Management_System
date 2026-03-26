@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<div class="row mb-4">
+    <div class="col-12 text-center text-white">
+        <h1 class="display-5 font-weight-bold">Admin Dashboard</h1>
+        <p class="lead text-muted">Overview of Pharmacy Operations</p>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
+    <div class="col">
+        <div class="glass-panel text-center p-4">
+            <h5 class="text-muted mb-2">Today's Sales</h5>
+            <h2 class="text-primary fw-bold">$1,240.50</h2>
+        </div>
+    </div>
+    <div class="col">
+        <div class="glass-panel text-center p-4">
+            <h5 class="text-muted mb-2">Total Orders</h5>
+            <h2 class="text-primary fw-bold">85</h2>
+        </div>
+    </div>
+    <div class="col">
+        <div class="glass-panel text-center p-4">
+            <h5 class="text-muted mb-2">Low Stock Items</h5>
+            <h2 class="text-warning fw-bold">12</h2>
+        </div>
+    </div>
+    <div class="col">
+        <div class="glass-panel text-center p-4">
+            <h5 class="text-muted mb-2">Out of Stock</h5>
+            <h2 class="text-danger fw-bold">3</h2>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center">
+    <div class="col-md-6 mb-4">
+        <div class="glass-panel p-5 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h3 class="text-white">Manage Inventory</h3>
+            <p class="text-muted">Add, Edit, or Delete medicines.</p>
+            <a asp-action="ManageMedicines" class="btn btn-primary w-50 py-3 rounded-pill mt-3 text-white fs-5">Go to Inventory</a>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="glass-panel p-5 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h3 class="text-white">Financial Reports</h3>
+            <p class="text-muted">View detailed sales analytics and trends.</p>
+            <a asp-action="Reports" class="btn bg-transparent border border-2 border-primary text-primary w-50 py-3 rounded-pill mt-3 fs-5 hover-btn">View Reports</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-btn:hover {
+        background: var(--primary) !important;
+        color: white !important;
+    }
+</style>

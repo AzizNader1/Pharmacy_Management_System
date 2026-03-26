@@ -22,7 +22,6 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\scopedcss\bundle\PharmacyManagementSystem.WebAppMVC.styles.css
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\scopedcss\projectbundle\PharmacyManagementSystem.WebAppMVC.bundle.scp.css
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\compressed\3z2g1f4fzc-{0}-b9sayid5wm-b9sayid5wm.gz
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\compressed\knk2o06kxh-{0}-61n19gt1b8-61n19gt1b8.gz
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\compressed\wwmro049lh-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\compressed\54hz7j0jf7-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -97,3 +96,17 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\PharmacyManagementSystem.WebAppMVC.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\PharmacyManagementSystem.WebAppMVC.genruntimeconfig.cache
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\ref\PharmacyManagementSystem.WebAppMVC.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\compressed\3z2g1f4fzc-{0}-v3she4w1hx-v3she4w1hx.gz
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\BCrypt.Net-Next.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\MediatR.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\MediatR.Contracts.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\PharmacyManagementSystem.Application.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\PharmacyManagementSystem.Domain.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\PharmacyManagementSystem.Application.pdb
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\PharmacyManagementSystem.Domain.pdb
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\PharmacyManagementSystem.WebAppMVC.csproj.AssemblyReference.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\Pharmacy.77C1D7E6.Up2Date
