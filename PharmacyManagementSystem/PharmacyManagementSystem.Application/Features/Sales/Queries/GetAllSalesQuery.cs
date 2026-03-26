@@ -23,18 +23,23 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Queries
                 throw new Exception("there is no sales exists in the database at this time");
 
             var wantedSaleItems = new List<GetSaleItemDto>();
-            foreach (var item in allSales.SelectMany(s => s!.SaleItems))
+            var existingSaleItems = allSales.SelectMany(s => s!.SaleItems).ToList();
+            if (existingSaleItems.Count() != 0)
             {
-                wantedSaleItems.Add(new GetSaleItemDto
+                foreach (var item in existingSaleItems)
                 {
-                    BatchId = item.BatchId,
-                    ItemQuantity = item.ItemQuantity,
-                    SaleItemId = item.SaleItemId,
-                    MedicineId = item.MedicineId,
-                    SaleId = item.SaleId,
-                    UnitPrice = item.UnitPrice,
-                });
+                    wantedSaleItems.Add(new GetSaleItemDto
+                    {
+                        BatchId = item.BatchId,
+                        ItemQuantity = item.ItemQuantity,
+                        SaleItemId = item.SaleItemId,
+                        MedicineId = item.MedicineId,
+                        SaleId = item.SaleId,
+                        UnitPrice = item.UnitPrice,
+                    });
+                }
             }
+
 
             var returnedSales = new List<GetSaleDto>();
             foreach (var item in allSales)
@@ -45,7 +50,7 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Queries
                     SalesDate = item!.SalesDate,
                     TotalAmount = item!.TotalAmount,
                     UserId = item!.UserId,
-                    SaleItems = wantedSaleItems,
+                    SaleItems = wantedSaleItems.Count() == 0 ? [] : wantedSaleItems.Where(w => w.SaleId == item.SaleId).ToList(),
                 });
             }
             ;

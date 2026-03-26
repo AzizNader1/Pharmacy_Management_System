@@ -18,8 +18,8 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Queries
 
         public async Task<GetSaleDto> Handle(GetSaleDetailsQuery request, CancellationToken cancellationToken)
         {
-            if (request.id == 0)
-                throw new Exception("you should enter a valid data for the id field");
+            if (request.id <= 0)
+                throw new Exception("you should enter a valid data for the id field, please enter a positive valid value.");
 
             var existingSale = await _salesRepository.GetSaleByIdAsync(request.id);
             if (existingSale == null)
@@ -35,7 +35,7 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Queries
                     ItemQuantity = item.ItemQuantity,
                     MedicineId = item.MedicineId,
                     SaleId = item.SaleId,
-                    UnitPrice = item.UnitPrice,
+                    UnitPrice = item.UnitPrice
                 });
             }
 

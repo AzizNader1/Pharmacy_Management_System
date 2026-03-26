@@ -8,10 +8,12 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Commands
     public class DeleteSaleCommandHandler : IRequestHandler<DeleteSaleCommand, bool>
     {
         private readonly ISalesRepository _salesRepository;
+        private readonly ISalesItemsRepository _salesItemsRepository;
 
-        public DeleteSaleCommandHandler(ISalesRepository salesRepository)
+        public DeleteSaleCommandHandler(ISalesRepository salesRepository, ISalesItemsRepository salesItemsRepository)
         {
             _salesRepository = salesRepository;
+            _salesItemsRepository = salesItemsRepository;
         }
 
         public async Task<bool> Handle(DeleteSaleCommand request, CancellationToken cancellationToken)
@@ -23,7 +25,14 @@ namespace PharmacyManagementSystem.Application.Features.Sale.Commands
             if (existsSale == null)
                 throw new Exception("there is no sale exists for this id");
 
+            var saleItemsIds = existsSale.SaleItems.Select(s => s.SaleId).ToList();
+
             await _salesRepository.DeleteSaleAsync(existsSale)!;
+            foreach (var id in saleItemsIds)
+            {
+                var saleItem = await _salesItemsRepository.GetSaleItemByIdAsync(id);
+                await _salesItemsRepository.DeleteSaleItemAsync(saleItem!)!;
+            }
 
             return true;
         }

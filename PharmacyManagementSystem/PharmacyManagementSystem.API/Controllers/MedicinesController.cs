@@ -50,8 +50,6 @@ namespace PharmacyManagementSystem.API.Controllers
             {
                 var request = new GetAllMedicinesQuery();
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no medicines avalible at this time, please try again later");
 
                 return Ok(result);
             }
@@ -69,13 +67,8 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new GetMedicineDetailsQuery(id);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no medicines avalible for this id value, please try again later");
 
                 return Ok(result);
             }
@@ -93,13 +86,8 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new DeleteMedicineCommand(id);
                 var result = await _mediator.Send(request);
-                if (!result)
-                    return BadRequest("the delete process of the requsted medicine not success");
 
                 return Ok(new
                 {
@@ -120,16 +108,11 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var request = new UpdateMedicineCommand(id, updateMedicineDto);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("the update process of the requsted medicine not success");
 
                 return Ok(new
                 {
@@ -151,7 +134,10 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                throw new NotImplementedException();
+                var query = new GetMedicineByNameQuery(medicineName);
+                var result = await _mediator.Send(query);
+
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -167,7 +153,10 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                throw new NotImplementedException();
+                var query = new GetMedicinesByCategoryQuery(categoryName);
+                var result = await _mediator.Send(query);
+
+                return Ok(result);
             }
             catch (Exception ex)
             {

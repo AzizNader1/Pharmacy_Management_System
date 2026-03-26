@@ -10,36 +10,39 @@ namespace PharmacyManagementSystem.Application.Features.Sales.Queries
     public class GetAllSalesByUserNameQueryHandler : IRequestHandler<GetAllSalesByUserNameQuery, List<GetSaleDto>>
     {
         private readonly ISalesRepository _salesRepository;
+        private readonly IUserRepository _userRepository;
 
-        public GetAllSalesByUserNameQueryHandler(ISalesRepository salesRepository)
+        public GetAllSalesByUserNameQueryHandler(ISalesRepository salesRepository, IUserRepository userRepository)
         {
             _salesRepository = salesRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<List<GetSaleDto>> Handle(GetAllSalesByUserNameQuery request, CancellationToken cancellationToken)
         {
             if (request.usreName == null)
-                throw new Exception("you should enter a valid data for the user name field");
+                throw new Exception("you should enter a valid value to the id");
+
+            var existsUser = await _userRepository.GetUserByNameAsync(request.usreName);
+            if (existsUser == null)
+                throw new Exception("there is no exists user in the database for this user id");
 
             var existingSaleForUser = await _salesRepository.GetAllSalesByUserNameAsync(request.usreName);
             if (existingSaleForUser == null)
-                throw new Exception("ther is no users exists for this name");
-
-            if (existingSaleForUser.Count() == 0 || existingSaleForUser == null)
-                throw new Exception("there is no sales avalible for this user");
+                throw new Exception("there is no exists sales for this requested user");
 
             var wantedSaleItems = new List<GetSaleItemDto>();
-
-            foreach (var item in existingSaleForUser.SelectMany(s => s!.SaleItems))
+            var existsSaleItemsForUser = existingSaleForUser.SelectMany(s => s!.SaleItems).ToList();
+            foreach (var item in existsSaleItemsForUser)
             {
                 wantedSaleItems.Add(new GetSaleItemDto
                 {
-                    BatchId = item.BatchId,
-                    ItemQuantity = item.ItemQuantity,
-                    SaleItemId = item.SaleItemId,
-                    MedicineId = item.MedicineId,
-                    SaleId = item.SaleId,
-                    UnitPrice = item.UnitPrice,
+                    BatchId = item!.BatchId,
+                    ItemQuantity = item!.ItemQuantity,
+                    SaleItemId = item!.SaleItemId,
+                    MedicineId = item!.MedicineId,
+                    SaleId = item!.SaleId,
+                    UnitPrice = item!.UnitPrice,
                 });
             }
 
@@ -52,7 +55,7 @@ namespace PharmacyManagementSystem.Application.Features.Sales.Queries
                     SalesDate = item!.SalesDate,
                     TotalAmount = item!.TotalAmount,
                     UserId = item!.UserId,
-                    SaleItems = wantedSaleItems,
+                    SaleItems = wantedSaleItems.Count() == 0 ? [] : wantedSaleItems.Where(s => s.SaleId == item.SaleId).ToList(),
                 });
             }
             ;

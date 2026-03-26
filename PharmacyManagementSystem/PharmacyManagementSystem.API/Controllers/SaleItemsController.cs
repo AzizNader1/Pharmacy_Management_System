@@ -4,6 +4,7 @@ using PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs;
 using PharmacyManagementSystem.Application.Features.SaleItem.Commands;
 using PharmacyManagementSystem.Application.Features.SaleItem.Queries;
 using PharmacyManagementSystem.Application.Features.SaleItems.Queries;
+using PharmacyManagementSystem.Application.Features.SalesItems.Queries;
 
 namespace PharmacyManagementSystem.API.Controllers
 {
@@ -23,16 +24,11 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (createSaleItemDto == null)
-                    return BadRequest("you should enter a value inside the all fields");
-
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var request = new CreateSaleItemCommand(createSaleItemDto);
                 var result = await _mediator.Send(request);
-                if (result == 0)
-                    return BadRequest("Unable to perform this operation, please try again later");
 
                 return Ok(new
                 {
@@ -56,8 +52,6 @@ namespace PharmacyManagementSystem.API.Controllers
             {
                 var request = new GetAllSaleItemsQuery();
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no saleitems avalible at this time, please try again later");
 
                 return Ok(result);
             }
@@ -75,13 +69,8 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new GetSaleItemsDetailsQuery(id);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("there is no saleitems avalible for this id value, please try again later");
 
                 return Ok(result);
             }
@@ -99,13 +88,8 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 var request = new DeleteSaleItemCommand(id);
                 var result = await _mediator.Send(request);
-                if (!result)
-                    return BadRequest("the delete process of the requsted sale item not success");
 
                 return Ok(new
                 {
@@ -126,16 +110,11 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                if (id <= 0)
-                    return BadRequest("Please enter a valid id value");
-
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var request = new UpdateSaleItemCommand(id, updateSaleItemDto);
                 var result = await _mediator.Send(request);
-                if (result == null)
-                    return BadRequest("the update process of the requsted sale item not success");
 
                 return Ok(new
                 {
@@ -157,7 +136,10 @@ namespace PharmacyManagementSystem.API.Controllers
         {
             try
             {
-                throw new NotImplementedException();
+                var query = new GetAllSaleItemsBySaleIdQuery(saleId);
+                var result = await _mediator.Send(query);
+
+                return Ok(result);
             }
             catch (Exception ex)
             {
