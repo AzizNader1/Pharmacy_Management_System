@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PharmacyManagementSystem.Application.DTOs.UserDTOs;
 using PharmacyManagementSystem.Application.Features.User.Commands;
@@ -17,6 +18,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register([FromForm] CreateUserDto createUserDto)
         {
             try
@@ -43,6 +45,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromForm] LoginRequestDto loginRequestDto)
         {
             try

@@ -1,3 +1,12 @@
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.csproj.AssemblyReference.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.GeneratedMSBuildEditorConfig.editorconfig
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.AssemblyInfoInputs.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.AssemblyInfo.cs
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.csproj.CoreCompileInputs.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.MvcApplicationPartsAssemblyInfo.cs
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.MvcApplicationPartsAssemblyInfo.cache
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.sourcelink.json
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\appsettings.Development.json
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\appsettings.json
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\PharmacyManagementSystem.API.staticwebassets.endpoints.json
@@ -12,7 +21,7 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\Humanizer.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\MediatR.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\MediatR.Contracts.dll
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\Microsoft.Build.Framework.dll
@@ -145,15 +154,6 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\PharmacyManagementSystem.Application.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\PharmacyManagementSystem.Infrastructure.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Debug\net10.0\PharmacyManagementSystem.Domain.pdb
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.csproj.AssemblyReference.cache
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\rpswa.dswa.cache.json
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.GeneratedMSBuildEditorConfig.editorconfig
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.AssemblyInfoInputs.cache
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.AssemblyInfo.cs
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.csproj.CoreCompileInputs.cache
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.MvcApplicationPartsAssemblyInfo.cs
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.MvcApplicationPartsAssemblyInfo.cache
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\PharmacyManagementSystem.API.sourcelink.json
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\rjimswa.dswa.cache.json
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json

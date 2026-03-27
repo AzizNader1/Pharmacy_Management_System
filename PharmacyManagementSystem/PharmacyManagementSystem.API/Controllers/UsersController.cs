@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PharmacyManagementSystem.Application.DTOs.UserDTOs;
 using PharmacyManagementSystem.Application.Features.User.Commands;
@@ -18,6 +19,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -37,6 +39,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             try
@@ -56,6 +59,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             try
@@ -78,6 +82,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update(int id, UpdateUserDto updateUserDto)
         {
             try
@@ -104,6 +109,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{email}")]
+        [Authorize]
         public async Task<IActionResult> GetByEmail(string email)
         {
             try
@@ -123,6 +129,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{name}")]
+        [Authorize]
         public async Task<IActionResult> GetByName(string name)
         {
             try
@@ -142,6 +149,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{role}")]
+        [Authorize]
         public async Task<IActionResult> GetByRole(string role)
         {
             try

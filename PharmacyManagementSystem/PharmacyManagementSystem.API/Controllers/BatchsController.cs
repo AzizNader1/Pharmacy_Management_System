@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
 using PharmacyManagementSystem.Application.Features.Batch.Commands;
@@ -18,6 +19,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add([FromForm] CreateBatchDto createBatchDto)
         {
             try
@@ -44,6 +46,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -63,6 +66,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             try
@@ -82,6 +86,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             try
@@ -104,6 +109,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update(int id, [FromForm] UpdateBatchDto updateBatchDto)
         {
             try

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
 using PharmacyManagementSystem.Application.Features.Sale.Commands;
@@ -19,6 +20,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add([FromForm] CreateSaleDto createSaleDto)
         {
             try
@@ -45,6 +47,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -64,6 +67,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             try
@@ -83,6 +87,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             try
@@ -105,6 +110,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update(int id, [FromForm] UpdateSaleDto updateSaleDto)
         {
             try
@@ -131,6 +137,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{userId}")]
+        [Authorize]
         public async Task<IActionResult> GetAllSalesByUserId(int userId)
         {
             try
@@ -150,6 +157,7 @@ namespace PharmacyManagementSystem.API.Controllers
         }
 
         [HttpGet("{userName}")]
+        [Authorize]
         public async Task<IActionResult> GetAllSalesByUserName(string userName)
         {
             try
