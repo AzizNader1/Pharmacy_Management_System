@@ -11,7 +11,6 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\Humanizer.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\MediatR.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\MediatR.Contracts.dll
-P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\Microsoft.AspNetCore.OpenApi.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\Microsoft.Bcl.Cryptography.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\Microsoft.Build.Framework.dll
@@ -170,3 +169,4 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\PharmacyManagementSystem.API.genruntimeconfig.cache
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\obj\Release\net10.0\ref\PharmacyManagementSystem.API.dll
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\BCrypt.Net-Next.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.API\bin\Release\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

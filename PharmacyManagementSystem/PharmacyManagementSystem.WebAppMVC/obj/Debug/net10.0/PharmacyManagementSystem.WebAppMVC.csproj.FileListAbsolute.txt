@@ -110,3 +110,4 @@ P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManag
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\PharmacyManagementSystem.WebAppMVC.pdb
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\PharmacyManagementSystem.WebAppMVC.genruntimeconfig.cache
 P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\obj\Debug\net10.0\ref\PharmacyManagementSystem.WebAppMVC.dll
+P:\My Projects\Pharmacy_Management_System\PharmacyManagementSystem\PharmacyManagementSystem.WebAppMVC\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll

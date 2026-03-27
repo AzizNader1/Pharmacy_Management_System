@@ -43,7 +43,7 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
                 FullName = user.FullName,
                 UserName = user.UserName,
                 PhoneNumber = user.PhoneNumber,
-                Password = user.PasswordHash
+                PasswordHash = user.PasswordHash
             };
 
             return returnedUser;

@@ -29,11 +29,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new CreateUserCommand(createUserDto);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    createdUserId = result,
-                    message = "User Register Successfully."
-                });
+                return Ok(result);
             }
             catch (Exception ex)
             {

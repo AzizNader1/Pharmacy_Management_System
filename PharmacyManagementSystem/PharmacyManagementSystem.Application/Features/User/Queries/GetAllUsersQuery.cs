@@ -30,7 +30,7 @@ namespace PharmacyManagementSystem.Application.Features.User.Queries
                     UserName = user!.UserName,
                     Email = user.Email,
                     FullName = user.FullName,
-                    Password = user.PasswordHash,
+                    PasswordHash = user.PasswordHash,
                     PhoneNumber = user.PhoneNumber,
                     UserId = user.UserId,
                     UserRole = user.UserRole

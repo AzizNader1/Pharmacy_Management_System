@@ -22,16 +22,40 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Accounts/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Accounts/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcU2lnbnVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/CreateMedicine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlTWVkaWNpbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/ManageMedicines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlTWVkaWNpbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVwb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Cashier/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FzaGllclxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Cashier/Sales.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FzaGllclxTYWxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Cashier/SearchMedicines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FzaGllclxTZWFyY2hNZWRpY2luZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Shared/_ValidationScriptsPartial.cshtml]

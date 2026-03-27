@@ -27,7 +27,7 @@ namespace PharmacyManagementSystem.Application.Features.User.Queries
             return new GetUserDto
             {
                 Email = user!.Email,
-                Password = user.PasswordHash,
+                PasswordHash = user.PasswordHash,
                 FullName = user.FullName,
                 UserId = user.UserId,
                 UserName = user.UserName,
