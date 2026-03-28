@@ -11,6 +11,7 @@
         public string Token { get; set; } = string.Empty;
         public double ExpiresIn { get; set; }
         public bool IsAuthenticated { get; set; }
+        public string? Message { get; set; }
 
     }
 }

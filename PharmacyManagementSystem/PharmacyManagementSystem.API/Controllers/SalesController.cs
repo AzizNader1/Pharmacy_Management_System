@@ -21,7 +21,7 @@ namespace PharmacyManagementSystem.API.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Add([FromForm] CreateSaleDto createSaleDto)
+        public async Task<IActionResult> Add([FromBody] CreateSaleDto createSaleDto)
         {
             try
             {
@@ -111,7 +111,7 @@ namespace PharmacyManagementSystem.API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> Update(int id, [FromForm] UpdateSaleDto updateSaleDto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateSaleDto updateSaleDto)
         {
             try
             {

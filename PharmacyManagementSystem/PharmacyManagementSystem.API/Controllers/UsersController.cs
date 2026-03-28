@@ -83,7 +83,7 @@ namespace PharmacyManagementSystem.API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> Update(int id, UpdateUserDto updateUserDto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateUserDto updateUserDto)
         {
             try
             {

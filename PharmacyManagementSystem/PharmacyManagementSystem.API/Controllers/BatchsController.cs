@@ -20,7 +20,7 @@ namespace PharmacyManagementSystem.API.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Add([FromForm] CreateBatchDto createBatchDto)
+        public async Task<IActionResult> Add([FromBody] CreateBatchDto createBatchDto)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace PharmacyManagementSystem.API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> Update(int id, [FromForm] UpdateBatchDto updateBatchDto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateBatchDto updateBatchDto)
         {
             try
             {

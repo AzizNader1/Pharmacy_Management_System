@@ -12,65 +12,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "Email",
-                  "FullName",
-                  "Password",
-                  "PhoneNumber",
-                  "UserName"
-                ],
-                "type": "object",
-                "properties": {
-                  "UserName": {
-                    "maxLength": 50,
-                    "minLength": 3,
-                    "pattern": "^[a-zA-Z0-9_]+$",
-                    "type": "string"
-                  },
-                  "Password": {
-                    "maxLength": 100,
-                    "minLength": 6,
-                    "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$",
-                    "type": "string"
-                  },
-                  "FullName": {
-                    "maxLength": 100,
-                    "minLength": 2,
-                    "pattern": "^[a-zA-Z\\s\\-']+$",
-                    "type": "string"
-                  },
-                  "Email": {
-                    "maxLength": 100,
-                    "minLength": 0,
-                    "type": "string",
-                    "format": "email"
-                  },
-                  "PhoneNumber": {
-                    "maxLength": 20,
-                    "minLength": 7,
-                    "type": "string",
-                    "format": "tel"
-                  }
-                }
-              },
-              "encoding": {
-                "UserName": {
-                  "style": "form"
-                },
-                "Password": {
-                  "style": "form"
-                },
-                "FullName": {
-                  "style": "form"
-                },
-                "Email": {
-                  "style": "form"
-                },
-                "PhoneNumber": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
               }
             }
           }
@@ -89,42 +43,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "Email",
-                  "Password",
-                  "UserName"
-                ],
-                "type": "object",
-                "properties": {
-                  "UserName": {
-                    "maxLength": 50,
-                    "minLength": 3,
-                    "pattern": "^[a-zA-Z0-9_]+$",
-                    "type": "string"
-                  },
-                  "Email": {
-                    "maxLength": 100,
-                    "minLength": 0,
-                    "type": "string",
-                    "format": "email"
-                  },
-                  "Password": {
-                    "type": "string"
-                  }
-                }
-              },
-              "encoding": {
-                "UserName": {
-                  "style": "form"
-                },
-                "Email": {
-                  "style": "form"
-                },
-                "Password": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
               }
             }
           }
@@ -143,70 +74,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "BatchNumber",
-                  "BatchQuantity",
-                  "Category",
-                  "ExpiryDate",
-                  "MedicineId",
-                  "PurchasePrice"
-                ],
-                "type": "object",
-                "properties": {
-                  "BatchNumber": {
-                    "maxLength": 10,
-                    "minLength": 4,
-                    "pattern": "^[A-Za-z0-9]+$",
-                    "type": "string"
-                  },
-                  "ExpiryDate": {
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "BatchQuantity": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "PurchasePrice": {
-                    "maximum": 999999.99,
-                    "minimum": 0.01,
-                    "type": "number",
-                    "format": "double"
-                  },
-                  "Category": {
-                    "$ref": "#/components/schemas/MedicineCategories"
-                  },
-                  "MedicineId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                }
-              },
-              "encoding": {
-                "BatchNumber": {
-                  "style": "form"
-                },
-                "ExpiryDate": {
-                  "style": "form"
-                },
-                "BatchQuantity": {
-                  "style": "form"
-                },
-                "PurchasePrice": {
-                  "style": "form"
-                },
-                "Category": {
-                  "style": "form"
-                },
-                "MedicineId": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/CreateBatchDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBatchDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBatchDto"
               }
             }
           }
@@ -313,70 +193,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "BatchNumber",
-                  "BatchQuantity",
-                  "Category",
-                  "ExpiryDate",
-                  "MedicineId",
-                  "PurchasePrice"
-                ],
-                "type": "object",
-                "properties": {
-                  "BatchNumber": {
-                    "maxLength": 10,
-                    "minLength": 4,
-                    "pattern": "^[A-Za-z0-9]+$",
-                    "type": "string"
-                  },
-                  "ExpiryDate": {
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "BatchQuantity": {
-                    "maximum": 2147483647,
-                    "minimum": 0,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "PurchasePrice": {
-                    "maximum": 999999.99,
-                    "minimum": 0.01,
-                    "type": "number",
-                    "format": "double"
-                  },
-                  "Category": {
-                    "$ref": "#/components/schemas/MedicineCategories"
-                  },
-                  "MedicineId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                }
-              },
-              "encoding": {
-                "BatchNumber": {
-                  "style": "form"
-                },
-                "ExpiryDate": {
-                  "style": "form"
-                },
-                "BatchQuantity": {
-                  "style": "form"
-                },
-                "PurchasePrice": {
-                  "style": "form"
-                },
-                "Category": {
-                  "style": "form"
-                },
-                "MedicineId": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/UpdateBatchDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBatchDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBatchDto"
               }
             }
           }
@@ -400,69 +229,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "Category",
-                  "GenericName",
-                  "MedicinePrice",
-                  "Name",
-                  "ReorderLevel"
-                ],
-                "type": "object",
-                "properties": {
-                  "Name": {
-                    "maxLength": 200,
-                    "minLength": 2,
-                    "pattern": "^[a-zA-Z0-9\\s\\-]+$",
-                    "type": "string"
-                  },
-                  "GenericName": {
-                    "maxLength": 200,
-                    "minLength": 2,
-                    "type": "string"
-                  },
-                  "Description": {
-                    "maxLength": 1000,
-                    "minLength": 0,
-                    "type": "string"
-                  },
-                  "MedicinePrice": {
-                    "maximum": 999999.99,
-                    "minimum": 0.01,
-                    "type": "number",
-                    "format": "double"
-                  },
-                  "ReorderLevel": {
-                    "maximum": 2147483647,
-                    "minimum": 0,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Category": {
-                    "$ref": "#/components/schemas/MedicineCategories"
-                  }
-                }
-              },
-              "encoding": {
-                "Name": {
-                  "style": "form"
-                },
-                "GenericName": {
-                  "style": "form"
-                },
-                "Description": {
-                  "style": "form"
-                },
-                "MedicinePrice": {
-                  "style": "form"
-                },
-                "ReorderLevel": {
-                  "style": "form"
-                },
-                "Category": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/CreateMedicineDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMedicineDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMedicineDto"
               }
             }
           }
@@ -569,69 +348,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "Category",
-                  "GenericName",
-                  "MedicinePrice",
-                  "Name",
-                  "ReorderLevel"
-                ],
-                "type": "object",
-                "properties": {
-                  "Name": {
-                    "maxLength": 200,
-                    "minLength": 2,
-                    "pattern": "^[a-zA-Z0-9\\s\\-]+$",
-                    "type": "string"
-                  },
-                  "GenericName": {
-                    "maxLength": 200,
-                    "minLength": 2,
-                    "type": "string"
-                  },
-                  "Description": {
-                    "maxLength": 1000,
-                    "minLength": 0,
-                    "type": "string"
-                  },
-                  "MedicinePrice": {
-                    "maximum": 999999.99,
-                    "minimum": 0.01,
-                    "type": "number",
-                    "format": "double"
-                  },
-                  "ReorderLevel": {
-                    "maximum": 2147483647,
-                    "minimum": 0,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Category": {
-                    "$ref": "#/components/schemas/MedicineCategories"
-                  }
-                }
-              },
-              "encoding": {
-                "Name": {
-                  "style": "form"
-                },
-                "GenericName": {
-                  "style": "form"
-                },
-                "Description": {
-                  "style": "form"
-                },
-                "MedicinePrice": {
-                  "style": "form"
-                },
-                "ReorderLevel": {
-                  "style": "form"
-                },
-                "Category": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/UpdateMedicineDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMedicineDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMedicineDto"
               }
             }
           }
@@ -709,65 +438,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "BatchId",
-                  "ItemQuantity",
-                  "MedicineId",
-                  "SaleId",
-                  "UnitPrice"
-                ],
-                "type": "object",
-                "properties": {
-                  "SaleId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "MedicineId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "BatchId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "ItemQuantity": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "UnitPrice": {
-                    "maximum": 999999.99,
-                    "minimum": 0.01,
-                    "type": "number",
-                    "format": "double"
-                  }
-                }
-              },
-              "encoding": {
-                "SaleId": {
-                  "style": "form"
-                },
-                "MedicineId": {
-                  "style": "form"
-                },
-                "BatchId": {
-                  "style": "form"
-                },
-                "ItemQuantity": {
-                  "style": "form"
-                },
-                "UnitPrice": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/CreateSaleItemDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSaleItemDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSaleItemDto"
               }
             }
           }
@@ -874,65 +557,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "BatchId",
-                  "ItemQuantity",
-                  "MedicineId",
-                  "SaleId",
-                  "UnitPrice"
-                ],
-                "type": "object",
-                "properties": {
-                  "SaleId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "MedicineId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "BatchId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "ItemQuantity": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "UnitPrice": {
-                    "maximum": 999999.99,
-                    "minimum": 0.01,
-                    "type": "number",
-                    "format": "double"
-                  }
-                }
-              },
-              "encoding": {
-                "SaleId": {
-                  "style": "form"
-                },
-                "MedicineId": {
-                  "style": "form"
-                },
-                "BatchId": {
-                  "style": "form"
-                },
-                "ItemQuantity": {
-                  "style": "form"
-                },
-                "UnitPrice": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/UpdateSaleItemDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSaleItemDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSaleItemDto"
               }
             }
           }
@@ -984,43 +621,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "SalesDate",
-                  "TotalAmount",
-                  "UserId"
-                ],
-                "type": "object",
-                "properties": {
-                  "UserId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "SalesDate": {
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "TotalAmount": {
-                    "maximum": 99999999.99,
-                    "minimum": 0,
-                    "type": "number",
-                    "format": "double"
-                  }
-                }
-              },
-              "encoding": {
-                "UserId": {
-                  "style": "form"
-                },
-                "SalesDate": {
-                  "style": "form"
-                },
-                "TotalAmount": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/CreateSaleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSaleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSaleDto"
               }
             }
           }
@@ -1127,43 +740,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "SalesDate",
-                  "TotalAmount",
-                  "UserId"
-                ],
-                "type": "object",
-                "properties": {
-                  "UserId": {
-                    "maximum": 2147483647,
-                    "minimum": 1,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "SalesDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "TotalAmount": {
-                    "maximum": 99999999.99,
-                    "minimum": 0,
-                    "type": "number",
-                    "format": "double"
-                  }
-                }
-              },
-              "encoding": {
-                "UserId": {
-                  "style": "form"
-                },
-                "SalesDate": {
-                  "style": "form"
-                },
-                "TotalAmount": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/UpdateSaleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSaleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSaleDto"
               }
             }
           }
@@ -1438,6 +1027,236 @@
   },
   "components": {
     "schemas": {
+      "CreateBatchDto": {
+        "required": [
+          "batchNumber",
+          "batchQuantity",
+          "category",
+          "expiryDate",
+          "medicineId",
+          "purchasePrice"
+        ],
+        "type": "object",
+        "properties": {
+          "batchNumber": {
+            "maxLength": 10,
+            "minLength": 4,
+            "pattern": "^[A-Za-z0-9]+$",
+            "type": "string"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "batchQuantity": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchasePrice": {
+            "maximum": 999999.99,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "category": {
+            "$ref": "#/components/schemas/MedicineCategories"
+          },
+          "medicineId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMedicineDto": {
+        "required": [
+          "category",
+          "genericName",
+          "medicinePrice",
+          "name",
+          "reorderLevel"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 200,
+            "minLength": 2,
+            "pattern": "^[a-zA-Z0-9\\s\\-]+$",
+            "type": "string"
+          },
+          "genericName": {
+            "maxLength": 200,
+            "minLength": 2,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "medicinePrice": {
+            "maximum": 999999.99,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "reorderLevel": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "$ref": "#/components/schemas/MedicineCategories"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSaleDto": {
+        "required": [
+          "salesDate",
+          "totalAmount",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "salesDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "totalAmount": {
+            "maximum": 99999999.99,
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSaleItemDto": {
+        "required": [
+          "batchId",
+          "itemQuantity",
+          "medicineId",
+          "saleId",
+          "unitPrice"
+        ],
+        "type": "object",
+        "properties": {
+          "saleId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "medicineId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "batchId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemQuantity": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitPrice": {
+            "maximum": 999999.99,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateUserDto": {
+        "required": [
+          "email",
+          "fullName",
+          "password",
+          "phoneNumber",
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "maxLength": 50,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 100,
+            "minLength": 6,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$",
+            "type": "string"
+          },
+          "fullName": {
+            "maxLength": 100,
+            "minLength": 2,
+            "pattern": "^[a-zA-Z\\s\\-']+$",
+            "type": "string"
+          },
+          "email": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "format": "email"
+          },
+          "phoneNumber": {
+            "maxLength": 20,
+            "minLength": 7,
+            "type": "string",
+            "format": "tel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequestDto": {
+        "required": [
+          "email",
+          "password",
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "maxLength": 50,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "type": "string"
+          },
+          "email": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "MedicineCategories": {
         "enum": [
           "Antibiotics",
@@ -1459,6 +1278,166 @@
           "Other"
         ],
         "type": "string"
+      },
+      "UpdateBatchDto": {
+        "required": [
+          "batchNumber",
+          "batchQuantity",
+          "category",
+          "expiryDate",
+          "medicineId",
+          "purchasePrice"
+        ],
+        "type": "object",
+        "properties": {
+          "batchNumber": {
+            "maxLength": 10,
+            "minLength": 4,
+            "pattern": "^[A-Za-z0-9]+$",
+            "type": "string"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "batchQuantity": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchasePrice": {
+            "maximum": 999999.99,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "category": {
+            "$ref": "#/components/schemas/MedicineCategories"
+          },
+          "medicineId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateMedicineDto": {
+        "required": [
+          "category",
+          "genericName",
+          "medicinePrice",
+          "name",
+          "reorderLevel"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 200,
+            "minLength": 2,
+            "pattern": "^[a-zA-Z0-9\\s\\-]+$",
+            "type": "string"
+          },
+          "genericName": {
+            "maxLength": 200,
+            "minLength": 2,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "medicinePrice": {
+            "maximum": 999999.99,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "reorderLevel": {
+            "maximum": 2147483647,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "$ref": "#/components/schemas/MedicineCategories"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateSaleDto": {
+        "required": [
+          "salesDate",
+          "totalAmount",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "salesDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "totalAmount": {
+            "maximum": 99999999.99,
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateSaleItemDto": {
+        "required": [
+          "batchId",
+          "itemQuantity",
+          "medicineId",
+          "saleId",
+          "unitPrice"
+        ],
+        "type": "object",
+        "properties": {
+          "saleId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "medicineId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "batchId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemQuantity": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitPrice": {
+            "maximum": 999999.99,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
       },
       "UpdateUserDto": {
         "required": [

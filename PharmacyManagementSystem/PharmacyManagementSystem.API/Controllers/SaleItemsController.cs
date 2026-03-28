@@ -22,7 +22,7 @@ namespace PharmacyManagementSystem.API.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Add([FromForm] CreateSaleItemDto createSaleItemDto)
+        public async Task<IActionResult> Add([FromBody] CreateSaleItemDto createSaleItemDto)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace PharmacyManagementSystem.API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> Update(int id, [FromForm] UpdateSaleItemDto updateSaleItemDto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateSaleItemDto updateSaleItemDto)
         {
             try
             {

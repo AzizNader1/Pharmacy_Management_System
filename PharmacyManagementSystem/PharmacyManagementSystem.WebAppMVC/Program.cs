@@ -1,3 +1,4 @@
+using PharmacyManagementSystem.WebAppMVC.Helpers;
 using PharmacyManagementSystem.WebAppMVC.Services.Implementations;
 using PharmacyManagementSystem.WebAppMVC.Services.Interfaces;
 
@@ -13,11 +14,15 @@ builder.Services.AddHttpClient("PharmacyApi", client =>
 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(60); // Session timeout.
+    options.IdleTimeout = TimeSpan.FromDays(7); // Session timeout.
     options.Cookie.IsEssential = true; // Make the session cookie essential
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
 });
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<SessionHelper>();
+
 builder.Services.AddScoped<IApiAccountServices, ApiAccountServices>();
 builder.Services.AddScoped<IApiSaleServices, ApiSaleServices>();
 builder.Services.AddScoped<IApiSaleItemsServices, ApiSaleItemsServices>();
@@ -35,11 +40,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseSession();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 
+// Session must be before Authentication & Authorization
+app.UseSession();
+
+// Authentication & Authorization middleware (for future use if needed)
 app.UseAuthentication();
 app.UseAuthorization();
 

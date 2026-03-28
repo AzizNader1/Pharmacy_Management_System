@@ -8,19 +8,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "loginRequestDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.UserDTOs.LoginRequestDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -34,29 +24,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "FullName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "PhoneNumber",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "createUserDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.UserDTOs.CreateUserDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -70,34 +40,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "BatchNumber",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "ExpiryDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "BatchQuantity",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "PurchasePrice",
-        "Type": "System.Decimal",
-        "IsRequired": false
-      },
-      {
-        "Name": "Category",
-        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
-        "IsRequired": false
-      },
-      {
-        "Name": "MedicineId",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "createBatchDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.BatchDTOs.CreateBatchDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -158,34 +103,9 @@
         "IsRequired": false
       },
       {
-        "Name": "BatchNumber",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "ExpiryDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "BatchQuantity",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "PurchasePrice",
-        "Type": "System.Decimal",
-        "IsRequired": false
-      },
-      {
-        "Name": "Category",
-        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
-        "IsRequired": false
-      },
-      {
-        "Name": "MedicineId",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "updateBatchDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.BatchDTOs.UpdateBatchDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -199,34 +119,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "GenericName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Description",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "MedicinePrice",
-        "Type": "System.Decimal",
-        "IsRequired": false
-      },
-      {
-        "Name": "ReorderLevel",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Category",
-        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
-        "IsRequired": false
+        "Name": "createMedicineDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.MedicineDTOs.CreateMedicineDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -319,34 +214,9 @@
         "IsRequired": false
       },
       {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "GenericName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Description",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "MedicinePrice",
-        "Type": "System.Decimal",
-        "IsRequired": false
-      },
-      {
-        "Name": "ReorderLevel",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Category",
-        "Type": "PharmacyManagementSystem.Domain.Enums.MedicineCategories",
-        "IsRequired": false
+        "Name": "updateMedicineDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.MedicineDTOs.UpdateMedicineDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -360,29 +230,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "SaleId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "MedicineId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "BatchId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "ItemQuantity",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "UnitPrice",
-        "Type": "System.Decimal",
-        "IsRequired": false
+        "Name": "createSaleItemDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs.CreateSaleItemDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -459,29 +309,9 @@
         "IsRequired": false
       },
       {
-        "Name": "SaleId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "MedicineId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "BatchId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "ItemQuantity",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "UnitPrice",
-        "Type": "System.Decimal",
-        "IsRequired": false
+        "Name": "updateSaleItemDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs.UpdateSaleItemDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -495,19 +325,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "SalesDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "TotalAmount",
-        "Type": "System.Decimal",
-        "IsRequired": false
+        "Name": "createSaleDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesDTOs.CreateSaleDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -600,19 +420,9 @@
         "IsRequired": false
       },
       {
-        "Name": "UserId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "SalesDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "TotalAmount",
-        "Type": "System.Decimal",
-        "IsRequired": false
+        "Name": "updateSaleDto",
+        "Type": "PharmacyManagementSystem.Application.DTOs.SalesDTOs.UpdateSaleDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
