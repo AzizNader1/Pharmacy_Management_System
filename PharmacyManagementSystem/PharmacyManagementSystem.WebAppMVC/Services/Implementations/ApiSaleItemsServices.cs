@@ -1,4 +1,5 @@
-﻿using PharmacyManagementSystem.WebAppMVC.Helpers;
+﻿using PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs;
+using PharmacyManagementSystem.WebAppMVC.Helpers;
 using PharmacyManagementSystem.WebAppMVC.Services.Interfaces;
 using System.Net.Http.Headers;
 
@@ -26,6 +27,36 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             }
 
             return client;
+        }
+
+        public Task? CreateSaleItemAsync(CreateSaleItemDto saleItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task? DeleteSaleItemAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<GetSaleItemDto?>> GetAllSaleItemesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<GetSaleItemDto?>> GetAllSaleItemesBySaleIdAsync(int saleId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetSaleItemDto?> GetSaleItemByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task? UpdateSaleItemAsync(UpdateSaleItemDto saleItem)
+        {
+            throw new NotImplementedException();
         }
     }
 }

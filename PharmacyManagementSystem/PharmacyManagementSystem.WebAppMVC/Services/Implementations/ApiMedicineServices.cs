@@ -1,4 +1,5 @@
-﻿using PharmacyManagementSystem.WebAppMVC.Helpers;
+﻿using PharmacyManagementSystem.Application.DTOs.MedicineDTOs;
+using PharmacyManagementSystem.WebAppMVC.Helpers;
 using PharmacyManagementSystem.WebAppMVC.Services.Interfaces;
 using System.Net.Http.Headers;
 
@@ -26,6 +27,41 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             }
 
             return client;
+        }
+
+        public Task? CreateMedicineAsync(CreateMedicineDto medicine)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task? DeleteMedicineAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<GetMedicineDto?>> GetAllMedicinesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<GetMedicineDto?>> GetAllMedicinesByCategoryAsync(string categoryName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetMedicineDto?> GetMedicineByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetMedicineDto?> GetMedicineByNameAsync(string medicineName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task? UpdateMedicineAsync(UpdateMedicineDto medicine)
+        {
+            throw new NotImplementedException();
         }
     }
 }

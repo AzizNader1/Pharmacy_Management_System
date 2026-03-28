@@ -1,4 +1,5 @@
-﻿using PharmacyManagementSystem.WebAppMVC.Helpers;
+﻿using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
+using PharmacyManagementSystem.WebAppMVC.Helpers;
 using PharmacyManagementSystem.WebAppMVC.Services.Interfaces;
 using System.Net.Http.Headers;
 
@@ -26,6 +27,31 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             }
 
             return client;
+        }
+
+        public Task? CreateBatchAsync(CreateBatchDto batch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task? DeleteBatchAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<GetBatchDto?>> GetAllBatchesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetBatchDto?> GetBatchByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task? UpdateBatchAsync(UpdateBatchDto batch)
+        {
+            throw new NotImplementedException();
         }
     }
 }
