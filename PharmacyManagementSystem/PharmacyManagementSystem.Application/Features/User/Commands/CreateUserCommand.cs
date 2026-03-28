@@ -57,7 +57,7 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
             return new AuthResponseDto
             {
                 Token = token,
-                ExpiresIn = _jwtSettings.ExpirationInMinutes * 60,
+                ExpiresIn = _jwtSettings.ExpirationInDays,
                 UserId = user!.UserId,
                 UserName = user!.UserName,
                 FullName = user!.FullName,
@@ -90,7 +90,7 @@ namespace PharmacyManagementSystem.Application.Features.User.Commands
                 issuer: _jwtSettings.Issuer,
                 audience: _jwtSettings.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(_jwtSettings.ExpirationInMinutes),
+                expires: DateTime.UtcNow.AddDays(_jwtSettings.ExpirationInDays),
                 signingCredentials: credentials
             );
 
