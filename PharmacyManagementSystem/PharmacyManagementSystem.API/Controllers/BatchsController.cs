@@ -30,11 +30,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new CreateBatchCommand(createBatchDto);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    CreatedBatchId = result,
-                    Message = "Adding a new batch Process Complete Successfully!"
-                });
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -94,10 +90,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new DeleteBatchCommand(id);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    Message = "Delete the batch done successfully!"
-                });
+                return NoContent();
             }
             catch (Exception ex)
             {
@@ -120,11 +113,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new UpdateBatchCommand(id, updateBatchDto);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    NewData = result,
-                    Message = "Update the batch done successfully!"
-                });
+                return Ok(result);
             }
             catch (Exception ex)
             {

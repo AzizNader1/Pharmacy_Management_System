@@ -1,7 +1,10 @@
-﻿using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
+using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
 using PharmacyManagementSystem.WebAppMVC.Helpers;
 using PharmacyManagementSystem.WebAppMVC.Services.Interfaces;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
 {
@@ -9,11 +12,17 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private SessionHelper _sessionHelper;
+        private readonly JsonSerializerOptions _jsonOptions;
 
         public ApiBatchServices(IHttpClientFactory httpClientFactory, SessionHelper sessionHelper)
         {
             _httpClientFactory = httpClientFactory;
             _sessionHelper = sessionHelper;
+            _jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                Converters = { new JsonStringEnumConverter() }
+            };
         }
 
         private HttpClient CreateAuthenticatedClient()
@@ -29,29 +38,149 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             return client;
         }
 
-        public Task? CreateBatchAsync(CreateBatchDto batch)
+        public async Task<GetBatchDto>? CreateBatchAsync(CreateBatchDto batch)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var json = JsonSerializer.Serialize(batch, _jsonOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("api/Batchs/Add", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseData = JsonSerializer.Deserialize<int>(responseContent, _jsonOptions);
+                return new GetBatchDto
+                {
+                    BatchId = responseData
+                };
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid creation attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetBatchDto
+            {
+                BatchId = 0,
+                Message = errorMessage
+            };
         }
 
-        public Task? DeleteBatchAsync(int id)
+        public async Task<bool>? DeleteBatchAsync(int id)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.DeleteAsync($"api/Batchs/Delete/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
         }
 
-        public Task<IEnumerable<GetBatchDto?>> GetAllBatchesAsync()
+        public async Task<IEnumerable<GetBatchDto?>> GetAllBatchesAsync()
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.GetAsync("api/Batchs/GetAll");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<IEnumerable<GetBatchDto>>(content, _jsonOptions);
+                return result ?? new List<GetBatchDto>();
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retrive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new List<GetBatchDto>
+            {
+                new GetBatchDto{BatchId = 0, Message = errorMessage}
+            };
         }
 
-        public Task<GetBatchDto?> GetBatchByIdAsync(int id)
+        public async Task<GetBatchDto?> GetBatchByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.GetAsync($"api/Batchs/GetById/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<GetBatchDto>(content, _jsonOptions);
+                return result;
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retrive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetBatchDto
+            {
+                BatchId = 0,
+                Message = errorMessage
+            };
         }
 
-        public Task? UpdateBatchAsync(UpdateBatchDto batch)
+        public async Task<GetBatchDto>? UpdateBatchAsync(int id, UpdateBatchDto batch)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var json = JsonSerializer.Serialize(batch, _jsonOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PutAsync($"api/Batchs/Update?id={id}", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseData = JsonSerializer.Deserialize<GetBatchDto>(responseContent, _jsonOptions);
+                return responseData ?? new GetBatchDto();
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid update attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetBatchDto
+            {
+                BatchId = 0,
+                Message = errorMessage
+            };
         }
     }
 }

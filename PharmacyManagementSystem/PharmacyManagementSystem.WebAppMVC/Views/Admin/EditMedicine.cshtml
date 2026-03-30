@@ -1,0 +1,63 @@
+@using PharmacyManagementSystem.Domain.Enums
+@model PharmacyManagementSystem.Application.DTOs.MedicineDTOs.UpdateMedicineDto
+@{
+    ViewData["Title"] = "Edit Medicine";
+}
+
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-8">
+        <div class="glass-panel">
+            <h2 class="mb-4 text-white">Edit Medicine</h2>
+            <form asp-action="EditMedicine" method="post">
+                <input type="hidden" asp-route-id="@ViewBag.MedicineId" />
+                <div class="row">
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <input asp-for="Name" class="form-control" placeholder="Name" />
+                        <label asp-for="Name" class="text-secondary ms-2">Brand Name</label>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <input asp-for="GenericName" class="form-control" placeholder="GenericName" />
+                        <label asp-for="GenericName" class="text-secondary ms-2">Generic Name</label>
+                        <span asp-validation-for="GenericName" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="form-floating mb-3 text-start">
+                    <textarea asp-for="Description" class="form-control" placeholder="Description" style="height: 100px"></textarea>
+                    <label asp-for="Description" class="text-secondary">Description</label>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 form-floating mb-3 text-start">
+                        <input asp-for="MedicinePrice" type="number" step="0.01" class="form-control" placeholder="Price" />
+                        <label asp-for="MedicinePrice" class="text-secondary ms-2">Price</label>
+                        <span asp-validation-for="MedicinePrice" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 form-floating mb-3 text-start">
+                        <input asp-for="ReorderLevel" type="number" class="form-control" placeholder="Reorder Level" />
+                        <label asp-for="ReorderLevel" class="text-secondary ms-2">Reorder Level</label>
+                        <span asp-validation-for="ReorderLevel" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 form-floating mb-4 text-start">
+                        <select asp-for="Category" class="form-select bg-dark text-white border-0" aria-label="Category"
+                                asp-items="Html.GetEnumSelectList<MedicineCategories>()">
+                        </select>
+                        <label asp-for="Category" class="text-secondary ms-2">Category</label>
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                    <a asp-action="ManageMedicines" class="btn btn-outline-secondary px-4 py-2 me-3 rounded-pill">Cancel</a>
+                    <button type="submit" class="btn btn-primary px-5 py-2 fw-bold rounded-pill">Update Medicine</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

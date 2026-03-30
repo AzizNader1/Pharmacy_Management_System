@@ -4,9 +4,9 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Interfaces
 {
     public interface IApiMedicineServices
     {
-        Task? CreateMedicineAsync(CreateMedicineDto medicine);
-        Task? DeleteMedicineAsync(int id);
-        Task? UpdateMedicineAsync(UpdateMedicineDto medicine);
+        Task<GetMedicineDto>? CreateMedicineAsync(CreateMedicineDto medicine);
+        Task<bool>? DeleteMedicineAsync(int id);
+        Task<GetMedicineDto>? UpdateMedicineAsync(int id, UpdateMedicineDto medicine);
         Task<GetMedicineDto?> GetMedicineByIdAsync(int id);
         Task<IEnumerable<GetMedicineDto?>> GetAllMedicinesAsync();
         Task<GetMedicineDto?> GetMedicineByNameAsync(string medicineName);

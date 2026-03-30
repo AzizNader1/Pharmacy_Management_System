@@ -11,5 +11,7 @@ namespace PharmacyManagementSystem.Application.DTOs.MedicineDTOs
         public decimal MedicinePrice { get; set; }
         public int ReorderLevel { get; set; }
         public MedicineCategories Category { get; set; }
+
+        public string? Message { get; set; }
     }
 }

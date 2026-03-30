@@ -31,11 +31,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new CreateSaleCommand(createSaleDto);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    CreatedSaleId = result,
-                    Message = "Adding a new sale record Process Complete Successfully!"
-                });
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -95,10 +91,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new DeleteSaleCommand(id);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    Message = "Delete the sale record done successfully!"
-                });
+                return NoContent();
             }
             catch (Exception ex)
             {
@@ -121,11 +114,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new UpdateSaleCommand(id, updateSaleDto);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    NewData = result,
-                    Message = "Update the sale record done successfully!"
-                });
+                return Ok(result);
             }
             catch (Exception ex)
             {

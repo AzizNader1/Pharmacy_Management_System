@@ -1,0 +1,65 @@
+@using PharmacyManagementSystem.Domain.Enums
+@model PharmacyManagementSystem.Application.DTOs.BatchDTOs.UpdateBatchDto
+@{
+    ViewData["Title"] = "Edit Batch";
+}
+
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-8">
+        <div class="glass-panel">
+            <h2 class="mb-4 text-white">Edit Batch</h2>
+            <form asp-action="EditBatch" method="post">
+                <input type="hidden" asp-route-id="@ViewBag.BatchId" />
+                <div class="row">
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <input asp-for="BatchNumber" class="form-control" placeholder="BatchNumber" />
+                        <label asp-for="BatchNumber" class="text-secondary ms-2">Batch Number</label>
+                        <span asp-validation-for="BatchNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <input asp-for="MedicineId" type="number" class="form-control" placeholder="MedicineId" />
+                        <label asp-for="MedicineId" class="text-secondary ms-2">Medicine ID</label>
+                        <span asp-validation-for="MedicineId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <input asp-for="ExpiryDate" type="date" class="form-control" placeholder="ExpiryDate" />
+                        <label asp-for="ExpiryDate" class="text-secondary ms-2">Expiry Date</label>
+                        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 form-floating mb-3 text-start">
+                        <select asp-for="Category" class="form-select bg-dark text-white border-0" aria-label="Category"
+                                asp-items="Html.GetEnumSelectList<MedicineCategories>()">
+                        </select>
+                        <label asp-for="Category" class="text-secondary ms-2">Category</label>
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-floating mb-4 text-start">
+                        <input asp-for="PurchasePrice" type="number" step="0.01" class="form-control" placeholder="PurchasePrice" />
+                        <label asp-for="PurchasePrice" class="text-secondary ms-2">Purchase Price</label>
+                        <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 form-floating mb-4 text-start">
+                        <input asp-for="BatchQuantity" type="number" class="form-control" placeholder="BatchQuantity" />
+                        <label asp-for="BatchQuantity" class="text-secondary ms-2">Batch Quantity</label>
+                        <span asp-validation-for="BatchQuantity" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                    <a asp-action="ManageBatches" class="btn btn-outline-secondary px-4 py-2 me-3 rounded-pill">Cancel</a>
+                    <button type="submit" class="btn btn-primary px-5 py-2 fw-bold rounded-pill">Update Batch</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -6,6 +6,6 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Interfaces
     {
         Task<AuthResponseDto> Login(LoginRequestDto loginRequestDto);
         Task<AuthResponseDto> Register(CreateUserDto createUserDto);
-        void Logout();
+        Task<bool> Logout();
     }
 }

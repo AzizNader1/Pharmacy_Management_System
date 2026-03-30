@@ -104,9 +104,10 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             return new AuthResponseDto { IsAuthenticated = false, Message = errorMessage };
         }
 
-        public void Logout()
+        public async Task<bool> Logout()
         {
             _sessionHelper.ClearSession();
+            return true;
         }
     }
 }

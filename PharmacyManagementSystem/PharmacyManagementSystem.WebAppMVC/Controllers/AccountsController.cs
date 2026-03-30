@@ -21,14 +21,8 @@ namespace PharmacyManagementSystem.WebAppMVC.Controllers
         {
             if (_sessionHelper.IsAuthenticated())
             {
-                if (_sessionHelper.IsInRole("Admin"))
-                {
-                    return RedirectToAction("Dashboard", "Admin");
-                }
-                else
-                {
-                    return RedirectToAction("Dashboard", "Cashier");
-                }
+                return RedirectToAction("Dashboard",
+                    _sessionHelper.IsInRole("Admin") == true ? "Admin" : "Cashier");
             }
             return View();
         }
@@ -60,14 +54,8 @@ namespace PharmacyManagementSystem.WebAppMVC.Controllers
         {
             if (_sessionHelper.IsAuthenticated())
             {
-                if (_sessionHelper.IsInRole("Admin"))
-                {
-                    return RedirectToAction("Dashboard", "Admin");
-                }
-                else
-                {
-                    return RedirectToAction("Dashboard", "Cashier");
-                }
+                return RedirectToAction("Dashboard",
+                    _sessionHelper.IsInRole("Admin") == true ? "Admin" : "Cashier");
             }
             return View();
         }

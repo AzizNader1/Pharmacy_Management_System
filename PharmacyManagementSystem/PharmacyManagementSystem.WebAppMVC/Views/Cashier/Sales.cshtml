@@ -5,7 +5,7 @@
 
 <form asp-action="Sales" method="post">
     <!-- Hidden Fields Required by CreateSaleDto -->
-    <input type="hidden" asp-for="UserId" value="1" /> <!-- Example Cashier ID -->
+    <input type="hidden" asp-for="UserId" value="@Model.UserId" /> <!-- Example Cashier ID -->
     <!-- The Date is auto-populated in JS or backend usually, but here is field -->
     <input type="hidden" asp-for="SalesDate" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
 
@@ -36,7 +36,7 @@
                             <!-- Demo Row representing a CreateSaleItemDto -->
                             <tr>
                                 <td class="align-middle px-3">
-                                    <input type="number" name="SaleItems[0].MedicineId" class="form-control form-control-sm" value="12" readonly />
+                                    <input type="number" name="SaleItems[0].MedicineId" class="form-control form-control-sm" value="11" readonly />
                                 </td>
                                 <td class="align-middle">
                                     <input type="number" name="SaleItems[0].BatchId" class="form-control form-control-sm w-75" value="105" readonly />

@@ -1,7 +1,10 @@
-﻿using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
+using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
 using PharmacyManagementSystem.WebAppMVC.Helpers;
 using PharmacyManagementSystem.WebAppMVC.Services.Interfaces;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
 {
@@ -9,11 +12,17 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private SessionHelper _sessionHelper;
+        private readonly JsonSerializerOptions _jsonOptions;
 
         public ApiSaleServices(IHttpClientFactory httpClientFactory, SessionHelper sessionHelper)
         {
             _httpClientFactory = httpClientFactory;
             _sessionHelper = sessionHelper;
+            _jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                Converters = { new JsonStringEnumConverter() }
+            };
         }
 
         private HttpClient CreateAuthenticatedClient()
@@ -29,40 +38,220 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             return client;
         }
 
-        public Task? CreateSaleAsync(CreateSaleDto sale)
+        public async Task<GetSaleDto>? CreateSaleAsync(CreateSaleDto sale)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var json = JsonSerializer.Serialize(sale, _jsonOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("Sales/Add", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseData = JsonSerializer.Deserialize<int>(responseContent, _jsonOptions);
+                return new GetSaleDto
+                {
+                    SaleId = responseData
+                };
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid creation attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetSaleDto
+            {
+                SaleId = 0,
+                Message = errorMessage
+            };
+
         }
 
-        public Task? DeleteSaleAsync(int id)
+        public async Task<bool>? DeleteSaleAsync(int id)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.DeleteAsync($"Sales/Delete/{id}");
+            return response.IsSuccessStatusCode;
         }
 
-        public Task<IEnumerable<GetSaleDto?>> GetAllSalesAsync()
+        public async Task<IEnumerable<GetSaleDto?>> GetAllSalesAsync()
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.GetAsync("Sales/GetAll");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<IEnumerable<GetSaleDto>>(content, _jsonOptions);
+                return result ?? new List<GetSaleDto>();
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new List<GetSaleDto>
+            {
+                new GetSaleDto
+                {
+                    SaleId = 0,
+                    Message = errorMessage
+                }
+            };
         }
 
-        public Task<IEnumerable<GetSaleDto?>> GetAllSalesByUserIdAsync(int userId)
+        public async Task<IEnumerable<GetSaleDto?>> GetAllSalesByUserIdAsync(int userId)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.GetAsync($"Sales/GetAllSalesByUserId/{userId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<IEnumerable<GetSaleDto>>(content, _jsonOptions);
+                return result ?? new List<GetSaleDto>();
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new List<GetSaleDto>
+            {
+                new GetSaleDto
+                {
+                    SaleId = 0,
+                    Message = errorMessage
+                }
+            };
         }
 
-        public Task<IEnumerable<GetSaleDto?>> GetAllSalesByUserNameAsync(string userName)
+        public async Task<IEnumerable<GetSaleDto?>> GetAllSalesByUserNameAsync(string userName)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.GetAsync($"Sales/GetAllSalesByUserName/{userName}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<IEnumerable<GetSaleDto>>(content, _jsonOptions);
+                return result ?? new List<GetSaleDto>();
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new List<GetSaleDto>
+            {
+                new GetSaleDto
+                {
+                    SaleId = 0,
+                    Message = errorMessage
+                }
+            };
         }
 
-        public Task<GetSaleDto?> GetSaleByIdAsync(int id)
+        public async Task<GetSaleDto?> GetSaleByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var client = CreateAuthenticatedClient();
+            var response = await client.GetAsync($"Sales/GetById/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<GetSaleDto>(content, _jsonOptions);
+                return result;
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetSaleDto
+            {
+                SaleId = 0,
+                Message = errorMessage
+            };
         }
 
-        public Task? UpdateSaleAsync(UpdateSaleDto sale)
+        public async Task<GetSaleDto>? UpdateSaleAsync(int id, UpdateSaleDto sale)
         {
-            throw new NotImplementedException();
-        }
+            var client = CreateAuthenticatedClient();
+            var json = JsonSerializer.Serialize(sale, _jsonOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
+            var response = await client.PutAsync($"Sales/Update?id={id}", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseData = JsonSerializer.Deserialize<GetSaleDto>(responseContent, _jsonOptions);
+                return responseData ?? new GetSaleDto();
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid update attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetSaleDto
+            {
+                SaleId = 0,
+                Message = errorMessage
+            };
+        }
     }
 }

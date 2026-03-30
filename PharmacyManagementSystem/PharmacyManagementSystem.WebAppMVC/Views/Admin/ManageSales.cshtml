@@ -1,0 +1,50 @@
+@model IEnumerable<PharmacyManagementSystem.Application.DTOs.SalesDTOs.GetSaleDto>
+@{
+    ViewData["Title"] = "Manage Sales";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="text-white m-0">Sales Analytics</h2>
+        <p class="text-muted">Review all point-of-sale transactions and revenue details.</p>
+    </div>
+</div>
+
+<div class="glass-panel">
+    <div class="d-flex mb-4">
+        <input type="text" class="form-control w-25 rounded-pill px-3" placeholder="Search Transactions..." />
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover bg-transparent text-white">
+            <thead>
+                <tr>
+                    <th class="border-0 border-bottom border-secondary text-muted px-3">Sale ID</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">User ID</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">Date</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">Items Count</th>
+                    <th class="border-0 border-bottom border-secondary text-muted">Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null || !Model.Any())
+                {
+                    <tr><td colspan="5" class="text-center text-muted py-4">No sales data available.</td></tr>
+                }
+                else
+                {
+                    foreach (var sale in Model)
+                    {
+                        <tr>
+                            <td class="align-middle px-3 text-secondary">@sale.SaleId</td>
+                            <td class="align-middle">@sale.UserId</td>
+                            <td class="align-middle">@sale.SalesDate.ToString("g")</td>
+                            <td class="align-middle">@(sale.SaleItems?.Count ?? 0)</td>
+                            <td class="align-middle text-primary fw-bold">$@sale.TotalAmount</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

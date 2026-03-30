@@ -1,5 +1,12 @@
+@model PharmacyManagementSystem.WebAppMVC.Models.AdminViewModel
+
 @{
     ViewData["Title"] = "Admin Dashboard";
+    var todaySales = Model.Sales.Sum(s => s.TotalAmount);
+    var totalOrders = Model.Sales.Count();
+
+    var lowStockItems = Model.Medicines == null ? 0 : Model.Medicines.Where(m => m.ReorderLevel == 5).ToList().Count();
+    var outOfStock = Model.Medicines == null ? 0 : Model.Medicines.Where(m => m.ReorderLevel == 0).ToList().Count();
 }
 <div class="row mb-4">
     <div class="col-12 text-center text-white">
@@ -12,25 +19,25 @@
     <div class="col">
         <div class="glass-panel text-center p-4">
             <h5 class="text-muted mb-2">Today's Sales</h5>
-            <h2 class="text-primary fw-bold">$1,240.50</h2>
+            <h2 class="text-primary fw-bold">$ @todaySales</h2>
         </div>
     </div>
     <div class="col">
         <div class="glass-panel text-center p-4">
             <h5 class="text-muted mb-2">Total Orders</h5>
-            <h2 class="text-primary fw-bold">85</h2>
+            <h2 class="text-primary fw-bold">@totalOrders</h2>
         </div>
     </div>
     <div class="col">
         <div class="glass-panel text-center p-4">
             <h5 class="text-muted mb-2">Low Stock Items</h5>
-            <h2 class="text-warning fw-bold">12</h2>
+            <h2 class="text-warning fw-bold">@lowStockItems</h2>
         </div>
     </div>
     <div class="col">
         <div class="glass-panel text-center p-4">
             <h5 class="text-muted mb-2">Out of Stock</h5>
-            <h2 class="text-danger fw-bold">3</h2>
+            <h2 class="text-danger fw-bold">@outOfStock </h2>
         </div>
     </div>
 </div>
@@ -38,11 +45,36 @@
 <div class="row text-center">
     <div class="col-md-6 mb-4">
         <div class="glass-panel p-5 h-100 d-flex flex-column justify-content-center align-items-center">
-            <h3 class="text-white">Manage Inventory</h3>
+            <h3 class="text-white">Manage Medicines Inventory</h3>
             <p class="text-muted">Add, Edit, or Delete medicines.</p>
             <a asp-action="ManageMedicines" class="btn btn-primary w-50 py-3 rounded-pill mt-3 text-white fs-5">Go to Inventory</a>
         </div>
     </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-panel p-5 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h3 class="text-white">Manage Users</h3>
+            <p class="text-muted">View all existing users.</p>
+            <a asp-action="ManageUsers" class="btn btn-primary w-50 py-3 rounded-pill mt-3 text-white fs-5">Go to Users</a>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-panel p-5 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h3 class="text-white">Manage Batchs Inventory</h3>
+            <p class="text-muted">View all the batchs history.</p>
+            <a asp-action="ManageBatchs" class="btn btn-primary w-50 py-3 rounded-pill mt-3 text-white fs-5">Go to Inventory</a>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="glass-panel p-5 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h3 class="text-white">Manage Sales Inventory</h3>
+            <p class="text-muted">View all the sales history.</p>
+            <a asp-action="ManageSales" class="btn btn-primary w-50 py-3 rounded-pill mt-3 text-white fs-5">Go to Inventory</a>
+        </div>
+    </div>
+
     <div class="col-md-6 mb-4">
         <div class="glass-panel p-5 h-100 d-flex flex-column justify-content-center align-items-center">
             <h3 class="text-white">Financial Reports</h3>

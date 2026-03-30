@@ -9,5 +9,7 @@ namespace PharmacyManagementSystem.Application.DTOs.SalesDTOs
         public DateTime SalesDate { get; set; }
         public decimal TotalAmount { get; set; }
         public List<GetSaleItemDto> SaleItems { get; set; } = [];
+        public string? Message { get; set; }
+
     }
 }

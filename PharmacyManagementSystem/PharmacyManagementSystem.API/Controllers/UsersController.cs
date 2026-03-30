@@ -67,10 +67,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new DeleteUserCommand(id);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    Message = "User Deleted Successfully!"
-                });
+                return NoContent();
             }
             catch (Exception ex)
             {
@@ -93,11 +90,7 @@ namespace PharmacyManagementSystem.API.Controllers
                 var request = new UpdateUserCommand(id, updateUserDto);
                 var result = await _mediator.Send(request);
 
-                return Ok(new
-                {
-                    NewData = result,
-                    Message = "User data updated successfully"
-                });
+                return Ok(result);
             }
             catch (Exception ex)
             {
