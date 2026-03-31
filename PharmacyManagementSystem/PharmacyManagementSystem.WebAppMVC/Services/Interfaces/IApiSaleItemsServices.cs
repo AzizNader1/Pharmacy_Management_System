@@ -8,7 +8,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Interfaces
         Task<bool>? DeleteSaleItemAsync(int id);
         Task<GetSaleItemDto>? UpdateSaleItemAsync(int id, UpdateSaleItemDto saleItem);
         Task<GetSaleItemDto?> GetSaleItemByIdAsync(int id);
-        Task<IEnumerable<GetSaleItemDto?>> GetAllSaleItemesAsync();
-        Task<IEnumerable<GetSaleItemDto?>> GetAllSaleItemesBySaleIdAsync(int saleId);
+        Task<List<GetSaleItemDto?>> GetAllSaleItemesAsync();
+        Task<List<GetSaleItemDto?>> GetAllSaleItemesBySaleIdAsync(int saleId);
     }
 }

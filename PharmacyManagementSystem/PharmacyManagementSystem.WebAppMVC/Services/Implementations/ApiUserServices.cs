@@ -37,7 +37,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             return client;
         }
 
-        public async Task<IEnumerable<GetUserDto?>> GetAllUsersAsync()
+        public async Task<List<GetUserDto?>> GetAllUsersAsync()
         {
             var client = CreateAuthenticatedClient();
             var response = await client.GetAsync("Users/GetAll");
@@ -45,7 +45,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<IEnumerable<GetUserDto>>(content, _jsonOptions);
+                var result = JsonSerializer.Deserialize<List<GetUserDto>>(content, _jsonOptions);
                 return result ?? new List<GetUserDto>();
             }
 
@@ -168,7 +168,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             };
         }
 
-        public async Task<IEnumerable<GetUserDto?>> GetUsersByRoleAsync(string roleName)
+        public async Task<List<GetUserDto?>> GetUsersByRoleAsync(string roleName)
         {
             var client = CreateAuthenticatedClient();
             var response = await client.GetAsync($"Users/GetUsersByRole/{roleName}");
@@ -176,7 +176,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<IEnumerable<GetUserDto>>(content, _jsonOptions);
+                var result = JsonSerializer.Deserialize<List<GetUserDto>>(content, _jsonOptions);
                 return result ?? new List<GetUserDto>();
             }
 

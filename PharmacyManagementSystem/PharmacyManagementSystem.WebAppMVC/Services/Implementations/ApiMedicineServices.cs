@@ -44,7 +44,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             var json = JsonSerializer.Serialize(medicine, _jsonOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("api/Medicines/Add", content);
+            var response = await client.PostAsync("Medicines/Add", content);
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
@@ -78,7 +78,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<bool>? DeleteMedicineAsync(int id)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.DeleteAsync($"api/Medicines/Delete/{id}");
+            var response = await client.DeleteAsync($"Medicines/Delete/{id}");
             if (response.IsSuccessStatusCode)
             {
                 return true;
@@ -86,15 +86,15 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             return false;
         }
 
-        public async Task<IEnumerable<GetMedicineDto?>> GetAllMedicinesAsync()
+        public async Task<List<GetMedicineDto?>> GetAllMedicinesAsync()
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync("api/Medicines/GetAll");
+            var response = await client.GetAsync("Medicines/GetAll");
 
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<IEnumerable<GetMedicineDto>>(content, _jsonOptions);
+                var result = JsonSerializer.Deserialize<List<GetMedicineDto>>(content, _jsonOptions);
                 return result ?? new List<GetMedicineDto>();
             }
 
@@ -117,25 +117,41 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             };
         }
 
-        public async Task<IEnumerable<GetMedicineDto?>> GetAllMedicinesByCategoryAsync(string categoryName)
+        public async Task<List<GetMedicineDto?>> GetAllMedicinesByCategoryAsync(string categoryName)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync($"api/Medicines/GetAllMedicinesByCategory/{categoryName}");
+            var response = await client.GetAsync($"Medicines/GetAllMedicinesByCategory/{categoryName}");
 
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<IEnumerable<GetMedicineDto>>(content, _jsonOptions);
+                var result = JsonSerializer.Deserialize<List<GetMedicineDto>>(content, _jsonOptions);
                 return result ?? new List<GetMedicineDto>();
             }
 
-            return new List<GetMedicineDto>();
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retrive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new List<GetMedicineDto>
+            {
+                new GetMedicineDto{MedicineId = 0, Message = errorMessage}
+            };
         }
 
         public async Task<GetMedicineDto?> GetMedicineByIdAsync(int id)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync($"api/Medicines/GetById/{id}");
+            var response = await client.GetAsync($"Medicines/GetById/{id}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -167,7 +183,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<GetMedicineDto?> GetMedicineByNameAsync(string medicineName)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync($"api/Medicines/GetMedicineByName/{medicineName}");
+            var response = await client.GetAsync($"Medicines/GetMedicineByName/{medicineName}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -176,7 +192,24 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
                 return result;
             }
 
-            return null;
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid retrive attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetMedicineDto
+            {
+                MedicineId = 0,
+                Message = errorMessage
+            };
         }
 
         public async Task<GetMedicineDto>? UpdateMedicineAsync(int id, UpdateMedicineDto medicine)
@@ -185,7 +218,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             var json = JsonSerializer.Serialize(medicine, _jsonOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PutAsync($"api/Medicines/Update?id={id}", content);
+            var response = await client.PutAsync($"Medicines/Update?id={id}", content);
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();

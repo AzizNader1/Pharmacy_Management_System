@@ -2,6 +2,81 @@
 @{
     ViewData["Title"] = "Manage Inventory";
 }
+
+<!-- Toast Notification Container -->
+<div class="toast-container" id="toastContainer">
+    @if (TempData["SuccessMessage"] is string successMsg)
+    {
+        <div class="toast toast-success" role="alert">
+            <div class="toast-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title">Success!</div>
+                <div class="toast-message">@successMsg</div>
+            </div>
+            <button class="toast-close" onclick="closeToast(this)" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="toast-progress"></div>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] is string errorMsg)
+    {
+        <div class="toast toast-error" role="alert">
+            <div class="toast-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title">Error!</div>
+                <div class="toast-message">@errorMsg</div>
+            </div>
+            <button class="toast-close" onclick="closeToast(this)" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="toast-progress"></div>
+        </div>
+    }
+
+    @if (TempData["InfoMessage"] is string infoMsg)
+    {
+        <div class="toast toast-info" role="alert">
+            <div class="toast-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title">Info</div>
+                <div class="toast-message">@infoMsg</div>
+            </div>
+            <button class="toast-close" onclick="closeToast(this)" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="toast-progress"></div>
+        </div>
+    }
+</div>
+
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2 class="text-white m-0">Inventory Management</h2>
@@ -17,36 +92,40 @@
 
     <div class="table-responsive">
         <table class="table table-dark table-hover bg-transparent text-white">
-            <thead>
-                <tr>
-                    <th class="border-0 border-bottom border-secondary text-muted px-3">ID</th>
-                    <th class="border-0 border-bottom border-secondary text-muted">Name</th>
-                    <th class="border-0 border-bottom border-secondary text-muted">Generic Name</th>
-                    <th class="border-0 border-bottom border-secondary text-muted">Category</th>
-                    <th class="border-0 border-bottom border-secondary text-muted">Price</th>
-                    <th class="border-0 border-bottom border-secondary text-muted text-end px-3">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model.Count() != 0)
-                {
-                    <tr><td colspan="6" class="text-center text-muted">No medicines available.</td></tr>
-                }
-                @foreach (var med in Model)
-                {
+            @if (Model.Count() == 0)
+            {
+                <tr><td colspan="7" class="text-center text-muted py-4">@ViewBag.ErrorMessage</td></tr>
+            }
+            else
+            {
+                <thead>
                     <tr>
-                        <td class="align-middle px-3 text-secondary">@med.MedicineId</td>
-                        <td class="align-middle">@med.Name</td>
-                        <td class="align-middle">@med.GenericName</td>
-                        <td class="align-middle">@med.Category</td>
-                        <td class="align-middle">$@med.MedicinePrice</td>
-                        <td class="align-middle text-end px-3">
-                            <button class="btn btn-sm btn-outline-info rounded-pill px-3 me-2">Edit</button>
-                            <button class="btn btn-sm btn-outline-danger rounded-pill px-3">Delete</button>
-                        </td>
+                        <th class="border-0 border-bottom border-secondary text-muted px-3">ID</th>
+                        <th class="border-0 border-bottom border-secondary text-muted">Name</th>
+                        <th class="border-0 border-bottom border-secondary text-muted">Generic Name</th>
+                        <th class="border-0 border-bottom border-secondary text-muted">Category</th>
+                        <th class="border-0 border-bottom border-secondary text-muted">Price</th>
+                        <th class="border-0 border-bottom border-secondary text-muted text-end px-3">Actions</th>
                     </tr>
-                }
-            </tbody>
+                </thead>
+                <tbody>
+               
+                    @foreach (var med in Model)
+                    {
+                        <tr>
+                            <td class="align-middle px-3 text-secondary">@med.MedicineId</td>
+                            <td class="align-middle">@med.Name</td>
+                            <td class="align-middle">@med.GenericName</td>
+                            <td class="align-middle">@med.Category</td>
+                            <td class="align-middle">$@med.MedicinePrice</td>
+                            <td class="align-middle text-end px-3">
+                                <a asp-action="EditMedicine" asp-route-id="@med.MedicineId" class="btn btn-sm btn-outline-info rounded-pill px-3 me-2">Edit</a>
+                                <a asp-action="DeleteMedicine" asp-route-id="@med.MedicineId" class="btn btn-sm btn-outline-danger rounded-pill px-3">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            }
         </table>
     </div>
 </div>

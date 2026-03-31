@@ -8,8 +8,8 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Interfaces
         Task<bool>? DeleteMedicineAsync(int id);
         Task<GetMedicineDto>? UpdateMedicineAsync(int id, UpdateMedicineDto medicine);
         Task<GetMedicineDto?> GetMedicineByIdAsync(int id);
-        Task<IEnumerable<GetMedicineDto?>> GetAllMedicinesAsync();
+        Task<List<GetMedicineDto?>> GetAllMedicinesAsync();
         Task<GetMedicineDto?> GetMedicineByNameAsync(string medicineName);
-        Task<IEnumerable<GetMedicineDto?>> GetAllMedicinesByCategoryAsync(string categoryName);
+        Task<List<GetMedicineDto?>> GetAllMedicinesByCategoryAsync(string categoryName);
     }
 }

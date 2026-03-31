@@ -8,6 +8,6 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Interfaces
         Task<bool>? DeleteBatchAsync(int id);
         Task<GetBatchDto> UpdateBatchAsync(int id, UpdateBatchDto batch);
         Task<GetBatchDto?> GetBatchByIdAsync(int id);
-        Task<IEnumerable<GetBatchDto?>> GetAllBatchesAsync();
+        Task<List<GetBatchDto?>> GetAllBatchesAsync();
     }
 }

@@ -82,7 +82,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<IEnumerable<GetSaleItemDto?>> GetAllSaleItemesAsync()
+        public async Task<List<GetSaleItemDto?>> GetAllSaleItemesAsync()
         {
             var client = CreateAuthenticatedClient();
             var response = await client.GetAsync("api/SaleItems/GetAll");
@@ -90,7 +90,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<IEnumerable<GetSaleItemDto>>(content, _jsonOptions);
+                var result = JsonSerializer.Deserialize<List<GetSaleItemDto>>(content, _jsonOptions);
                 return result ?? new List<GetSaleItemDto>();
             }
 
@@ -116,7 +116,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             };
         }
 
-        public async Task<IEnumerable<GetSaleItemDto?>> GetAllSaleItemesBySaleIdAsync(int saleId)
+        public async Task<List<GetSaleItemDto?>> GetAllSaleItemesBySaleIdAsync(int saleId)
         {
             var client = CreateAuthenticatedClient();
             var response = await client.GetAsync($"SaleItems/GetAllSaleItemesBySaleId/{saleId}");
@@ -124,7 +124,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<IEnumerable<GetSaleItemDto>>(content, _jsonOptions);
+                var result = JsonSerializer.Deserialize<List<GetSaleItemDto>>(content, _jsonOptions);
                 return result ?? new List<GetSaleItemDto>();
             }
 

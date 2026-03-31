@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcU2lnbnVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/CreateBatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQmF0Y2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/CreateMedicine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlTWVkaWNpbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,8 +42,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/DeleteBatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlQmF0Y2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/DeleteMedicine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlTWVkaWNpbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/EditBatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEJhdGNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/EditMedicine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdE1lZGljaW5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/ManageBatchs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlQmF0Y2hzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/ManageMedicines.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlTWVkaWNpbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/ManageSales.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlU2FsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/ManageUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [P:/My Projects/Pharmacy_Management_System/PharmacyManagementSystem/PharmacyManagementSystem.WebAppMVC/Views/Admin/Reports.cshtml]

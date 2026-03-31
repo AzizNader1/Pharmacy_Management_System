@@ -44,7 +44,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             var json = JsonSerializer.Serialize(batch, _jsonOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("api/Batchs/Add", content);
+            var response = await client.PostAsync("Batchs/Add", content);
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
@@ -78,7 +78,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<bool>? DeleteBatchAsync(int id)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.DeleteAsync($"api/Batchs/Delete/{id}");
+            var response = await client.DeleteAsync($"Batchs/Delete/{id}");
             if (response.IsSuccessStatusCode)
             {
                 return true;
@@ -86,15 +86,15 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             return false;
         }
 
-        public async Task<IEnumerable<GetBatchDto?>> GetAllBatchesAsync()
+        public async Task<List<GetBatchDto?>> GetAllBatchesAsync()
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync("api/Batchs/GetAll");
+            var response = await client.GetAsync("Batchs/GetAll");
 
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonSerializer.Deserialize<IEnumerable<GetBatchDto>>(content, _jsonOptions);
+                var result = JsonSerializer.Deserialize<List<GetBatchDto>>(content, _jsonOptions);
                 return result ?? new List<GetBatchDto>();
             }
 
@@ -120,7 +120,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<GetBatchDto?> GetBatchByIdAsync(int id)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync($"api/Batchs/GetById/{id}");
+            var response = await client.GetAsync($"Batchs/GetById/{id}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -155,7 +155,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             var json = JsonSerializer.Serialize(batch, _jsonOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PutAsync($"api/Batchs/Update?id={id}", content);
+            var response = await client.PutAsync($"Batchs/Update?id={id}", content);
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
