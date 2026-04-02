@@ -72,7 +72,7 @@ namespace PharmacyManagementSystem.Infrastructure.Data
                 .HasMany(s => s.SaleItems)
                 .WithOne(si => si.Sale)
                 .HasForeignKey(si => si.SaleId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
 
             // ==========================================

@@ -1,56 +1,609 @@
+@model PharmacyManagementSystem.WebAppMVC.Models.ReportsViewModel
+
 @{
     ViewData["Title"] = "Sales Reports";
+    var hasData = Model.TotalOrders > 0;
 }
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="text-white m-0">Sales & Financials</h2>
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-primary px-4">Today</button>
-        <button type="button" class="btn btn-outline-primary px-4">Weekly</button>
-        <button type="button" class="btn btn-outline-primary px-4">Monthly</button>
-        <button type="button" class="btn btn-outline-primary px-4">Quarterly</button>
+<style>
+    .report-kpi {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .report-kpi:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(14, 165, 233, 0.15);
+    }
+    .report-kpi .kpi-icon {
+        position: absolute;
+        top: -10px;
+        right: -5px;
+        font-size: 4.5rem;
+        opacity: 0.06;
+        pointer-events: none;
+    }
+    .report-kpi .kpi-value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .report-kpi .kpi-label {
+        font-size: 0.85rem;
+        color: #8b949e;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .chart-container {
+        position: relative;
+        height: 320px;
+        width: 100%;
+    }
+    .period-btn {
+        padding: 6px 18px;
+        font-size: 0.85rem;
+        border-radius: 20px;
+        transition: all 0.2s ease;
+    }
+    .period-btn.active {
+        background: #0ea5e9 !important;
+        color: #fff !important;
+        border-color: #0ea5e9 !important;
+    }
+    .period-btn:hover:not(.active) {
+        background: rgba(14, 165, 233, 0.1);
+        border-color: #0ea5e9;
+    }
+    .table-dark th {
+        border-bottom: 2px solid #0ea5e9;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+    .table-dark td {
+        vertical-align: middle;
+    }
+    .status-badge {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    .no-data-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 5;
+    }
+</style>
+
+<!-- ====== PAGE HEADER ====== -->
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <div>
+        <h2 class="text-white m-0">Sales & Financial Reports</h2>
+        <p class="text-muted mb-0 mt-1">Real-time pharmacy performance analytics</p>
+    </div>
+    <span class="text-muted" style="font-size: 0.8rem;">
+        <i class="bi bi-clock me-1"></i> Generated: @DateTime.Now.ToString("MMM dd, yyyy HH:mm")
+    </span>
+</div>
+
+<!-- ====== KPI CARDS ====== -->
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 mb-4">
+    <div class="col">
+        <div class="glass-panel report-kpi text-center p-3">
+            <div class="kpi-icon">$</div>
+            <div class="kpi-label">Total Revenue</div>
+            <div class="kpi-value text-success">$@Model.TotalRevenue.ToString("N2")</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="glass-panel report-kpi text-center p-3">
+            <div class="kpi-icon">#</div>
+            <div class="kpi-label">Total Orders</div>
+            <div class="kpi-value text-primary">@Model.TotalOrders</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="glass-panel report-kpi text-center p-3">
+            <div class="kpi-icon">~</div>
+            <div class="kpi-label">Avg. Order Value</div>
+            <div class="kpi-value text-info">$@Model.AverageOrderValue.ToString("N2")</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="glass-panel report-kpi text-center p-3">
+            <div class="kpi-icon">+</div>
+            <div class="kpi-label">Items Sold</div>
+            <div class="kpi-value text-warning">@Model.TotalItemsSold</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="glass-panel report-kpi text-center p-3">
+            <div class="kpi-icon">*</div>
+            <div class="kpi-label">Unique Medicines</div>
+            <div class="kpi-value" style="color: #a78bfa;">@Model.UniqueMedicinesSold</div>
+        </div>
     </div>
 </div>
 
-<div class="row mb-5">
-    <!-- Chart placeholder -->
+<!-- ====== REVENUE CHART (with period toggle) ====== -->
+<div class="row mb-4">
     <div class="col-12">
-        <div class="glass-panel p-4" style="min-height: 350px; display: flex; justify-content: center; align-items: center;">
-            <div class="text-center w-100">
-                <h4 class="text-muted mb-3 text-start">Revenue Chart</h4>
-                <div class="bg-dark rounded-4 d-flex justify-content-center align-items-center" style="height: 250px; border: 2px dashed rgba(255,255,255,0.1)">
-                    <p class="text-muted m-0"><i class="text-primary fs-4">📊</i> Chart visualization library goes here.</p>
+        <div class="glass-panel p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                <h5 class="text-white mb-0"><i class="bi bi-graph-up me-2 text-primary"></i>Revenue Overview</h5>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary period-btn active" data-period="daily">Daily</button>
+                    <button type="button" class="btn btn-outline-primary period-btn" data-period="weekly">Weekly</button>
+                    <button type="button" class="btn btn-outline-primary period-btn" data-period="monthly">Monthly</button>
                 </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+                @if (!hasData)
+                {
+                    <div class="no-data-overlay">
+                        <i class="bi bi-bar-chart text-muted" style="font-size: 3rem;"></i>
+                        <p class="text-muted mt-2 mb-0">No sales data available yet</p>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
 
-<div class="glass-panel">
-    <h4 class="text-white mb-4">Recent Transactions</h4>
-    <div class="table-responsive">
-        <table class="table table-dark table-hover bg-transparent text-white m-0">
-            <thead>
-                <tr>
-                    <th class="border-0 border-bottom border-secondary text-muted px-3">Date & Time</th>
-                    <th class="border-0 border-bottom border-secondary text-muted">Order ID</th>
-                    <th class="border-0 border-bottom border-secondary text-muted">Amount</th>
-                    <th class="border-0 border-bottom border-secondary text-muted text-end px-3">Cashier</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="align-middle px-3">Today, 2:30 PM</td>
-                    <td class="align-middle text-secondary">ORD-00921</td>
-                    <td class="align-middle text-success fw-bold">+$24.30</td>
-                    <td class="align-middle text-end px-3">John Doe</td>
-                </tr>
-                <tr>
-                    <td class="align-middle px-3">Today, 1:15 PM</td>
-                    <td class="align-middle text-secondary">ORD-00920</td>
-                    <td class="align-middle text-success fw-bold">+$12.50</td>
-                    <td class="align-middle text-end px-3">Jane Smith</td>
-                </tr>
-            </tbody>
-        </table>
+<!-- ====== SECOND ROW: TOP MEDICINES + CATEGORY DOUGHNUT ====== -->
+<div class="row mb-4 g-4">
+    <!-- Top Medicines Bar Chart -->
+    <div class="col-lg-7">
+        <div class="glass-panel p-4 h-100">
+            <h5 class="text-white mb-3"><i class="bi bi-trophy me-2 text-warning"></i>Top Selling Medicines</h5>
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="topMedicinesChart"></canvas>
+                @if (!hasData)
+                {
+                    <div class="no-data-overlay">
+                        <i class="bi bi-capsule text-muted" style="font-size: 3rem;"></i>
+                        <p class="text-muted mt-2 mb-0">No sales data available yet</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Category Doughnut -->
+    <div class="col-lg-5">
+        <div class="glass-panel p-4 h-100">
+            <h5 class="text-white mb-3"><i class="bi bi-pie-chart me-2" style="color: #a78bfa;"></i>Sales by Category</h5>
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="categoryChart"></canvas>
+                @if (!hasData)
+                {
+                    <div class="no-data-overlay">
+                        <i class="bi bi-diagram-3 text-muted" style="font-size: 3rem;"></i>
+                        <p class="text-muted mt-2 mb-0">No sales data available yet</p>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- ====== CASHIER PERFORMANCE + RECENT TRANSACTIONS ====== -->
+<div class="row g-4 mb-4">
+    <!-- Cashier Performance -->
+    <div class="col-lg-5">
+        <div class="glass-panel p-4 h-100">
+            <h5 class="text-white mb-3"><i class="bi bi-people me-2 text-info"></i>Cashier Performance</h5>
+            <div class="chart-container" style="height: 300px;">
+                <canvas id="cashierChart"></canvas>
+                @if (!hasData)
+                {
+                    <div class="no-data-overlay">
+                        <i class="bi bi-person-badge text-muted" style="font-size: 3rem;"></i>
+                        <p class="text-muted mt-2 mb-0">No sales data available yet</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Transactions Table -->
+    <div class="col-lg-7">
+        <div class="glass-panel p-4 h-100">
+            <h5 class="text-white mb-3"><i class="bi bi-clock-history me-2 text-success"></i>Recent Transactions</h5>
+            <div class="table-responsive" style="max-height: 340px; overflow-y: auto;">
+                @if (Model.RecentTransactions.Any())
+                {
+                    <table class="table table-dark table-hover bg-transparent text-white m-0">
+                        <thead style="position: sticky; top: 0; z-index: 2;">
+                            <tr>
+                                <th class="border-0 px-3">Date & Time</th>
+                                <th class="border-0">Order ID</th>
+                                <th class="border-0">Items</th>
+                                <th class="border-0">Amount</th>
+                                <th class="border-0 text-end px-3">Cashier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var tx in Model.RecentTransactions)
+                            {
+                                <tr>
+                                    <td class="px-3" style="font-size: 0.85rem; white-space: nowrap;">
+                                        @tx.SalesDate.ToString("MMM dd, HH:mm")
+                                    </td>
+                                    <td>
+                                        <span class="text-secondary" style="font-size: 0.85rem;">ORD-@tx.SaleId.ToString("D5")</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-badge" style="background: rgba(14,165,233,0.15); color: #0ea5e9;">
+                                            @tx.ItemsCount item(s)
+                                        </span>
+                                    </td>
+                                    <td class="text-success fw-bold">$@tx.TotalAmount.ToString("N2")</td>
+                                    <td class="text-end px-3">@tx.CashierName</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="text-center py-5">
+                        <i class="bi bi-inbox text-muted" style="font-size: 2.5rem;"></i>
+                        <p class="text-muted mt-2 mb-0">No transactions recorded yet</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+
+
+        // Chart.js Global Defaults (dark theme)
+        Chart.defaults.color = '#8b949e';
+        Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+        Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+
+        // ===== DATA from Razor Model (serialized to JSON) =====
+        const reportData = @Html.Raw(Json.Serialize(Model));
+
+        // Color palette
+        const COLORS = [
+            '#0ea5e9', '#22c55e', '#f59e0b', '#ef4444', '#a78bfa',
+            '#ec4899', '#14b8a6', '#f97316', '#6366f1', '#84cc16'
+        ];
+
+        // 1. REVENUE CHART (switchable Daily/Weekly/Monthly)
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+
+        function buildRevenueData(period) {
+            let data;
+            if (period === 'daily') data = reportData.dailyRevenue;
+            else if (period === 'weekly') data = reportData.weeklyRevenue;
+            else data = reportData.monthlyRevenue;
+
+            return {
+                labels: data.map(d => d.label),
+                revenue: data.map(d => d.revenue),
+                orders: data.map(d => d.orderCount)
+            };
+        }
+
+        const initialRevenue = buildRevenueData('daily');
+
+        const revenueGradient = revenueCtx.createLinearGradient(0, 0, 0, 320);
+        revenueGradient.addColorStop(0, 'rgba(14, 165, 233, 0.3)');
+        revenueGradient.addColorStop(1, 'rgba(14, 165, 233, 0.01)');
+
+        const revenueChart = new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: initialRevenue.labels,
+                datasets: [
+                    {
+                        label: 'Revenue ($)',
+                        data: initialRevenue.revenue,
+                        backgroundColor: revenueGradient,
+                        borderColor: '#0ea5e9',
+                        borderWidth: 2,
+                        borderRadius: 6,
+                        borderSkipped: false,
+                        yAxisID: 'y',
+                        order: 2
+                    },
+                    {
+                        label: 'Orders',
+                        data: initialRevenue.orders,
+                        type: 'line',
+                        borderColor: '#22c55e',
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        borderWidth: 2.5,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#22c55e',
+                        pointBorderColor: '#0d1117',
+                        pointBorderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        yAxisID: 'y1',
+                        order: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: { usePointStyle: true, padding: 20, font: { size: 12 } }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(13, 17, 23, 0.95)',
+                        borderColor: 'rgba(14, 165, 233, 0.3)',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        padding: 12,
+                        callbacks: {
+                            label: function(ctx) {
+                                if (ctx.dataset.label === 'Revenue ($)') {
+                                    return '  Revenue: $' + ctx.parsed.y.toLocaleString('en-US', { minimumFractionDigits: 2 });
+                                }
+                                return '  Orders: ' + ctx.parsed.y;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 11 } }
+                    },
+                    y: {
+                        position: 'left',
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255,255,255,0.04)' },
+                        ticks: {
+                            font: { size: 11 },
+                            callback: v => '$' + v.toLocaleString()
+                        },
+                        title: { display: true, text: 'Revenue ($)', color: '#0ea5e9', font: { size: 12 } }
+                    },
+                    y1: {
+                        position: 'right',
+                        beginAtZero: true,
+                        grid: { drawOnChartArea: false },
+                        ticks: {
+                            font: { size: 11 },
+                            stepSize: 1,
+                            callback: v => Number.isInteger(v) ? v : null
+                        },
+                        title: { display: true, text: 'Orders', color: '#22c55e', font: { size: 12 } }
+                    }
+                }
+            }
+        });
+
+        // Period toggle buttons
+        document.querySelectorAll('.period-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const period = this.dataset.period;
+                const data = buildRevenueData(period);
+
+                revenueChart.data.labels = data.labels;
+                revenueChart.data.datasets[0].data = data.revenue;
+                revenueChart.data.datasets[1].data = data.orders;
+                revenueChart.update('active');
+            });
+        });
+
+        // 2. TOP MEDICINES HORIZONTAL BAR
+        const topMedsCtx = document.getElementById('topMedicinesChart').getContext('2d');
+        new Chart(topMedsCtx, {
+            type: 'bar',
+            data: {
+                labels: reportData.topMedicines.map(m => m.medicineName),
+                datasets: [
+                    {
+                        label: 'Revenue ($)',
+                        data: reportData.topMedicines.map(m => m.totalRevenue),
+                        backgroundColor: 'rgba(14, 165, 233, 0.7)',
+                        borderColor: '#0ea5e9',
+                        borderWidth: 1.5,
+                        borderRadius: 4,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Qty Sold',
+                        data: reportData.topMedicines.map(m => m.quantitySold),
+                        backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                        borderColor: '#f59e0b',
+                        borderWidth: 1.5,
+                        borderRadius: 4,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: { usePointStyle: true, padding: 15, font: { size: 11 } }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(13, 17, 23, 0.95)',
+                        borderColor: 'rgba(14, 165, 233, 0.3)',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        padding: 12
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.04)' },
+                        ticks: { font: { size: 10 } }
+                    },
+                    y: {
+                        position: 'left',
+                        beginAtZero: true,
+                        grid: { display: false },
+                        ticks: { font: { size: 11 } }
+                    },
+                    y1: {
+                        position: 'right',
+                        beginAtZero: true,
+                        grid: { drawOnChartArea: false },
+                        ticks: { stepSize: 1, font: { size: 10 }, callback: v => Number.isInteger(v) ? v : null }
+                    }
+                }
+            }
+        });
+
+        // 3. CATEGORY DOUGHNUT
+        const catCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(catCtx, {
+            type: 'doughnut',
+            data: {
+                labels: reportData.salesByCategory.map(c => c.category),
+                datasets: [{
+                    data: reportData.salesByCategory.map(c => c.revenue),
+                    backgroundColor: COLORS.slice(0, reportData.salesByCategory.length),
+                    borderColor: '#0d1117',
+                    borderWidth: 3,
+                    hoverOffset: 12
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '62%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 12,
+                            font: { size: 10 },
+                            generateLabels: function(chart) {
+                                const data = chart.data;
+                                const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                return data.labels.map((label, i) => {
+                                    const value = data.datasets[0].data[i];
+                                    const pct = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+                                    return {
+                                        text: `${label} (${pct}%)`,
+                                        fillStyle: data.datasets[0].backgroundColor[i],
+                                        strokeStyle: 'transparent',
+                                        lineWidth: 0,
+                                        pointStyle: 'circle',
+                                        index: i
+                                    };
+                                });
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(13, 17, 23, 0.95)',
+                        borderColor: 'rgba(14, 165, 233, 0.3)',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        padding: 12,
+                        callbacks: {
+                            label: function(ctx) {
+                                const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                                const pct = total > 0 ? ((ctx.parsed / total) * 100).toFixed(1) : 0;
+                                return `  $${ctx.parsed.toLocaleString('en-US', { minimumFractionDigits: 2 })} (${pct}%)`;
+                            }
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                id: 'centerText',
+                afterDraw(chart) {
+                    const { ctx: c, chartArea: { width, height, top, left } } = chart;
+                    const total = chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                    c.save();
+                    c.font = "500 12px 'Inter', sans-serif";
+                    c.fillStyle = '#8b949e';
+                    c.textAlign = 'center';
+                    c.textBaseline = 'middle';
+                    c.fillText('Total Revenue', left + width / 2, top + height / 2 - 12);
+                    c.font = "700 18px 'Inter', sans-serif";
+                    c.fillStyle = '#fff';
+                    c.fillText('$' + total.toLocaleString('en-US', { minimumFractionDigits: 2 }), left + width / 2, top + height / 2 + 12);
+                    c.restore();
+                }
+            }]
+        });
+
+        // 4. CASHIER PERFORMANCE
+        const cashierCtx = document.getElementById('cashierChart').getContext('2d');
+        new Chart(cashierCtx, {
+            type: 'bar',
+            data: {
+                labels: reportData.cashierPerformances.map(c => c.cashierName),
+                datasets: [{
+                    label: 'Total Revenue ($)',
+                    data: reportData.cashierPerformances.map(c => c.totalRevenue),
+                    backgroundColor: reportData.cashierPerformances.map((_, i) => COLORS[i % COLORS.length] + 'cc'),
+                    borderColor: reportData.cashierPerformances.map((_, i) => COLORS[i % COLORS.length]),
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(13, 17, 23, 0.95)',
+                        borderColor: 'rgba(14, 165, 233, 0.3)',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        padding: 12,
+                        callbacks: {
+                            afterLabel: function(ctx) {
+                                const perf = reportData.cashierPerformances[ctx.dataIndex];
+                                return `Orders: ${perf.totalOrders}  |  Avg: $${perf.averageOrderValue}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255,255,255,0.04)' },
+                        ticks: {
+                            font: { size: 10 },
+                            callback: v => '$' + v.toLocaleString()
+                        }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { font: { size: 12 } }
+                    }
+                }
+            }
+        });
+    </script>
+}

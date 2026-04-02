@@ -3,11 +3,41 @@
     ViewData["Title"] = "Point of Sale";
 }
 
-<form asp-action="Sales" method="post">
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show d-flex align-items-center mb-4 shadow-sm" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2 flex-shrink-0">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <div>
+            <strong>Success!</strong> @TempData["SuccessMessage"]
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center mb-4 shadow-sm" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2 flex-shrink-0">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="15" y1="9" x2="9" y2="15"></line>
+            <line x1="9" y1="9" x2="15" y2="15"></line>
+        </svg>
+        <div>
+            <strong>Error!</strong> @TempData["ErrorMessage"]
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form asp-action="Sales" method="post" id="posForm">
     <!-- Hidden Fields Required by CreateSaleDto -->
-    <input type="hidden" asp-for="UserId" value="@Model.UserId" /> <!-- Example Cashier ID -->
-    <!-- The Date is auto-populated in JS or backend usually, but here is field -->
-    <input type="hidden" asp-for="SalesDate" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+    <input type="hidden" asp-for="UserId" value="@Model.UserId" />
+    <input type="hidden" asp-for="SalesDate" value="@Model.SalesDate.ToString("yyyy-MM-ddTHH:mm")" />
 
     <div class="row">
         <!-- Left Column: Items to Scan -->
@@ -15,40 +45,25 @@
             <div class="glass-panel h-100">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="text-white m-0">Order Items</h3>
-                    <input type="text" class="form-control w-50" placeholder="Scan Barcode / Search MedicineId" />
+                    <div class="input-group w-50">
+                        <input type="number" id="medicineLookup" class="form-control rounded-pill-start px-3 border-end-0 bg-dark text-white border-secondary" placeholder="Enter Medicine ID" />
+                        <button type="button" id="btnAddItem" class="btn btn-secondary rounded-pill-end px-3">Add</button>
+                    </div>
                 </div>
-                <!-- 
-                   Each row represents a PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs.CreateSaleItemDto.
-                   JavaScript would ideally construct the array to post. We setup data to show we match the fields exactly.
-                -->
                 <div class="table-responsive">
-                    <table class="table table-dark table-hover bg-transparent text-white">
+                    <table class="table table-dark table-hover bg-transparent text-white" id="posTable">
                         <thead>
                             <tr>
-                                <th class="border-0 border-bottom border-secondary text-muted px-3">Medicine ID</th>
+                                <th class="border-0 border-bottom border-secondary text-muted px-3">Med ID</th>
+                                <th class="border-0 border-bottom border-secondary text-muted">Name</th>
                                 <th class="border-0 border-bottom border-secondary text-muted">Batch ID</th>
-                                <th class="border-0 border-bottom border-secondary text-muted">UnitPrice</th>
-                                <th class="border-0 border-bottom border-secondary text-muted">ItemQuantity</th>
-                                <th class="border-0 border-bottom border-secondary text-muted"></th>
+                                <th class="border-0 border-bottom border-secondary text-muted">Unit Price</th>
+                                <th class="border-0 border-bottom border-secondary text-muted w-25">Qty</th>
+                                <th class="border-0 border-bottom border-secondary text-muted text-end px-3"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Demo Row representing a CreateSaleItemDto -->
-                            <tr>
-                                <td class="align-middle px-3">
-                                    <input type="number" name="SaleItems[0].MedicineId" class="form-control form-control-sm" value="11" readonly />
-                                </td>
-                                <td class="align-middle">
-                                    <input type="number" name="SaleItems[0].BatchId" class="form-control form-control-sm w-75" value="105" readonly />
-                                </td>
-                                <td class="align-middle">
-                                    <input type="number" step="0.01" name="SaleItems[0].UnitPrice" class="form-control form-control-sm w-75" value="5.00" readonly />
-                                </td>
-                                <td class="align-middle">
-                                    <input type="number" name="SaleItems[0].ItemQuantity" class="form-control form-control-sm w-50" value="2" />
-                                </td>
-                                <td class="align-middle"><button type="button" class="btn btn-sm btn-outline-danger px-2 py-0 border-0 fs-5">&times;</button></td>
-                            </tr>
+                        <tbody id="posTableBody">
+                            <!-- Items go here dynamically -->
                         </tbody>
                     </table>
                 </div>
@@ -59,18 +74,18 @@
             <div class="glass-panel h-100 d-flex flex-column">
                 <h3 class="text-white mb-4">Order Summary</h3>
                 <div class="d-flex justify-content-between mb-2">
-                    <span class="text-muted">Subtotal (calculated later)</span>
-                    <span class="text-white"></span>
+                    <span class="text-muted">Total Items:</span>
+                    <span class="text-white fw-bold" id="totalItemsCount">0</span>
                 </div>
                 <hr class="border-secondary my-4" />
                 <div class="d-flex justify-content-between mb-4 align-items-center">
-                    <h4 class="text-white m-0">TotalAmount</h4>
+                    <h4 class="text-white m-0">Total Amount</h4>
                     <div class="w-50">
-                        <input asp-for="TotalAmount" type="number" step="0.01" class="form-control text-end text-primary fw-bold" value="10.00" readonly />
+                        <input asp-for="TotalAmount" id="totalAmountInput" type="number" step="0.01" class="form-control text-end text-primary fw-bold bg-dark border-secondary" value="0.00" readonly />
                     </div>
                 </div>
                 <div class="mt-auto">
-                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fs-5">Complete Checkout</button>
+                    <button type="button" id="btnCheckout" class="btn btn-primary w-100 py-3 rounded-pill fs-5 shadow">Complete Checkout</button>
                     <span asp-validation-for="TotalAmount" class="text-danger d-block mt-2 text-center"></span>
                 </div>
             </div>
@@ -80,4 +95,113 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnAdd = document.getElementById('btnAddItem');
+            const lookupInput = document.getElementById('medicineLookup');
+            const tbody = document.getElementById('posTableBody');
+            const totalAmountInput = document.getElementById('totalAmountInput');
+            const totalItemsCount = document.getElementById('totalItemsCount');
+            const btnCheckout = document.getElementById('btnCheckout');
+            const posForm = document.getElementById('posForm');
+
+            // Quick submit on Enter key
+            lookupInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    btnAdd.click();
+                }
+            });
+
+            btnAdd.addEventListener('click', async function () {
+                const id = lookupInput.value;
+                if (!id) return;
+                
+                try {
+                    const response = await fetch(`/Cashier/GetMedicineForPOS?medicineId=${id}`);
+                    if (!response.ok) {
+                        alert('Medicine not found in catalog.');
+                        return;
+                    }
+                    const data = await response.json();
+                    
+                    if (data.batchId === 0) {
+                        alert('Warning: No active or valid inventory batches exist for this medicine (It may be out of stock or expired).');
+                        return;
+                    }
+
+                    addRow(data);
+                    lookupInput.value = '';
+                    updateTotals();
+                } catch (error) {
+                    alert('Error looking up the medicine details.');
+                }
+            });
+
+            function addRow(data) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="align-middle px-3">
+                        <input type="number" class="form-control form-control-sm bg-transparent border-0 text-secondary med-id fw-bold" value="${data.medicineId}" readonly />
+                    </td>
+                    <td class="align-middle fw-bold">${data.name}</td>
+                    <td class="align-middle">
+                        <input type="number" class="form-control form-control-sm bg-transparent border-0 text-secondary batch-id" value="${data.batchId}" readonly />
+                    </td>
+                    <td class="align-middle">
+                        <input type="number" step="0.01" class="form-control form-control-sm bg-transparent border-0 text-info unit-price fw-bold" value="${data.price}" readonly />
+                    </td>
+                    <td class="align-middle">
+                        <input type="number" min="1" class="form-control form-control-sm text-white bg-dark border-secondary item-qty" value="1" />
+                    </td>
+                    <td class="align-middle text-end px-3">
+                        <button type="button" class="btn btn-sm btn-outline-danger px-2 py-0 border-0 fs-5 btn-remove shadow-none" title="Remove Item">&times;</button>
+                    </td>
+                `;
+
+                tr.querySelector('.btn-remove').addEventListener('click', function () {
+                    tr.remove();
+                    updateTotals();
+                });
+
+                tr.querySelector('.item-qty').addEventListener('input', function () {
+                    updateTotals();
+                });
+
+                tbody.appendChild(tr);
+            }
+
+            function updateTotals() {
+                let currentTotal = 0;
+                let itemsNum = 0;
+                const rows = tbody.querySelectorAll('tr');
+                
+                rows.forEach((row, index) => {
+                    // Correctly re-index the rows for correct JSON array binding in ASP.NET MVC parameter List<CreateSaleItemDto>
+                    row.querySelector('.med-id').name = \`saleItems[\${index}].MedicineId\`;
+                    row.querySelector('.batch-id').name = \`saleItems[\${index}].BatchId\`;
+                    row.querySelector('.unit-price').name = \`saleItems[\${index}].UnitPrice\`;
+                    row.querySelector('.item-qty').name = \`saleItems[\${index}].ItemQuantity\`;
+
+                    const price = parseFloat(row.querySelector('.unit-price').value) || 0;
+                    const qty = parseInt(row.querySelector('.item-qty').value) || 0;
+                    
+                    currentTotal += (price * qty);
+                    itemsNum += qty;
+                });
+
+                totalAmountInput.value = currentTotal.toFixed(2);
+                totalItemsCount.innerText = itemsNum;
+            }
+
+            btnCheckout.addEventListener('click', function() {
+                updateTotals();
+                if (tbody.querySelectorAll('tr').length === 0) {
+                    alert('Please add items to the cart before checking out.');
+                    return;
+                }
+                posForm.submit();
+            });
+        });
+    </script>
 }

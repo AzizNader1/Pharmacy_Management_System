@@ -223,7 +223,7 @@ namespace PharmacyManagementSystem.Infrastructure.Migrations
                     b.HasOne("PharmacyManagementSystem.Domain.Entities.Sale", "Sale")
                         .WithMany("SaleItems")
                         .HasForeignKey("SaleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Batch");

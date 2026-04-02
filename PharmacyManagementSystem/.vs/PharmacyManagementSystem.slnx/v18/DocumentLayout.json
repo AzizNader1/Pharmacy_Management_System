@@ -3,12 +3,104 @@
   "WorkspaceRootPath": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\editmedicine.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\editmedicine.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\controllers\\cashiercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\controllers\\cashiercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\managebatchs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\managebatchs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\managesales.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\managesales.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\managemedicines.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\managemedicines.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\createbatch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\createbatch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\accounts\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\accounts\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Migrations\\20260402162539_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PharmacyManagementSystem.Infrastructure\\Migrations\\20260402162539_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF60EE94-67FE-F862-0294-BC6173186F56}|PharmacyManagementSystem.Infrastructure\\PharmacyManagementSystem.Infrastructure.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF60EE94-67FE-F862-0294-BC6173186F56}|PharmacyManagementSystem.Infrastructure\\PharmacyManagementSystem.Infrastructure.csproj|solutionrelative:pharmacymanagementsystem.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBF8BD7-9858-A02D-124C-052297C632E1}|PharmacyManagementSystem.Application\\PharmacyManagementSystem.Application.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.application\\features\\medicine\\commands\\deletemedicinecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBF8BD7-9858-A02D-124C-052297C632E1}|PharmacyManagementSystem.Application\\PharmacyManagementSystem.Application.csproj|solutionrelative:pharmacymanagementsystem.application\\features\\medicine\\commands\\deletemedicinecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCF5A1-4528-24E7-7EFD-D9C67C0BB3E4}|PharmacyManagementSystem.API\\PharmacyManagementSystem.API.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.api\\controllers\\medicinescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BCF5A1-4528-24E7-7EFD-D9C67C0BB3E4}|PharmacyManagementSystem.API\\PharmacyManagementSystem.API.csproj|solutionrelative:pharmacymanagementsystem.api\\controllers\\medicinescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBF8BD7-9858-A02D-124C-052297C632E1}|PharmacyManagementSystem.Application\\PharmacyManagementSystem.Application.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.application\\features\\batch\\commands\\deletebatchcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBF8BD7-9858-A02D-124C-052297C632E1}|PharmacyManagementSystem.Application\\PharmacyManagementSystem.Application.csproj|solutionrelative:pharmacymanagementsystem.application\\features\\batch\\commands\\deletebatchcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8BCF5A1-4528-24E7-7EFD-D9C67C0BB3E4}|PharmacyManagementSystem.API\\PharmacyManagementSystem.API.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.api\\controllers\\batchscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8BCF5A1-4528-24E7-7EFD-D9C67C0BB3E4}|PharmacyManagementSystem.API\\PharmacyManagementSystem.API.csproj|solutionrelative:pharmacymanagementsystem.api\\controllers\\batchscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\editbatch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\editbatch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF60EE94-67FE-F862-0294-BC6173186F56}|PharmacyManagementSystem.Infrastructure\\PharmacyManagementSystem.Infrastructure.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.infrastructure\\migrations\\20260325084511_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF60EE94-67FE-F862-0294-BC6173186F56}|PharmacyManagementSystem.Infrastructure\\PharmacyManagementSystem.Infrastructure.csproj|solutionrelative:pharmacymanagementsystem.infrastructure\\migrations\\20260325084511_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF60EE94-67FE-F862-0294-BC6173186F56}|PharmacyManagementSystem.Infrastructure\\PharmacyManagementSystem.Infrastructure.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.infrastructure\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF60EE94-67FE-F862-0294-BC6173186F56}|PharmacyManagementSystem.Infrastructure\\PharmacyManagementSystem.Infrastructure.csproj|solutionrelative:pharmacymanagementsystem.infrastructure\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\services\\implementations\\apimedicineservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\services\\implementations\\apimedicineservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\models\\reportsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\models\\reportsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\models\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\models\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBF8BD7-9858-A02D-124C-052297C632E1}|PharmacyManagementSystem.Application\\PharmacyManagementSystem.Application.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.application\\features\\user\\queries\\getallusersquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBF8BD7-9858-A02D-124C-052297C632E1}|PharmacyManagementSystem.Application\\PharmacyManagementSystem.Application.csproj|solutionrelative:pharmacymanagementsystem.application\\features\\user\\queries\\getallusersquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|p:\\my projects\\pharmacy_management_system\\pharmacymanagementsystem\\pharmacymanagementsystem.webappmvc\\views\\admin\\editmedicine.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8B551AE-3857-4DA3-9AD8-732DD9914130}|PharmacyManagementSystem.WebAppMVC\\PharmacyManagementSystem.WebAppMVC.csproj|solutionrelative:pharmacymanagementsystem.webappmvc\\views\\admin\\editmedicine.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,6 +115,315 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CashierController.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Controllers\\CashierController.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Controllers\\CashierController.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Controllers\\CashierController.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Controllers\\CashierController.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAswBIAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T17:04:04.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManageBatchs.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageBatchs.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageBatchs.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageBatchs.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageBatchs.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T16:16:10.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ManageMedicines.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageMedicines.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageMedicines.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageMedicines.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageMedicines.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T15:39:12.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ManageSales.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageSales.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageSales.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageSales.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageSales.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvzIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T16:17:49.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ManageUsers.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageUsers.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageUsers.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageUsers.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\ManageUsers.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvxgAAAB+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T16:18:11.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Login.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Login.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Login.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T16:34:28.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-31T17:34:31.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateBatch.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\CreateBatch.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\CreateBatch.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\CreateBatch.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\CreateBatch.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T16:35:22.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Signup.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Signup.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Signup.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Signup.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Accounts\\Signup.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T16:35:15.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAewKUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T16:59:16.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20260402162539_update.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Migrations\\20260402162539_update.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.Infrastructure\\Migrations\\20260402162539_update.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Migrations\\20260402162539_update.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.Infrastructure\\Migrations\\20260402162539_update.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T16:25:40.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MedicinesController.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.API\\Controllers\\MedicinesController.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.API\\Controllers\\MedicinesController.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.API\\Controllers\\MedicinesController.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.API\\Controllers\\MedicinesController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAkwFkAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T15:33:42.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DeleteBatchCommand.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Application\\Features\\Batch\\Commands\\DeleteBatchCommand.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.Application\\Features\\Batch\\Commands\\DeleteBatchCommand.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Application\\Features\\Batch\\Commands\\DeleteBatchCommand.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.Application\\Features\\Batch\\Commands\\DeleteBatchCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T16:23:47.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BatchsController.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.API\\Controllers\\BatchsController.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.API\\Controllers\\BatchsController.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.API\\Controllers\\BatchsController.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.API\\Controllers\\BatchsController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAkwFkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T16:23:19.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DeleteMedicineCommand.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Application\\Features\\Medicine\\Commands\\DeleteMedicineCommand.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.Application\\Features\\Medicine\\Commands\\DeleteMedicineCommand.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Application\\Features\\Medicine\\Commands\\DeleteMedicineCommand.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.Application\\Features\\Medicine\\Commands\\DeleteMedicineCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T15:51:13.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAADwv0oAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T15:52:38.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EditBatch.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\EditBatch.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\EditBatch.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\EditBatch.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\EditBatch.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-02T16:18:46.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20260325084511_init.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Migrations\\20260325084511_init.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.Infrastructure\\Migrations\\20260325084511_init.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Migrations\\20260325084511_init.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.Infrastructure\\Migrations\\20260325084511_init.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T15:52:27.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.Infrastructure\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Infrastructure\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.Infrastructure\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T15:52:21.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApiMedicineServices.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Services\\Implementations\\ApiMedicineServices.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Services\\Implementations\\ApiMedicineServices.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Services\\Implementations\\ApiMedicineServices.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Services\\Implementations\\ApiMedicineServices.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAewFAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T15:33:10.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AdminViewModel.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Models\\AdminViewModel.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Models\\AdminViewModel.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Models\\AdminViewModel.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Models\\AdminViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T17:36:19.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ReportsViewModel.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Models\\ReportsViewModel.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Models\\ReportsViewModel.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Models\\ReportsViewModel.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Models\\ReportsViewModel.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvyEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T17:31:50.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Reports.cshtml",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\Reports.cshtml",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\Reports.cshtml",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\Reports.cshtml",
+              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\Reports.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAABoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-31T17:35:34.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GetAllUsersQuery.cs",
+              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Application\\Features\\User\\Queries\\GetAllUsersQuery.cs",
+              "RelativeDocumentMoniker": "PharmacyManagementSystem.Application\\Features\\User\\Queries\\GetAllUsersQuery.cs",
+              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.Application\\Features\\User\\Queries\\GetAllUsersQuery.cs",
+              "RelativeToolTip": "PharmacyManagementSystem.Application\\Features\\User\\Queries\\GetAllUsersQuery.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T17:22:57.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "EditMedicine.cshtml",
               "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\EditMedicine.cshtml",
               "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\EditMedicine.cshtml",
@@ -30,21 +431,7 @@
               "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Views\\Admin\\EditMedicine.cshtml",
               "ViewState": "AgIAAAQAAAAAAAAAAAAowBMAAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-31T17:00:20.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
-              "ToolTip": "P:\\My Projects\\Pharmacy_Management_System\\PharmacyManagementSystem\\PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "PharmacyManagementSystem.WebAppMVC\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAgwE0AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T16:59:16.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-31T17:00:20.297Z"
             }
           ]
         }
