@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PharmacyManagementSystem.Application.DTOs.MedicineDTOs;
 using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
 using PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs;
 using PharmacyManagementSystem.WebAppMVC.Helpers;
@@ -35,16 +36,21 @@ namespace PharmacyManagementSystem.WebAppMVC.Controllers
         // Sales Management
 
         [HttpGet]
-        public IActionResult Sales()
+        public async Task<IActionResult> Sales()
         {
             if (_sessionHelper.IsAuthenticated() && _sessionHelper.IsInRole("Cashier"))
             {
                 var userInfo = _sessionHelper.GetUserInfo();
                 var saleDto = new CreateSaleDto
                 {
+                    // user id in the create sale dto is realted to the user (cashier) who make the sale, so we will get the user id from the session and pass it to the view
                     UserId = userInfo?.UserId ?? 0,
                     SalesDate = DateTime.Now
                 };
+
+                var medicines = await _apiMedicineServices.GetAllMedicinesAsync();
+                ViewBag.Medicines = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(medicines ?? Enumerable.Empty<GetMedicineDto>(), "MedicineId", "Name");
+
                 return View(saleDto);
             }
             return RedirectToAction("Login", "Accounts");
@@ -55,37 +61,24 @@ namespace PharmacyManagementSystem.WebAppMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var createdSale = await _apiSaleServices.CreateSaleAsync(model)!;
-                if (createdSale != null && createdSale.SaleId != 0)
+                // Step 1: Create the sale
+                var createdSale = await _apiSaleServices.CreateSaleWithItemsAsync(model, saleItems)!;
+                if (createdSale == null || createdSale.SaleId == 0)
                 {
-                    bool itemsSuccess = true;
-                    if (saleItems != null && saleItems.Any())
-                    {
-                        foreach (var item in saleItems)
-                        {
-                            item.SaleId = createdSale.SaleId;
-                            var createdItem = await _apiSaleItemsServices.CreateSaleItemAsync(item)!;
-                            if (createdItem == null || createdItem.SaleItemId == 0)
-                            {
-                                itemsSuccess = false;
-                            }
-                        }
-                    }
-
-                    if (itemsSuccess)
-                    {
-                        TempData["SuccessMessage"] = "Sale processed successfully!";
-                    }
-                    else
-                    {
-                        TempData["ErrorMessage"] = "Sale created, but some items failed to save.";
-                    }
+                    TempData["ErrorMessage"] = createdSale?.Message ?? "Failed to create the sale. Please try again.";
                     return RedirectToAction("Sales");
                 }
-                TempData["ErrorMessage"] = createdSale?.Message ?? "Failed to create sale.";
+                TempData["SuccessMessage"] = "Checkout completed successfully! Sale has been recorded and inventory updated.";
+
+                return RedirectToAction("Sales");
             }
+
+            // ModelState invalid – reload the view with the form
+            var medicines = await _apiMedicineServices.GetAllMedicinesAsync();
+            ViewBag.Medicines = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(medicines! ?? Enumerable.Empty<GetMedicineDto>(), "MedicineId", "Name");
             return View(model);
         }
+
 
         // API Endpoint for POS
         [HttpGet]
@@ -96,15 +89,17 @@ namespace PharmacyManagementSystem.WebAppMVC.Controllers
                 return NotFound();
 
             var batches = await _apiBatchServices.GetAllBatchesAsync();
-            var medBatch = batches?.FirstOrDefault(b => b.MedicineId == medicineId && b.ExpiryDate > DateTime.Now && b.BatchQuantity > 0);
+            var medBatch = batches?.FirstOrDefault(b => b!.MedicineId == medicineId && b.ExpiryDate > DateTime.Now && b.BatchQuantity > 0);
             var batchId = medBatch != null ? medBatch.BatchId : 0;
+            var availableQty = medBatch != null ? medBatch.BatchQuantity : 0;
 
             return Json(new
             {
                 medicineId = med.MedicineId,
                 name = med.Name,
                 price = med.MedicinePrice,
-                batchId = batchId
+                batchId = batchId,
+                availableQty = availableQty
             });
         }
 
@@ -138,10 +133,14 @@ namespace PharmacyManagementSystem.WebAppMVC.Controllers
 
                 var model = await _apiMedicineServices.GetMedicineByNameAsync(search);
                 if (model != null && model.Message == "")
-                    return View(model);
+                {
+                    List<GetMedicineDto> medicines = new List<GetMedicineDto> { model };
+                    return View(medicines);
+                }
+
 
                 TempData["ErrorMessage"] = model?.Message ?? "No medicines found.";
-                return View(model);
+                return View(new List<GetMedicineDto>());
             }
             return RedirectToAction("Login", "Accounts");
         }

@@ -44,7 +44,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
             var json = JsonSerializer.Serialize(saleItem, _jsonOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("api/SaleItems/Add", content);
+            var response = await client.PostAsync("SaleItems/Add", content);
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
@@ -78,14 +78,14 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<bool>? DeleteSaleItemAsync(int id)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.DeleteAsync($"api/SaleItems/Delete/{id}");
+            var response = await client.DeleteAsync($"SaleItems/Delete/{id}");
             return response.IsSuccessStatusCode;
         }
 
         public async Task<List<GetSaleItemDto?>> GetAllSaleItemesAsync()
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync("api/SaleItems/GetAll");
+            var response = await client.GetAsync("SaleItems/GetAll");
 
             if (response.IsSuccessStatusCode)
             {

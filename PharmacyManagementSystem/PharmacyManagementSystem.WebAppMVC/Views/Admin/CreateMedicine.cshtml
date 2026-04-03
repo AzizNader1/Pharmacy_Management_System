@@ -30,12 +30,12 @@
 
                 <div class="row">
                     <div class="col-md-4 form-floating mb-3 text-start">
-                        <input asp-for="MedicinePrice" type="number" step="0.01" class="form-control" placeholder="Price" />
+                        <input asp-for="MedicinePrice" type="number" step="0.01" class="form-control" min="1" placeholder="Price" />
                         <label asp-for="MedicinePrice" class="text-secondary ms-2">Price</label>
                         <span asp-validation-for="MedicinePrice" class="text-danger"></span>
                     </div>
                     <div class="col-md-4 form-floating mb-3 text-start">
-                        <input asp-for="ReorderLevel" type="number" class="form-control" placeholder="Reorder Level" />
+                        <input asp-for="ReorderLevel" type="number" class="form-control" min="1" placeholder="Reorder Level" />
                         <label asp-for="ReorderLevel" class="text-secondary ms-2">Reorder Level</label>
                         <span asp-validation-for="ReorderLevel" class="text-danger"></span>
                     </div>

@@ -1,4 +1,6 @@
+using PharmacyManagementSystem.Application.DTOs.BatchDTOs;
 using PharmacyManagementSystem.Application.DTOs.SalesDTOs;
+using PharmacyManagementSystem.Application.DTOs.SalesItemsDTOs;
 using PharmacyManagementSystem.WebAppMVC.Helpers;
 using PharmacyManagementSystem.WebAppMVC.Services.Interfaces;
 using System.Net.Http.Headers;
@@ -236,6 +238,91 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
 
             var errorContent = await response.Content.ReadAsStringAsync();
             string errorMessage = "Invalid update attempt.";
+
+            try
+            {
+                var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorContent, _jsonOptions);
+                if (errorObj != null && errorObj.ContainsKey("message"))
+                {
+                    errorMessage = errorObj["message"];
+                }
+            }
+            catch { }
+
+            return new GetSaleDto
+            {
+                SaleId = 0,
+                Message = errorMessage
+            };
+        }
+
+        public async Task<GetSaleDto>? CreateSaleWithItemsAsync(CreateSaleDto sale, List<CreateSaleItemDto> saleItems)
+        {
+
+            var client = CreateAuthenticatedClient();
+            var json = JsonSerializer.Serialize(sale, _jsonOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("Sales/Add", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseData = JsonSerializer.Deserialize<int>(responseContent, _jsonOptions);
+
+                foreach (var item in saleItems)
+                {
+                    item.SaleId = responseData;
+                    var itemJson = JsonSerializer.Serialize(item, _jsonOptions);
+                    var itemContent = new StringContent(itemJson, Encoding.UTF8, "application/json");
+                    await client.PostAsync("SaleItems/Add", itemContent);
+
+                    var batchResponse = await client.GetAsync($"Batchs/GetById/{item.BatchId}");
+                    if (batchResponse.IsSuccessStatusCode)
+                    {
+                        var batchContent = await batchResponse.Content.ReadAsStringAsync();
+                        var batchData = JsonSerializer.Deserialize<GetBatchDto>(batchContent, _jsonOptions);
+                        if (batchData != null)
+                        {
+                            batchData.BatchQuantity -= item.ItemQuantity;
+                            var batchJson = JsonSerializer.Serialize(batchData, _jsonOptions);
+                            var batchContentUpdate = new StringContent(batchJson, Encoding.UTF8, "application/json");
+                            await client.PutAsync($"Batchs/Update?id={item.BatchId}", batchContentUpdate);
+                        }
+                    }
+
+                }
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return new GetSaleDto
+                    {
+                        SaleId = responseData
+                    };
+                }
+
+                var errorItemsContent = await response.Content.ReadAsStringAsync();
+                string errorItemsMessage = "Invalid creation attempt.";
+
+                try
+                {
+                    var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(errorItemsContent, _jsonOptions);
+                    if (errorObj != null && errorObj.ContainsKey("message"))
+                    {
+                        errorItemsMessage = errorObj["message"];
+                    }
+                }
+                catch { }
+
+                return new GetSaleDto
+                {
+                    SaleId = 0,
+                    Message = errorItemsMessage
+                };
+
+            }
+
+            var errorContent = await response.Content.ReadAsStringAsync();
+            string errorMessage = "Invalid creation attempt.";
 
             try
             {

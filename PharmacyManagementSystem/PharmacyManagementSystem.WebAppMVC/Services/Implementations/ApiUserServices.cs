@@ -75,7 +75,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<GetUserDto?> GetUserByEmailAsync(string email)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync($"Users/GetUserByEmail/{email}");
+            var response = await client.GetAsync($"Users/GetByEmail/{email}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -139,7 +139,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<GetUserDto?> GetUserByNameAsync(string username)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync($"Users/GetUserByName/{username}");
+            var response = await client.GetAsync($"Users/GetByName/{username}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -171,7 +171,7 @@ namespace PharmacyManagementSystem.WebAppMVC.Services.Implementations
         public async Task<List<GetUserDto?>> GetUsersByRoleAsync(string roleName)
         {
             var client = CreateAuthenticatedClient();
-            var response = await client.GetAsync($"Users/GetUsersByRole/{roleName}");
+            var response = await client.GetAsync($"Users/GetByRole/{roleName}");
 
             if (response.IsSuccessStatusCode)
             {

@@ -17,8 +17,10 @@
                         <span asp-validation-for="BatchNumber" class="text-danger"></span>
                     </div>
                     <div class="col-md-6 form-floating mb-3 text-start">
-                        <input asp-for="MedicineId" type="number" class="form-control" placeholder="MedicineId" />
-                        <label asp-for="MedicineId" class="text-secondary ms-2">Medicine ID</label>
+                        <select asp-for="MedicineId" class="form-select bg-dark text-white border-0" asp-items="ViewBag.Medicines">
+                            <option value="">-- Select Medicine --</option>
+                        </select>
+                        <label asp-for="MedicineId" class="text-secondary ms-2">Medicine</label>
                         <span asp-validation-for="MedicineId" class="text-danger"></span>
                     </div>
                 </div>
@@ -31,7 +33,7 @@
                     </div>
                     <div class="col-md-6 form-floating mb-3 text-start">
                         <select asp-for="Category" class="form-select bg-dark text-white border-0" aria-label="Category"
-                                asp-items="Html.GetEnumSelectList<MedicineCategories>()">
+                                asp-items="Html.GetEnumSelectList<MedicineCategories>()" style="pointer-events: none; opacity: 0.8;" tabindex="-1">
                         </select>
                         <label asp-for="Category" class="text-secondary ms-2">Category</label>
                         <span asp-validation-for="Category" class="text-danger"></span>
@@ -62,4 +64,22 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            var medicineCategories = @Html.Raw(ViewBag.MedicineCategoriesJson ?? "{}");
+            var $medicineSelect = $('#MedicineId');
+            var $categorySelect = $('#Category');
+
+            function updateCategory() {
+                var medId = $medicineSelect.val();
+                if (medId && medicineCategories[medId] !== undefined) {
+                    $categorySelect.val(medicineCategories[medId]);
+                }
+            }
+
+            $medicineSelect.on('change', updateCategory);
+            // Initialize on load if a value is selected
+            updateCategory();
+        });
+    </script>
 }

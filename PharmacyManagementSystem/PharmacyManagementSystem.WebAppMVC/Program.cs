@@ -29,6 +29,7 @@ builder.Services.AddScoped<IApiSaleItemsServices, ApiSaleItemsServices>();
 builder.Services.AddScoped<IApiBatchServices, ApiBatchServices>();
 builder.Services.AddScoped<IApiMedicineServices, ApiMedicineServices>();
 builder.Services.AddScoped<IApiUserServices, ApiUserServices>();
+builder.Services.AddScoped<IReportsService, ReportsService>();
 
 var app = builder.Build();
 

@@ -34,6 +34,22 @@
     </div>
 }
 
+@if (TempData["InfoMessage"] != null)
+{
+    <div class="alert alert-info alert-dismissible fade show d-flex align-items-center mb-4 shadow-sm" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2 flex-shrink-0">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <div>
+            <strong>Info:</strong> @TempData["InfoMessage"]
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <form asp-action="Sales" method="post" id="posForm">
     <!-- Hidden Fields Required by CreateSaleDto -->
     <input type="hidden" asp-for="UserId" value="@Model.UserId" />
@@ -46,7 +62,9 @@
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="text-white m-0">Order Items</h3>
                     <div class="input-group w-50">
-                        <input type="number" id="medicineLookup" class="form-control rounded-pill-start px-3 border-end-0 bg-dark text-white border-secondary" placeholder="Enter Medicine ID" />
+                        <select id="medicineLookup" class="form-select rounded-pill-start px-3 border-end-0 bg-dark text-white border-secondary" asp-items="ViewBag.Medicines">
+                            <option value="">-- Select Medicine to Add --</option>
+                        </select>
                         <button type="button" id="btnAddItem" class="btn btn-secondary rounded-pill-end px-3">Add</button>
                     </div>
                 </div>
@@ -97,74 +115,90 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const btnAdd = document.getElementById('btnAddItem');
-            const lookupInput = document.getElementById('medicineLookup');
-            const tbody = document.getElementById('posTableBody');
-            const totalAmountInput = document.getElementById('totalAmountInput');
-            const totalItemsCount = document.getElementById('totalItemsCount');
-            const btnCheckout = document.getElementById('btnCheckout');
-            const posForm = document.getElementById('posForm');
+            var btnAdd = document.getElementById('btnAddItem');
+            var lookupInput = document.getElementById('medicineLookup');
+            var tbody = document.getElementById('posTableBody');
+            var totalAmountInput = document.getElementById('totalAmountInput');
+            var totalItemsCount = document.getElementById('totalItemsCount');
+            var btnCheckout = document.getElementById('btnCheckout');
+            var posForm = document.getElementById('posForm');
 
-            // Quick submit on Enter key
-            lookupInput.addEventListener("keypress", function(event) {
-                if (event.key === "Enter") {
-                    event.preventDefault();
+            // Auto-add when dropdown selection changes
+            lookupInput.addEventListener('change', function () {
+                if (lookupInput.value) {
                     btnAdd.click();
                 }
             });
 
-            btnAdd.addEventListener('click', async function () {
-                const id = lookupInput.value;
+            btnAdd.addEventListener('click', function () {
+                var id = lookupInput.value;
                 if (!id) return;
-                
-                try {
-                    const response = await fetch(`/Cashier/GetMedicineForPOS?medicineId=${id}`);
-                    if (!response.ok) {
-                        alert('Medicine not found in catalog.');
-                        return;
-                    }
-                    const data = await response.json();
-                    
-                    if (data.batchId === 0) {
-                        alert('Warning: No active or valid inventory batches exist for this medicine (It may be out of stock or expired).');
-                        return;
-                    }
 
-                    addRow(data);
-                    lookupInput.value = '';
-                    updateTotals();
-                } catch (error) {
-                    alert('Error looking up the medicine details.');
-                }
+                fetch('/Cashier/GetMedicineForPOS?medicineId=' + id)
+                    .then(function (response) {
+                        if (!response.ok) {
+                            alert('Medicine not found in catalog.');
+                            return null;
+                        }
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        if (!data) return;
+
+                        if (data.batchId === 0) {
+                            alert('Warning: No active batch exists for this medicine. It may be out of stock or expired.');
+                            lookupInput.value = '';
+                            return;
+                        }
+
+                        addRow(data);
+                        lookupInput.value = '';
+                        updateTotals();
+                    })
+                    .catch(function () {
+                        alert('Error looking up the medicine details.');
+                    });
             });
 
             function addRow(data) {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td class="align-middle px-3">
-                        <input type="number" class="form-control form-control-sm bg-transparent border-0 text-secondary med-id fw-bold" value="${data.medicineId}" readonly />
-                    </td>
-                    <td class="align-middle fw-bold">${data.name}</td>
-                    <td class="align-middle">
-                        <input type="number" class="form-control form-control-sm bg-transparent border-0 text-secondary batch-id" value="${data.batchId}" readonly />
-                    </td>
-                    <td class="align-middle">
-                        <input type="number" step="0.01" class="form-control form-control-sm bg-transparent border-0 text-info unit-price fw-bold" value="${data.price}" readonly />
-                    </td>
-                    <td class="align-middle">
-                        <input type="number" min="1" class="form-control form-control-sm text-white bg-dark border-secondary item-qty" value="1" />
-                    </td>
-                    <td class="align-middle text-end px-3">
-                        <button type="button" class="btn btn-sm btn-outline-danger px-2 py-0 border-0 fs-5 btn-remove shadow-none" title="Remove Item">&times;</button>
-                    </td>
-                `;
+                var maxQty = data.availableQty || 1;
+                var tr = document.createElement('tr');
+                tr.innerHTML =
+                    '<td class="align-middle px-3">' +
+                        '<input type="hidden" class="med-id" value="' + data.medicineId + '" />' +
+                        '<span class="text-secondary fw-bold">#' + data.medicineId + '</span>' +
+                    '</td>' +
+                    '<td class="align-middle fw-bold text-white">' + data.name + '</td>' +
+                    '<td class="align-middle">' +
+                        '<input type="hidden" class="batch-id" value="' + data.batchId + '" />' +
+                        '<span class="text-secondary">#' + data.batchId + '</span>' +
+                    '</td>' +
+                    '<td class="align-middle">' +
+                        '<input type="hidden" class="unit-price" value="' + data.price + '" />' +
+                        '<span class="text-info fw-bold">$' + parseFloat(data.price).toFixed(2) + '</span>' +
+                    '</td>' +
+                    '<td class="align-middle">' +
+                        '<input type="number" min="1" max="' + maxQty + '" class="form-control form-control-sm text-white bg-dark border-secondary item-qty" value="1" style="width:90px;" />' +
+                        '<small class="text-muted d-block" style="font-size:0.7rem;">Max: ' + maxQty + '</small>' +
+                    '</td>' +
+                    '<td class="align-middle text-end px-3">' +
+                        '<button type="button" class="btn btn-sm btn-outline-danger px-2 py-0 border-0 fs-5 btn-remove shadow-none" title="Remove Item">&times;</button>' +
+                    '</td>';
 
-                tr.querySelector('.btn-remove').addEventListener('click', function () {
-                    tr.remove();
+                var qtyInput = tr.querySelector('.item-qty');
+
+                qtyInput.addEventListener('input', function () {
+                    var val = parseInt(this.value) || 1;
+                    if (val > maxQty) {
+                        this.value = maxQty;
+                        alert('Cannot exceed available stock of ' + maxQty + ' units for this medicine.');
+                    }
+                    if (val < 1) this.value = 1;
                     updateTotals();
                 });
 
-                tr.querySelector('.item-qty').addEventListener('input', function () {
+                tr.querySelector('.btn-remove').addEventListener('click', function () {
+                    tr.remove();
                     updateTotals();
                 });
 
@@ -172,20 +206,20 @@
             }
 
             function updateTotals() {
-                let currentTotal = 0;
-                let itemsNum = 0;
-                const rows = tbody.querySelectorAll('tr');
-                
-                rows.forEach((row, index) => {
-                    // Correctly re-index the rows for correct JSON array binding in ASP.NET MVC parameter List<CreateSaleItemDto>
-                    row.querySelector('.med-id').name = \`saleItems[\${index}].MedicineId\`;
-                    row.querySelector('.batch-id').name = \`saleItems[\${index}].BatchId\`;
-                    row.querySelector('.unit-price').name = \`saleItems[\${index}].UnitPrice\`;
-                    row.querySelector('.item-qty').name = \`saleItems[\${index}].ItemQuantity\`;
+                var currentTotal = 0;
+                var itemsNum = 0;
+                var rows = tbody.querySelectorAll('tr');
 
-                    const price = parseFloat(row.querySelector('.unit-price').value) || 0;
-                    const qty = parseInt(row.querySelector('.item-qty').value) || 0;
-                    
+                rows.forEach(function (row, index) {
+                    // Assign names for ASP.NET MVC model binding
+                    row.querySelector('.med-id').name = 'saleItems[' + index + '].MedicineId';
+                    row.querySelector('.batch-id').name = 'saleItems[' + index + '].BatchId';
+                    row.querySelector('.unit-price').name = 'saleItems[' + index + '].UnitPrice';
+                    row.querySelector('.item-qty').name = 'saleItems[' + index + '].ItemQuantity';
+
+                    var price = parseFloat(row.querySelector('.unit-price').value) || 0;
+                    var qty = parseInt(row.querySelector('.item-qty').value) || 0;
+
                     currentTotal += (price * qty);
                     itemsNum += qty;
                 });
@@ -194,10 +228,10 @@
                 totalItemsCount.innerText = itemsNum;
             }
 
-            btnCheckout.addEventListener('click', function() {
+            btnCheckout.addEventListener('click', function () {
                 updateTotals();
                 if (tbody.querySelectorAll('tr').length === 0) {
-                    alert('Please add items to the cart before checking out.');
+                    alert('Please add at least one item before checking out.');
                     return;
                 }
                 posForm.submit();
